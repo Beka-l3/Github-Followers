@@ -52,9 +52,13 @@ extension SearchVC {
 extension SearchVC {
     
     @objc func pushFollowersListVC() {
+        guard let username = uiConfig.usernameTextField.text, !username.isEmpty else {
+            return
+        }
+        
         let followersListVC = FollowersListVC()
-        followersListVC.username = uiConfig.usernameTextField.text
-        followersListVC.title = uiConfig.usernameTextField.text
+        followersListVC.username = username
+        followersListVC.title = username
         navigationController?.pushViewController(followersListVC, animated: true)
     }
     

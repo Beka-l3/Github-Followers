@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        window?.rootViewController = createTabBarController()
+        window?.rootViewController = createTC()
         window?.makeKeyAndVisible()
     }
 
@@ -65,7 +65,7 @@ extension SceneDelegate {
         searchVC.title = "Search"
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         
-        return UINavigationController(rootViewController: searchVC)
+        return createNC(rootViewController: searchVC)
     }
     
     private func createFavoritesNC() -> UINavigationController {
@@ -73,26 +73,24 @@ extension SceneDelegate {
         favoritesVC.title = "Favorites"
         favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         
-        return UINavigationController(rootViewController: favoritesVC)
+        return createNC(rootViewController: favoritesVC)
     }
     
-    private func createTabBarController() -> UITabBarController {
+    private func createNC(rootViewController: UIViewController) -> UINavigationController {
+        let navigationController = UINavigationController(rootViewController: rootViewController)
+        
+        navigationController.navigationBar.tintColor = .systemGreen
+        
+        return navigationController
+    }
+    
+    private func createTC() -> UITabBarController {
         let tabbarController = UITabBarController()
         
-        let standardAppearance = UITabBarAppearance()
-        standardAppearance.backgroundEffect = UIBlurEffect(style: .regular)
-        standardAppearance.backgroundColor = .clear
-        
-        let scrollEdgeAppearance = UITabBarAppearance()
-        scrollEdgeAppearance.backgroundEffect = UIBlurEffect(style: .regular)
-        scrollEdgeAppearance.backgroundColor = UIColor(white: 1, alpha: 0.3)
-        
-        tabbarController.tabBar.standardAppearance = standardAppearance
-        tabbarController.tabBar.scrollEdgeAppearance = scrollEdgeAppearance
-        
         tabbarController.tabBar.tintColor = .systemGreen
-        
+        tabbarController.tabBar.backgroundColor = .secondarySystemBackground
         tabbarController.viewControllers = [createSearchNC(), createFavoritesNC()]
+        
         return tabbarController
     }
     

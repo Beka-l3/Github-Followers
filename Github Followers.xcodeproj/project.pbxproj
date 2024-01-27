@@ -17,6 +17,8 @@
 		077898E52B659360004BB732 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898E42B659360004BB732 /* GFTextField.swift */; };
 		077898EB2B6596B3004BB732 /* SearchVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898EA2B6596B3004BB732 /* SearchVCUIConfig.swift */; };
 		077898EF2B65A6A6004BB732 /* FollowersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898EE2B65A6A6004BB732 /* FollowersListVC.swift */; };
+		077898F12B65AF3E004BB732 /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898F02B65AF3E004BB732 /* GFTitleLabel.swift */; };
+		077898F32B65B105004BB732 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898F22B65B105004BB732 /* GFBodyLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		077898E42B659360004BB732 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		077898EA2B6596B3004BB732 /* SearchVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCUIConfig.swift; sourceTree = "<group>"; };
 		077898EE2B65A6A6004BB732 /* FollowersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVC.swift; sourceTree = "<group>"; };
+		077898F02B65AF3E004BB732 /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
+		077898F22B65B105004BB732 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			children = (
 				077898E22B657B11004BB732 /* GFButton.swift */,
 				077898E42B659360004BB732 /* GFTextField.swift */,
+				077898F02B65AF3E004BB732 /* GFTitleLabel.swift */,
+				077898F22B65B105004BB732 /* GFBodyLabel.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -203,8 +209,10 @@
 				077898D12B6550F5004BB732 /* SearchVC.swift in Sources */,
 				077898E32B657B11004BB732 /* GFButton.swift in Sources */,
 				077898E12B6562E3004BB732 /* FavoritesListVC.swift in Sources */,
+				077898F12B65AF3E004BB732 /* GFTitleLabel.swift in Sources */,
 				077898CD2B6550F5004BB732 /* AppDelegate.swift in Sources */,
 				077898CF2B6550F5004BB732 /* SceneDelegate.swift in Sources */,
+				077898F32B65B105004BB732 /* GFBodyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
