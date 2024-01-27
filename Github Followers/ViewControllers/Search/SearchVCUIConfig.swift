@@ -33,6 +33,7 @@ final class SearchVCUIConfig {
     
 }
 
+
 extension SearchVCUIConfig {
     
     func configureUI() {
@@ -49,6 +50,7 @@ extension SearchVCUIConfig {
     }
     
 }
+
 
 extension SearchVCUIConfig {
     

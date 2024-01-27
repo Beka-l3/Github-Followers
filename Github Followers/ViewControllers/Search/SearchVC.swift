@@ -34,6 +34,7 @@ class SearchVC: UIViewController {
 
 }
 
+
 extension SearchVC {
     
     private func configure() {
@@ -49,6 +50,7 @@ extension SearchVC {
     
 }
 
+
 extension SearchVC {
     
     @objc func pushFollowersListVC() {
@@ -63,6 +65,7 @@ extension SearchVC {
     }
     
 }
+
 
 extension SearchVC: UITextFieldDelegate {
     

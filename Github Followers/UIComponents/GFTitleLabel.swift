@@ -20,10 +20,9 @@ final class GFTitleLabel: UILabel {
         super.init(coder: coder)
     }
     
-    convenience init(_ title: String, alignment: NSTextAlignment, fontSize: CGFloat) {
+    convenience init(alignment: NSTextAlignment, fontSize: CGFloat) {
         self.init(frame: .zero)
         
-        self.text = title
         self.textAlignment = alignment
         self.font = .systemFont(ofSize: fontSize, weight: .bold)
     }

@@ -20,10 +20,8 @@ final class GFBodyLabel: UILabel {
         super.init(coder: coder)
     }
     
-    convenience init(_ text: String, alignment: NSTextAlignment) {
+    convenience init(alignment: NSTextAlignment) {
         self.init(frame: .zero)
-        
-        self.text = text
         self.textAlignment = alignment
     }
     
@@ -42,8 +40,5 @@ extension GFBodyLabel {
         
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
-}
-
     
 }
