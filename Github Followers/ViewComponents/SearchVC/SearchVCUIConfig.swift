@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import OSLog
+//import OSLog
 
 
 final class SearchVCUIConfig {

@@ -23,10 +23,7 @@ class SearchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        uiConfig.rootView = view
-        uiConfig.configureUI()
-        uiConfig.configureAutoLayout()
+        configureVC()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,3 +34,24 @@ class SearchVC: UIViewController {
 
 }
 
+extension SearchVC {
+    
+    private func configureVC() {
+        uiConfig.rootView = view
+        uiConfig.configureUI()
+        uiConfig.configureAutoLayout()
+        
+        uiConfig.usernameTextField.delegate = self
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing)))
+    }
+    
+}
+
+extension SearchVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+}

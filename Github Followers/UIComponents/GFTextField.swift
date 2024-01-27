@@ -46,6 +46,7 @@ extension GFTextField {
         
         backgroundColor = .tertiarySystemBackground
         
+        returnKeyType = .go
         autocorrectionType = .no
         
         translatesAutoresizingMaskIntoConstraints = false
