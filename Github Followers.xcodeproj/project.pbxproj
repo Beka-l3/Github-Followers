@@ -16,6 +16,7 @@
 		077898E32B657B11004BB732 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898E22B657B11004BB732 /* GFButton.swift */; };
 		077898E52B659360004BB732 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898E42B659360004BB732 /* GFTextField.swift */; };
 		077898EB2B6596B3004BB732 /* SearchVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898EA2B6596B3004BB732 /* SearchVCUIConfig.swift */; };
+		077898EF2B65A6A6004BB732 /* FollowersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898EE2B65A6A6004BB732 /* FollowersListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		077898E22B657B11004BB732 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		077898E42B659360004BB732 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		077898EA2B6596B3004BB732 /* SearchVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCUIConfig.swift; sourceTree = "<group>"; };
+		077898EE2B65A6A6004BB732 /* FollowersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,19 +95,36 @@
 		077898E82B65937E004BB732 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
-				077898E92B659697004BB732 /* SearchVC */,
-				077898E02B6562E3004BB732 /* FavoritesListVC.swift */,
+				077898E92B659697004BB732 /* Search */,
+				077898ED2B65A685004BB732 /* FollowersList */,
+				077898EC2B65A666004BB732 /* FavoritesList */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
 		};
-		077898E92B659697004BB732 /* SearchVC */ = {
+		077898E92B659697004BB732 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				077898D02B6550F5004BB732 /* SearchVC.swift */,
 				077898EA2B6596B3004BB732 /* SearchVCUIConfig.swift */,
 			);
-			path = SearchVC;
+			path = Search;
+			sourceTree = "<group>";
+		};
+		077898EC2B65A666004BB732 /* FavoritesList */ = {
+			isa = PBXGroup;
+			children = (
+				077898E02B6562E3004BB732 /* FavoritesListVC.swift */,
+			);
+			path = FavoritesList;
+			sourceTree = "<group>";
+		};
+		077898ED2B65A685004BB732 /* FollowersList */ = {
+			isa = PBXGroup;
+			children = (
+				077898EE2B65A6A6004BB732 /* FollowersListVC.swift */,
+			);
+			path = FollowersList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +199,7 @@
 			files = (
 				077898EB2B6596B3004BB732 /* SearchVCUIConfig.swift in Sources */,
 				077898E52B659360004BB732 /* GFTextField.swift in Sources */,
+				077898EF2B65A6A6004BB732 /* FollowersListVC.swift in Sources */,
 				077898D12B6550F5004BB732 /* SearchVC.swift in Sources */,
 				077898E32B657B11004BB732 /* GFButton.swift in Sources */,
 				077898E12B6562E3004BB732 /* FavoritesListVC.swift in Sources */,

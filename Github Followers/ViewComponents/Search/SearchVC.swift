@@ -23,7 +23,7 @@ class SearchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureVC()
+        configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,14 +36,26 @@ class SearchVC: UIViewController {
 
 extension SearchVC {
     
-    private func configureVC() {
+    private func configure() {
         uiConfig.rootView = view
         uiConfig.configureUI()
         uiConfig.configureAutoLayout()
         
         uiConfig.usernameTextField.delegate = self
+        uiConfig.callToActionButton.addTarget(self, action: #selector(pushFollowersListVC), for: .touchUpInside)
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing)))
+    }
+    
+}
+
+extension SearchVC {
+    
+    @objc func pushFollowersListVC() {
+        let followersListVC = FollowersListVC()
+        followersListVC.username = uiConfig.usernameTextField.text
+        followersListVC.title = uiConfig.usernameTextField.text
+        navigationController?.pushViewController(followersListVC, animated: true)
     }
     
 }
@@ -51,6 +63,7 @@ extension SearchVC {
 extension SearchVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        pushFollowersListVC()
         return true
     }
     
