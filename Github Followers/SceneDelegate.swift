@@ -77,6 +77,7 @@ extension SceneDelegate {
     
     private func createTabBar() -> UITabBarController {
         let tabbar = UITabBarController()
+        
         UITabBar.appearance().tintColor = .systemGreen
         
         tabbar.viewControllers = [createSearchNC(), createFavoritesNC()]
