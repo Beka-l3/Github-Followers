@@ -20,8 +20,9 @@ final class GFTextField: UITextField {
         super.init(coder: coder)
     }
     
-    convenience init() {
+    convenience init(placeholder: String) {
         self.init(frame: .zero)
+        self.placeholder = placeholder
     }
     
 }

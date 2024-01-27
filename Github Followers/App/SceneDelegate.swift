@@ -90,6 +90,7 @@ extension SceneDelegate {
         tabbarController.tabBar.standardAppearance = standardAppearance
         tabbarController.tabBar.scrollEdgeAppearance = scrollEdgeAppearance
         
+        tabbarController.tabBar.tintColor = .systemGreen
         
         tabbarController.viewControllers = [createSearchNC(), createFavoritesNC()]
         return tabbarController
