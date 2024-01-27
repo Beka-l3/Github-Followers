@@ -21,6 +21,7 @@
 		077898F32B65B105004BB732 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898F22B65B105004BB732 /* GFBodyLabel.swift */; };
 		077898F62B65B286004BB732 /* GFAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898F52B65B286004BB732 /* GFAlertVC.swift */; };
 		077898F82B65B2B1004BB732 /* GFAlertVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898F72B65B2B1004BB732 /* GFAlertVCUIConfig.swift */; };
+		077898FB2B65CBF4004BB732 /* UIViewController+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898FA2B65CBF4004BB732 /* UIViewController+Show.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		077898F22B65B105004BB732 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 		077898F52B65B286004BB732 /* GFAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertVC.swift; sourceTree = "<group>"; };
 		077898F72B65B2B1004BB732 /* GFAlertVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertVCUIConfig.swift; sourceTree = "<group>"; };
+		077898FA2B65CBF4004BB732 /* UIViewController+Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Show.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				077898E72B659373004BB732 /* App */,
+				077898F92B65CBD7004BB732 /* Utils */,
 				077898E62B659365004BB732 /* UIComponents */,
 				077898E82B65937E004BB732 /* ViewControllers */,
 				077898D52B6550FE004BB732 /* Assets.xcassets */,
@@ -145,6 +148,22 @@
 				077898F72B65B2B1004BB732 /* GFAlertVCUIConfig.swift */,
 			);
 			path = GFAlert;
+			sourceTree = "<group>";
+		};
+		077898F92B65CBD7004BB732 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				077898FC2B65CBF8004BB732 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		077898FC2B65CBF8004BB732 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				077898FA2B65CBF4004BB732 /* UIViewController+Show.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +247,7 @@
 				077898F82B65B2B1004BB732 /* GFAlertVCUIConfig.swift in Sources */,
 				077898CD2B6550F5004BB732 /* AppDelegate.swift in Sources */,
 				077898CF2B6550F5004BB732 /* SceneDelegate.swift in Sources */,
+				077898FB2B65CBF4004BB732 /* UIViewController+Show.swift in Sources */,
 				077898F32B65B105004BB732 /* GFBodyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

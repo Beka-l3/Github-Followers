@@ -75,9 +75,9 @@ extension GFAlertVCUIConfig {
             titleLabel.heightAnchor.constraint(equalToConstant: 28),
             
             actionButton.heightAnchor.constraint(equalToConstant: 44),
-            actionButton.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: Constants.padding),
-            actionButton.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
-            actionButton.bottomAnchor.constraint(equalTo: rootView.bottomAnchor, constant: -Constants.padding),
+            actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: Constants.padding),
+            actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Constants.padding),
+            actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Constants.padding),
             
             messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.paddingS),
             messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: Constants.padding),
