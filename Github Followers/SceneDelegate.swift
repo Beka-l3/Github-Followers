@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        window?.rootViewController = createTabBar()
+        window?.rootViewController = createTabBarController()
         window?.makeKeyAndVisible()
     }
 
@@ -75,13 +75,23 @@ extension SceneDelegate {
         return UINavigationController(rootViewController: favoritesVC)
     }
     
-    private func createTabBar() -> UITabBarController {
-        let tabbar = UITabBarController()
+    private func createTabBarController() -> UITabBarController {
+        let tabbarController = UITabBarController()
         
-        UITabBar.appearance().tintColor = .systemGreen
+        let standardAppearance = UITabBarAppearance()
+        standardAppearance.backgroundEffect = UIBlurEffect(style: .regular)
+        standardAppearance.backgroundColor = .clear
         
-        tabbar.viewControllers = [createSearchNC(), createFavoritesNC()]
-        return tabbar
+        let scrollEdgeAppearance = UITabBarAppearance()
+        scrollEdgeAppearance.backgroundEffect = UIBlurEffect(style: .regular)
+        scrollEdgeAppearance.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        
+        tabbarController.tabBar.standardAppearance = standardAppearance
+        tabbarController.tabBar.scrollEdgeAppearance = scrollEdgeAppearance
+        
+        
+        tabbarController.viewControllers = [createSearchNC(), createFavoritesNC()]
+        return tabbarController
     }
     
 }
