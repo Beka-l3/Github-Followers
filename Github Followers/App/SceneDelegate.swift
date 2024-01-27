@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -56,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 
-
+// MARK: private func
 extension SceneDelegate {
     
     private func createSearchNC() -> UINavigationController {

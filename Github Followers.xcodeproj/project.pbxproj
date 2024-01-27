@@ -13,6 +13,8 @@
 		077898D62B6550FE004BB732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077898D52B6550FE004BB732 /* Assets.xcassets */; };
 		077898D92B6550FE004BB732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077898D72B6550FE004BB732 /* LaunchScreen.storyboard */; };
 		077898E12B6562E3004BB732 /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898E02B6562E3004BB732 /* FavoritesListVC.swift */; };
+		077898E32B657B11004BB732 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898E22B657B11004BB732 /* GFButton.swift */; };
+		077898E52B659360004BB732 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898E42B659360004BB732 /* GFTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		077898D82B6550FE004BB732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		077898DA2B6550FE004BB732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		077898E02B6562E3004BB732 /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
+		077898E22B657B11004BB732 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
+		077898E42B659360004BB732 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		077898CB2B6550F5004BB732 /* Github Followers */ = {
 			isa = PBXGroup;
 			children = (
-				077898CC2B6550F5004BB732 /* AppDelegate.swift */,
-				077898CE2B6550F5004BB732 /* SceneDelegate.swift */,
-				077898D02B6550F5004BB732 /* SearchVC.swift */,
-				077898E02B6562E3004BB732 /* FavoritesListVC.swift */,
+				077898E72B659373004BB732 /* App */,
+				077898E62B659365004BB732 /* UIComponents */,
+				077898E82B65937E004BB732 /* ViewComponents */,
 				077898D52B6550FE004BB732 /* Assets.xcassets */,
 				077898D72B6550FE004BB732 /* LaunchScreen.storyboard */,
 				077898DA2B6550FE004BB732 /* Info.plist */,
 			);
 			path = "Github Followers";
+			sourceTree = "<group>";
+		};
+		077898E62B659365004BB732 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				077898E22B657B11004BB732 /* GFButton.swift */,
+				077898E42B659360004BB732 /* GFTextField.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		077898E72B659373004BB732 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				077898CC2B6550F5004BB732 /* AppDelegate.swift */,
+				077898CE2B6550F5004BB732 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		077898E82B65937E004BB732 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				077898D02B6550F5004BB732 /* SearchVC.swift */,
+				077898E02B6562E3004BB732 /* FavoritesListVC.swift */,
+			);
+			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				077898E52B659360004BB732 /* GFTextField.swift in Sources */,
 				077898D12B6550F5004BB732 /* SearchVC.swift in Sources */,
+				077898E32B657B11004BB732 /* GFButton.swift in Sources */,
 				077898E12B6562E3004BB732 /* FavoritesListVC.swift in Sources */,
 				077898CD2B6550F5004BB732 /* AppDelegate.swift in Sources */,
 				077898CF2B6550F5004BB732 /* SceneDelegate.swift in Sources */,
