@@ -29,6 +29,7 @@ final class FollowersListVCUIConfig {
     lazy var searchController: UISearchController = {
         let controller = UISearchController()
         controller.searchBar.placeholder = "Search for a username"
+        controller.obscuresBackgroundDuringPresentation = false
         return controller
     }()
 }

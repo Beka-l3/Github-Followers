@@ -17,6 +17,8 @@ final class FollowersListVC: UIViewController {
     private let uiConfig = FollowersListVCUIConfig()
     
     private var followers: [Follower] = []
+    private var filteredFollowers: [Follower] = []
+    
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Follower> = .init(
         collectionView: uiConfig.collectionView
     ) { collectionView, indexPath, follower in
@@ -63,8 +65,10 @@ extension FollowersListVC {
         
         uiConfig.collectionView.delegate = self
         uiConfig.searchController.searchResultsUpdater = self
+        uiConfig.searchController.searchBar.delegate = self
         
         navigationItem.searchController = uiConfig.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
 }
@@ -84,7 +88,7 @@ extension FollowersListVC {
                     return
                 }
                 
-                updateData()
+                updateData(on: followers)
                 
                 hasMoreFollowers = followers.count >= NetworkManager.shared.perPage
                 page += 1
@@ -119,7 +123,7 @@ extension FollowersListVC {
 
 extension FollowersListVC {
     
-    private func updateData() {
+    private func updateData(on followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
@@ -145,10 +149,17 @@ extension FollowersListVC: UICollectionViewDelegate {
 }
 
 
-extension FollowersListVC: UISearchResultsUpdating {
+extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
         
+        filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
+        updateData(on: filteredFollowers)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(on: followers)
     }
     
 }
