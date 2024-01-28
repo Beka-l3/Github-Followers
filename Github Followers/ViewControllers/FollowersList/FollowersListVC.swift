@@ -13,11 +13,12 @@ final class FollowersListVC: UIViewController {
     
     var username: String!
     
-    
     private let uiConfig = FollowersListVCUIConfig()
     
-    private var followers: [Follower] = []
-    private var filteredFollowers: [Follower] = []
+    private(set) var page: Int = 1
+    private(set) var hasMoreFollowers: Bool = false
+    private(set) var followers: [Follower] = []
+    private(set) var filteredFollowers: [Follower] = []
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Follower> = .init(
         collectionView: uiConfig.collectionView
@@ -26,9 +27,6 @@ final class FollowersListVC: UIViewController {
         cell.set(follower: follower)
         return cell
     }
-    
-    private var page: Int = 1
-    private var hasMoreFollowers: Bool = false
     
     
 //    MARK: lifecycle
@@ -48,10 +46,6 @@ final class FollowersListVC: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         uiConfig.configureFrames()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
 }
@@ -76,7 +70,20 @@ extension FollowersListVC {
 
 extension FollowersListVC {
     
-    private func fetchFollowers() {
+    func applySnapshot(_ snapshot: NSDiffableDataSourceSnapshot<Section, Follower>) {
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func setFilteredFollowers(_ filteredFollowers: [Follower]) {
+        self.filteredFollowers = filteredFollowers
+    }
+    
+}
+
+
+extension FollowersListVC {
+    
+    func fetchFollowers() {
         showLoadingView()
         
         Task {
@@ -89,14 +96,12 @@ extension FollowersListVC {
                 }
                 
                 updateData(on: followers)
-                
                 hasMoreFollowers = followers.count >= NetworkManager.shared.perPage
                 page += 1
                 
             } catch {
                 
                 var message = "Something went wrong"
-                
                 if let error = error as? NetworkManager.ServiceError {
                     message = error.rawValue
                 }
@@ -107,59 +112,6 @@ extension FollowersListVC {
             
             dismissLoadingView()
         }
-    }
-    
-}
-
-
-extension FollowersListVC {
-    
-    enum Section {
-        case main
-    }
-    
-}
-
-
-extension FollowersListVC {
-    
-    private func updateData(on followers: [Follower]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(followers)
-        dataSource.apply(snapshot, animatingDifferences: true)
-    }
-    
-}
-
-
-extension FollowersListVC: UICollectionViewDelegate {
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        let offsetY         = scrollView.contentOffset.y
-        let contentHeight   = scrollView.contentSize.height
-        let height          = scrollView.frame.size.height
-        
-        if offsetY > contentHeight - height {
-            guard hasMoreFollowers else { return }
-            fetchFollowers()
-        }
-    }
-    
-}
-
-
-extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
-        
-        filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
-        updateData(on: filteredFollowers)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        updateData(on: followers)
     }
     
 }

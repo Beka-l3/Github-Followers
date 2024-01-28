@@ -48,11 +48,6 @@ extension FollowersListVCUIConfig {
         rootView.addSubview(collectionView)
     }
     
-}
-
-
-extension FollowersListVCUIConfig {
-    
     func configureFrames() {
         guard let rootView = rootView else {
             // os log "no root view"
