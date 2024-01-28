@@ -25,6 +25,12 @@ final class FollowersListVCUIConfig {
         
         return view
     }()
+    
+    lazy var searchController: UISearchController = {
+        let controller = UISearchController()
+        controller.searchBar.placeholder = "Search for a username"
+        return controller
+    }()
 }
 
 

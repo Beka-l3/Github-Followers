@@ -62,6 +62,9 @@ extension FollowersListVC {
         uiConfig.configureUI()
         
         uiConfig.collectionView.delegate = self
+        uiConfig.searchController.searchResultsUpdater = self
+        
+        navigationItem.searchController = uiConfig.searchController
     }
     
 }
@@ -77,7 +80,7 @@ extension FollowersListVC {
                 followers += try await NetworkManager.shared.getFollowers(for: username, page: page)
                 
                 if followers.isEmpty {
-                    showEmptyStateView(with: "This user does not haveany followers 😮", in: view)
+                    showEmptyStateView(with: "This user does not haveany followers. So, go follow them 🙃", in: view)
                     return
                 }
                 
@@ -137,6 +140,15 @@ extension FollowersListVC: UICollectionViewDelegate {
             guard hasMoreFollowers else { return }
             fetchFollowers()
         }
+    }
+    
+}
+
+
+extension FollowersListVC: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
     
 }
