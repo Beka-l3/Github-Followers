@@ -24,6 +24,7 @@
 		077898FB2B65CBF4004BB732 /* UIViewController+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898FA2B65CBF4004BB732 /* UIViewController+Show.swift */; };
 		077899022B65D39E004BB732 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077899012B65D39E004BB732 /* Follower.swift */; };
 		077899042B65D454004BB732 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077899032B65D454004BB732 /* User.swift */; };
+		077899072B65DAD0004BB732 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077899062B65DAD0004BB732 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		077898FA2B65CBF4004BB732 /* UIViewController+Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Show.swift"; sourceTree = "<group>"; };
 		077899012B65D39E004BB732 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		077899032B65D454004BB732 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		077899062B65DAD0004BB732 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				077898E72B659373004BB732 /* App */,
 				077898F92B65CBD7004BB732 /* Utils */,
 				077899002B65D38E004BB732 /* Model */,
+				077899052B65DAB8004BB732 /* Service */,
 				077898E62B659365004BB732 /* UIComponents */,
 				077898E82B65937E004BB732 /* ViewControllers */,
 				077898DA2B6550FE004BB732 /* Info.plist */,
@@ -204,6 +207,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		077899052B65DAB8004BB732 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				077899062B65DAD0004BB732 /* NetworkManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,6 +289,7 @@
 				077899022B65D39E004BB732 /* Follower.swift in Sources */,
 				077898E52B659360004BB732 /* GFTextField.swift in Sources */,
 				077898EF2B65A6A6004BB732 /* FollowersListVC.swift in Sources */,
+				077899072B65DAD0004BB732 /* NetworkManager.swift in Sources */,
 				077898D12B6550F5004BB732 /* SearchVC.swift in Sources */,
 				077898E32B657B11004BB732 /* GFButton.swift in Sources */,
 				077898F62B65B286004BB732 /* GFAlertVC.swift in Sources */,
