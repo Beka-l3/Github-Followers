@@ -32,6 +32,9 @@ final class FollowersListVC: UIViewController {
         return cell
     }
     
+    private var page: Int = 1
+    private var hasMoreFollowers: Bool = false
+    
     
 //    MARK: lifecycle
     override func viewDidLoad() {
@@ -68,6 +71,8 @@ extension FollowersListVC {
     private func configure() {
         uiConfig.rootView = view
         uiConfig.configureUI()
+        
+        uiConfig.collectionView.delegate = self
     }
     
 }
@@ -81,8 +86,11 @@ extension FollowersListVC {
             
             do {
                 
-                followers = try await NetworkManager.shared.getFollowers(for: username, page: 1)
+                followers += try await NetworkManager.shared.getFollowers(for: username, page: page)
                 updateData()
+                
+                hasMoreFollowers = followers.count >= NetworkManager.shared.perPage
+                page += 1
                 
             } catch {
                 
@@ -121,6 +129,22 @@ extension FollowersListVC {
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+}
+
+
+extension FollowersListVC: UICollectionViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY         = scrollView.contentOffset.y
+        let contentHeight   = scrollView.contentSize.height
+        let height          = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            guard hasMoreFollowers else { return }
+            fetchFollowers()
+        }
     }
     
 }

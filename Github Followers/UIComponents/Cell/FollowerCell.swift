@@ -52,6 +52,8 @@ extension FollowerCell {
             
         } else {
             
+            avatarImageView.image = .avatarPlaceholder
+            
             guard let url = URL(string: urlString) else { return }
             
             let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
