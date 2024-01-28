@@ -14,12 +14,47 @@ final class FollowersListVC: UIViewController {
     var username: String!
     
     
+    private var isFetching: Bool = false
+    private var isAnimating: Bool = false {
+        didSet {
+            // handle showing loading animation
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if isFetching, !isAnimating {
+            isAnimating = true
+        }
+    }
+    
+    
+}
+
+
+extension FollowersListVC {
+    
+    private func fetchFollowers() {
         Task {
+            isFetching = true
+            
             do {
                 let followers = try await NetworkManager.shared.getFollowers(for: username, page: 1)
                 
@@ -41,15 +76,10 @@ final class FollowersListVC: UIViewController {
                 // os log: "error", error, error.localizedDescription
                 
             }
+            
+            isFetching = false
+            isAnimating = false
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
     
 }

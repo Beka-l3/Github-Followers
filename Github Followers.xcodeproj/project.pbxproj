@@ -25,6 +25,8 @@
 		077899022B65D39E004BB732 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077899012B65D39E004BB732 /* Follower.swift */; };
 		077899042B65D454004BB732 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077899032B65D454004BB732 /* User.swift */; };
 		077899072B65DAD0004BB732 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077899062B65DAD0004BB732 /* NetworkManager.swift */; };
+		0778990A2B65EC67004BB732 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077899092B65EC67004BB732 /* FollowerCell.swift */; };
+		0778990D2B65FAAB004BB732 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778990C2B65FAAB004BB732 /* GFAvatarImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		077899012B65D39E004BB732 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		077899032B65D454004BB732 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		077899062B65DAD0004BB732 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		077899092B65EC67004BB732 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
+		0778990C2B65FAAB004BB732 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +98,11 @@
 		077898E62B659365004BB732 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				077899082B65EC4F004BB732 /* Cell */,
 				077898FF2B65CFB8004BB732 /* TextField */,
 				077898FE2B65CFB0004BB732 /* Button */,
 				077898FD2B65CF60004BB732 /* Label */,
+				0778990B2B65FA9A004BB732 /* View */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -215,6 +221,22 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		077899082B65EC4F004BB732 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				077899092B65EC67004BB732 /* FollowerCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0778990B2B65FA9A004BB732 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0778990C2B65FAAB004BB732 /* GFAvatarImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,6 +314,8 @@
 				077899072B65DAD0004BB732 /* NetworkManager.swift in Sources */,
 				077898D12B6550F5004BB732 /* SearchVC.swift in Sources */,
 				077898E32B657B11004BB732 /* GFButton.swift in Sources */,
+				0778990A2B65EC67004BB732 /* FollowerCell.swift in Sources */,
+				0778990D2B65FAAB004BB732 /* GFAvatarImageView.swift in Sources */,
 				077898F62B65B286004BB732 /* GFAlertVC.swift in Sources */,
 				077898E12B6562E3004BB732 /* FavoritesListVC.swift in Sources */,
 				077899042B65D454004BB732 /* User.swift in Sources */,
