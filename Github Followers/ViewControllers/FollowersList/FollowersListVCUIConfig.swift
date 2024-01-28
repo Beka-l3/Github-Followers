@@ -21,7 +21,6 @@ final class FollowersListVCUIConfig {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.showsHorizontalScrollIndicator = false
         view.backgroundColor = .systemBackground
-//        view.backgroundColor = .systemBrown
         view.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
         
         return view
@@ -46,18 +45,6 @@ extension FollowersListVCUIConfig {
 
 
 extension FollowersListVCUIConfig {
-    
-    func configureAutoLayout() {
-        guard let rootView = rootView else {
-            // os log "no root view"
-            return
-        }
-        
-        NSLayoutConstraint.activate([
-            
-        ])
-        
-    }
     
     func configureFrames() {
         guard let rootView = rootView else {

@@ -36,6 +36,28 @@ extension FollowerCell {
     
     func set(follower: Follower) {
         usernameLabel.text = follower.login
+        downloadAvatarImage(from: follower.avatarUrl)
+    }
+}
+ 
+
+extension FollowerCell {
+    
+    private func downloadAvatarImage(from urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard error == nil else { return }
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
+            guard let data = data else { return }
+            guard let image = UIImage(data: data) else { return }
+            
+            DispatchQueue.main.async {
+                self?.avatarImageView.image = image
+            }
+        }
+        
+        task.resume()
     }
     
 }

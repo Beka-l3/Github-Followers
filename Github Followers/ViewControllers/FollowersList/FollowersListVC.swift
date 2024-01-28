@@ -68,7 +68,6 @@ extension FollowersListVC {
     private func configure() {
         uiConfig.rootView = view
         uiConfig.configureUI()
-        uiConfig.configureAutoLayout()
     }
     
 }
