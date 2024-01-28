@@ -27,6 +27,7 @@
 		077899072B65DAD0004BB732 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077899062B65DAD0004BB732 /* NetworkManager.swift */; };
 		0778990A2B65EC67004BB732 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077899092B65EC67004BB732 /* FollowerCell.swift */; };
 		0778990D2B65FAAB004BB732 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778990C2B65FAAB004BB732 /* GFAvatarImageView.swift */; };
+		0778990F2B65FE44004BB732 /* FollowersListVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778990E2B65FE44004BB732 /* FollowersListVCUIConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		077899062B65DAD0004BB732 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		077899092B65EC67004BB732 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		0778990C2B65FAAB004BB732 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
+		0778990E2B65FE44004BB732 /* FollowersListVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVCUIConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				077898EE2B65A6A6004BB732 /* FollowersListVC.swift */,
+				0778990E2B65FE44004BB732 /* FollowersListVCUIConfig.swift */,
 			);
 			path = FollowersList;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				077898D12B6550F5004BB732 /* SearchVC.swift in Sources */,
 				077898E32B657B11004BB732 /* GFButton.swift in Sources */,
 				0778990A2B65EC67004BB732 /* FollowerCell.swift in Sources */,
+				0778990F2B65FE44004BB732 /* FollowersListVCUIConfig.swift in Sources */,
 				0778990D2B65FAAB004BB732 /* GFAvatarImageView.swift in Sources */,
 				077898F62B65B286004BB732 /* GFAlertVC.swift in Sources */,
 				077898E12B6562E3004BB732 /* FavoritesListVC.swift in Sources */,

@@ -14,6 +14,8 @@ final class FollowersListVC: UIViewController {
     var username: String!
     
     
+    private let uiConfig = FollowersListVCUIConfig()
+    
     private var isFetching: Bool = false
     private var isAnimating: Bool = false {
         didSet {
@@ -21,13 +23,21 @@ final class FollowersListVC: UIViewController {
         }
     }
     
+    private var followers: [Follower] = []
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Follower> = .init(
+        collectionView: uiConfig.collectionView
+    ) { collectionView, indexPath, follower in
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
+        cell.set(follower: follower)
+        return cell
+    }
     
+    
+//    MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .systemBackground
-        
-        
+        configure()
+        fetchFollowers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +45,11 @@ final class FollowersListVC: UIViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        uiConfig.configureFrames()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,6 +60,16 @@ final class FollowersListVC: UIViewController {
         }
     }
     
+}
+
+
+extension FollowersListVC {
+    
+    private func configure() {
+        uiConfig.rootView = view
+        uiConfig.configureUI()
+        uiConfig.configureAutoLayout()
+    }
     
 }
 
@@ -56,13 +81,9 @@ extension FollowersListVC {
             isFetching = true
             
             do {
-                let followers = try await NetworkManager.shared.getFollowers(for: username, page: 1)
                 
-                print(followers.count, "\n")
-                
-                followers.forEach { follower in
-                    print(follower)
-                }
+                followers = try await NetworkManager.shared.getFollowers(for: username, page: 1)
+                updateData()
                 
             } catch {
                 
@@ -80,6 +101,27 @@ extension FollowersListVC {
             isFetching = false
             isAnimating = false
         }
+    }
+    
+}
+
+
+extension FollowersListVC {
+    
+    enum Section {
+        case main
+    }
+    
+}
+
+
+extension FollowersListVC {
+    
+    private func updateData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(followers)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
     
 }
