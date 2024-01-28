@@ -5,7 +5,7 @@
 //  Created by Bekzhan Talgat on 28.01.2024.
 //
 
-import Foundation
+import UIKit
 
 
 final class NetworkManager {
@@ -14,6 +14,9 @@ final class NetworkManager {
     
     let baseUrl = "https://api.github.com/users"
     let perPage = 100
+    
+    let cache = NSCache<NSString, UIImage>()
+    
     
     private init() { }
     

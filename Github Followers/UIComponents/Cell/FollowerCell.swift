@@ -12,6 +12,7 @@ final class FollowerCell: UICollectionViewCell {
     
     static let reuseID = "FollowerCellReuseID"
     
+    let cache = NetworkManager.shared.cache
     
     lazy var avatarImageView = GFAvatarImageView(frame: .zero)
     lazy var usernameLabel = GFTitleLabel(alignment: .center, fontSize: Constants.usernameLabelFontSize)
@@ -44,20 +45,30 @@ extension FollowerCell {
 extension FollowerCell {
     
     private func downloadAvatarImage(from urlString: String) {
-        guard let url = URL(string: urlString) else { return }
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard error == nil else { return }
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-            guard let data = data else { return }
-            guard let image = UIImage(data: data) else { return }
+        if let image = cache.object(forKey: NSString(string: urlString)) {
             
-            DispatchQueue.main.async {
-                self?.avatarImageView.image = image
+            avatarImageView.image = image
+            
+        } else {
+            
+            guard let url = URL(string: urlString) else { return }
+            
+            let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+                guard error == nil else { return }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
+                guard let data = data else { return }
+                guard let image = UIImage(data: data) else { return }
+                
+                self?.cache.setObject(image, forKey: NSString(string: urlString))
+                DispatchQueue.main.async {
+                    self?.avatarImageView.image = image
+                }
             }
+            
+            task.resume()
+            
         }
-        
-        task.resume()
     }
     
 }
