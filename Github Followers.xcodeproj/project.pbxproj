@@ -167,9 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				077898EE2B65A6A6004BB732 /* FollowersListVC.swift */,
-				0778990E2B65FE44004BB732 /* FollowersListVCUIConfig.swift */,
-				07E054F82B66C5B000A8B6A5 /* FollowersListVC+CollectionView.swift */,
-				07E054FA2B66C6AB00A8B6A5 /* FollowersListVC+Search.swift */,
+				07E054FC2B66C75F00A8B6A5 /* UIConfig */,
+				07E054FD2B66C76D00A8B6A5 /* Extensions */,
 			);
 			path = FollowersList;
 			sourceTree = "<group>";
@@ -267,6 +266,23 @@
 				07E054F62B66C41600A8B6A5 /* UserInfoVCUIConfig.swift */,
 			);
 			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		07E054FC2B66C75F00A8B6A5 /* UIConfig */ = {
+			isa = PBXGroup;
+			children = (
+				0778990E2B65FE44004BB732 /* FollowersListVCUIConfig.swift */,
+			);
+			path = UIConfig;
+			sourceTree = "<group>";
+		};
+		07E054FD2B66C76D00A8B6A5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				07E054F82B66C5B000A8B6A5 /* FollowersListVC+CollectionView.swift */,
+				07E054FA2B66C6AB00A8B6A5 /* FollowersListVC+Search.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -32,4 +32,11 @@ extension FollowersListVC: UICollectionViewDelegate {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let follower = isSearching ? filteredFollowers[indexPath.item] : followers[indexPath.item]
+        
+        let userInfoVC = UserInfoVC()
+        present(userInfoVC, animated: true)
+    }
+    
 }

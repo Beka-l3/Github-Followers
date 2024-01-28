@@ -13,12 +13,13 @@ final class FollowersListVC: UIViewController {
     
     var username: String!
     
-    private let uiConfig = FollowersListVCUIConfig()
+    private(set) var isSearching:           Bool        = false
+    private(set) var hasMoreFollowers:      Bool        = false
+    private(set) var page:                  Int         = 1
+    private(set) var followers:             [Follower]  = []
+    private(set) var filteredFollowers:     [Follower]  = []
     
-    private(set) var page: Int = 1
-    private(set) var hasMoreFollowers: Bool = false
-    private(set) var followers: [Follower] = []
-    private(set) var filteredFollowers: [Follower] = []
+    private let uiConfig:                   FollowersListVCUIConfig     = .init()
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Follower> = .init(
         collectionView: uiConfig.collectionView
@@ -74,8 +75,12 @@ extension FollowersListVC {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    func setFilteredFollowers(_ filteredFollowers: [Follower]) {
-        self.filteredFollowers = filteredFollowers
+    func setFilteredFollowers(_ newValue: [Follower]) {
+        self.filteredFollowers = newValue
+    }
+    
+    func setIsSearching(_ newValue: Bool) {
+        isSearching = newValue
     }
     
 }
@@ -113,5 +118,4 @@ extension FollowersListVC {
             dismissLoadingView()
         }
     }
-    
 }

@@ -56,7 +56,6 @@ extension FollowersListVCUIConfig {
         
         collectionView.frame = rootView.bounds
     }
-    
 }
 
 
@@ -64,16 +63,15 @@ extension FollowersListVCUIConfig {
     
     enum Constants {
         
-        static let viewWidth = UIScreen.main.bounds.width
+        static let amountOfColums:          Int         = 3
         
-        static let padding: CGFloat = 12
+        static let padding:                 CGFloat     = 12
+        static let minSapcingBtwnCC:        CGFloat     = 10
         
-        static let amountOfColums: Int = 3
-        static let minSapcingBtwnCC: CGFloat = 10
-        static let availableSpaceForCC: CGFloat = viewWidth - 2 * padding - (CGFloat(amountOfColums)) * minSapcingBtwnCC
-        static let cellWidth: CGFloat = availableSpaceForCC / CGFloat(amountOfColums)
-        static let cellHeight: CGFloat = cellWidth + 40
+        static let viewWidth:               CGFloat     = UIScreen.main.bounds.width
         
+        static let cellHeight:              CGFloat     = cellWidth + 40
+        static let cellWidth:               CGFloat     = availableSpaceForCC / CGFloat(amountOfColums)
+        static let availableSpaceForCC:     CGFloat     = viewWidth - 2 * padding - (CGFloat(amountOfColums)) * minSapcingBtwnCC
     }
-    
 }
