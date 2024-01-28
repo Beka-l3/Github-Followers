@@ -75,13 +75,13 @@ extension NetworkManager {
 
 extension NetworkManager {
     
-    enum ServiceError: Error {
+    enum ServiceError: String, Error {
         
-        case badUrl
+        case badUrl = "Oops. Seems like gihub.com server is not responding"
         
-        case badResponse
+        case badResponse = "Server could not find a data about followers of this user"
         
-        case invalidData
+        case invalidData = "Server sent invalid data. Please, try again later"
         
     }
     

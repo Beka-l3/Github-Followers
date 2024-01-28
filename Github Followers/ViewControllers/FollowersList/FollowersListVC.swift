@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import OSLog
 
 
 final class FollowersListVC: UIViewController {
@@ -25,13 +26,19 @@ final class FollowersListVC: UIViewController {
                 print(followers.count, "\n")
                 
                 followers.forEach { follower in
-                    print(follower, "\n")
+                    print(follower)
                 }
                 
             } catch {
                 
-                presentGFAlertOnMainThread(title: "Got an error", message: error.localizedDescription, buttonTitle: "OK")
-                print("error", error, error.localizedDescription)
+                var message = "Something went wrong"
+                
+                if let error = error as? NetworkManager.ServiceError {
+                    message = error.rawValue
+                }
+                
+                presentGFAlertOnMainThread(title: "Got an error", message: message, buttonTitle: "OK")
+                // os log: "error", error, error.localizedDescription
                 
             }
         }
