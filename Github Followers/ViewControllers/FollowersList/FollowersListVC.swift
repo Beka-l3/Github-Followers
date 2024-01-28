@@ -16,13 +16,6 @@ final class FollowersListVC: UIViewController {
     
     private let uiConfig = FollowersListVCUIConfig()
     
-    private var isFetching: Bool = false
-    private var isAnimating: Bool = false {
-        didSet {
-            // handle showing loading animation
-        }
-    }
-    
     private var followers: [Follower] = []
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Follower> = .init(
         collectionView: uiConfig.collectionView
@@ -57,10 +50,6 @@ final class FollowersListVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if isFetching, !isAnimating {
-            isAnimating = true
-        }
     }
     
 }
@@ -81,11 +70,10 @@ extension FollowersListVC {
 extension FollowersListVC {
     
     private func fetchFollowers() {
+        showLoadingView()
+        
         Task {
-            isFetching = true
-            
             do {
-                
                 followers += try await NetworkManager.shared.getFollowers(for: username, page: page)
                 updateData()
                 
@@ -102,11 +90,9 @@ extension FollowersListVC {
                 
                 presentGFAlertOnMainThread(title: "Got an error", message: message, buttonTitle: "OK")
                 // os log: "error", error, error.localizedDescription
-                
             }
             
-            isFetching = false
-            isAnimating = false
+            dismissLoadingView()
         }
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0715C20E2B66741E005BA206 /* UIViewController+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715C20D2B66741E005BA206 /* UIViewController+ActivityIndicator.swift */; };
 		077898CD2B6550F5004BB732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898CC2B6550F5004BB732 /* AppDelegate.swift */; };
 		077898CF2B6550F5004BB732 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898CE2B6550F5004BB732 /* SceneDelegate.swift */; };
 		077898D12B6550F5004BB732 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898D02B6550F5004BB732 /* SearchVC.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0715C20D2B66741E005BA206 /* UIViewController+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		077898C92B6550F5004BB732 /* Github Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		077898CC2B6550F5004BB732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		077898CE2B6550F5004BB732 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				077898FA2B65CBF4004BB732 /* UIViewController+Show.swift */,
+				0715C20D2B66741E005BA206 /* UIViewController+ActivityIndicator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				077898E52B659360004BB732 /* GFTextField.swift in Sources */,
 				077898EF2B65A6A6004BB732 /* FollowersListVC.swift in Sources */,
 				077899072B65DAD0004BB732 /* NetworkManager.swift in Sources */,
+				0715C20E2B66741E005BA206 /* UIViewController+ActivityIndicator.swift in Sources */,
 				077898D12B6550F5004BB732 /* SearchVC.swift in Sources */,
 				077898E32B657B11004BB732 /* GFButton.swift in Sources */,
 				0778990A2B65EC67004BB732 /* FollowerCell.swift in Sources */,
