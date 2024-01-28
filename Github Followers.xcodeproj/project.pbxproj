@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0715C20E2B66741E005BA206 /* UIViewController+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715C20D2B66741E005BA206 /* UIViewController+ActivityIndicator.swift */; };
+		0715C2102B667B01005BA206 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715C20F2B667B01005BA206 /* GFEmptyStateView.swift */; };
+		0715C2122B667D71005BA206 /* UIViewController+EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715C2112B667D71005BA206 /* UIViewController+EmptyState.swift */; };
 		077898CD2B6550F5004BB732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898CC2B6550F5004BB732 /* AppDelegate.swift */; };
 		077898CF2B6550F5004BB732 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898CE2B6550F5004BB732 /* SceneDelegate.swift */; };
 		077898D12B6550F5004BB732 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077898D02B6550F5004BB732 /* SearchVC.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		0715C20D2B66741E005BA206 /* UIViewController+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicator.swift"; sourceTree = "<group>"; };
+		0715C20F2B667B01005BA206 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
+		0715C2112B667D71005BA206 /* UIViewController+EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+EmptyState.swift"; sourceTree = "<group>"; };
 		077898C92B6550F5004BB732 /* Github Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		077898CC2B6550F5004BB732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		077898CE2B6550F5004BB732 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 			children = (
 				077898FA2B65CBF4004BB732 /* UIViewController+Show.swift */,
 				0715C20D2B66741E005BA206 /* UIViewController+ActivityIndicator.swift */,
+				0715C2112B667D71005BA206 /* UIViewController+EmptyState.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				0778990C2B65FAAB004BB732 /* GFAvatarImageView.swift */,
+				0715C20F2B667B01005BA206 /* GFEmptyStateView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,11 +329,13 @@
 				077898E32B657B11004BB732 /* GFButton.swift in Sources */,
 				0778990A2B65EC67004BB732 /* FollowerCell.swift in Sources */,
 				0778990F2B65FE44004BB732 /* FollowersListVCUIConfig.swift in Sources */,
+				0715C2122B667D71005BA206 /* UIViewController+EmptyState.swift in Sources */,
 				0778990D2B65FAAB004BB732 /* GFAvatarImageView.swift in Sources */,
 				077898F62B65B286004BB732 /* GFAlertVC.swift in Sources */,
 				077898E12B6562E3004BB732 /* FavoritesListVC.swift in Sources */,
 				077899042B65D454004BB732 /* User.swift in Sources */,
 				077898F12B65AF3E004BB732 /* GFTitleLabel.swift in Sources */,
+				0715C2102B667B01005BA206 /* GFEmptyStateView.swift in Sources */,
 				077898F82B65B2B1004BB732 /* GFAlertVCUIConfig.swift in Sources */,
 				077898CD2B6550F5004BB732 /* AppDelegate.swift in Sources */,
 				077898CF2B6550F5004BB732 /* SceneDelegate.swift in Sources */,

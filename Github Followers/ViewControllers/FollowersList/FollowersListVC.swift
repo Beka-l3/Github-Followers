@@ -75,6 +75,12 @@ extension FollowersListVC {
         Task {
             do {
                 followers += try await NetworkManager.shared.getFollowers(for: username, page: page)
+                
+                if followers.isEmpty {
+                    showEmptyStateView(with: "This user does not haveany followers 😮", in: view)
+                    return
+                }
+                
                 updateData()
                 
                 hasMoreFollowers = followers.count >= NetworkManager.shared.perPage
