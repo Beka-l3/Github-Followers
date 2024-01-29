@@ -36,7 +36,12 @@ extension FollowersListVC: UICollectionViewDelegate {
         let follower = isSearching ? filteredFollowers[indexPath.item] : followers[indexPath.item]
         
         let userInfoVC = UserInfoVC()
-        present(userInfoVC, animated: true)
+        userInfoVC.follower = follower
+        let navController = UINavigationController(rootViewController: userInfoVC)
+        navController.navigationBar.tintColor = .systemGreen
+        navController.navigationBar.backgroundColor = .secondarySystemBackground
+        navController.navigationBar.prefersLargeTitles = false
+        present(navController, animated: true)
     }
     
 }

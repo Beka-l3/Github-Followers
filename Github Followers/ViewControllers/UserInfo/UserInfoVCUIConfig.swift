@@ -32,7 +32,8 @@ extension UserInfoVCUIConfig {
     }
     
     func configureAutoLayout() {
-        guard let rootView = rootView else {
+//        guard let rootView = rootView else {
+        guard let _ = rootView else {
             // os log "no root view"
             return
         }

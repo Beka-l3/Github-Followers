@@ -24,12 +24,8 @@ final class NetworkManager {
 
 
 extension NetworkManager {
-    
-    func getFollowers(for username: String, page: Int) async throws -> [Follower] {
-        return try await withCheckedThrowingContinuation { [unowned self] continuation in
-            
-            let endpoint = self.baseUrl + "/\(username)/followers" + "?per_page=\(self.perPage)&page=\(page)"
-            
+    private func doRequest<T: Decodable>(endpoint: String) async throws -> T {
+        return try await withCheckedThrowingContinuation { continuation in
             guard let url = URL(string: endpoint) else {
                 continuation.resume(throwing: NetworkManager.ServiceError.badUrl)
                 return
@@ -57,8 +53,8 @@ extension NetworkManager {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     
-                    let followers = try decoder.decode([Follower].self, from: data)
-                    continuation.resume(returning: followers)
+                    let decodedData = try decoder.decode(T.self, from: data)
+                    continuation.resume(returning: decodedData)
                     
                 } catch {
                     
@@ -69,8 +65,21 @@ extension NetworkManager {
             }
             
             task.resume()
-            
         }
+    }
+}
+
+
+extension NetworkManager {
+    
+    func getFollowers(for username: String, page: Int) async throws -> [Follower] {
+        let endpoint = self.baseUrl + "/\(username)/followers" + "?per_page=\(self.perPage)&page=\(page)"
+        return try await doRequest(endpoint: endpoint)
+    }
+    
+    func getUser(for username: String) async throws -> User {
+        let endpoint = self.baseUrl + "/\(username)"
+        return try await doRequest(endpoint: endpoint)
     }
     
 }

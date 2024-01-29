@@ -1,14 +1,14 @@
 //
-//  GFTitleLabel.swift
+//  GFSecondaryTitleLabel.swift
 //  Github Followers
 //
-//  Created by Bekzhan Talgat on 28.01.2024.
+//  Created by Bekzhan Talgat on 29.01.2024.
 //
 
 import UIKit
 
 
-final class GFTitleLabel: UILabel {
+final class GFSecondaryTitleLabel: UILabel {
     
     
     override init(frame: CGRect) {
@@ -20,17 +20,15 @@ final class GFTitleLabel: UILabel {
         super.init(coder: coder)
     }
     
-    convenience init(alignment: NSTextAlignment, fontSize: CGFloat) {
+    convenience init(fontSize: CGFloat) {
         self.init(frame: .zero)
-        
-        self.textAlignment = alignment
-        self.font = .systemFont(ofSize: fontSize, weight: .bold)
+        self.font = .systemFont(ofSize: fontSize, weight: .medium)
     }
     
 }
 
 
-extension GFTitleLabel {
+extension GFSecondaryTitleLabel {
     
     private func configure() {
         textColor = .label
@@ -43,3 +41,6 @@ extension GFTitleLabel {
     }
     
 }
+
+
+

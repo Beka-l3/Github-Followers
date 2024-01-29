@@ -11,6 +11,9 @@ import UIKit
 final class UserInfoVC: UIViewController {
     
     
+    var follower: Follower!
+    
+    private var user: User!
     
     private let uiConfig = UserInfoVCUIConfig()
     
@@ -20,7 +23,7 @@ final class UserInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        
+        fetchUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +47,38 @@ extension UserInfoVC {
         uiConfig.configureUI()
         uiConfig.configureAutoLayout()
         
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDoneButton))
+        navigationItem.rightBarButtonItem = doneButton
         
+    }
+    
+}
+
+
+extension UserInfoVC {
+    
+    @objc func handleDoneButton() {
+        dismiss(animated: true)
+    }
+    
+}
+
+extension UserInfoVC {
+    
+    private func fetchUser() {
+        Task {
+            
+            do {
+                let user = try await NetworkManager.shared.getUser(for: follower.login)
+                
+                print(user)
+                
+            } catch {
+                print(error)
+                print(error.localizedDescription)
+            }
+            
+        }
     }
     
 }
