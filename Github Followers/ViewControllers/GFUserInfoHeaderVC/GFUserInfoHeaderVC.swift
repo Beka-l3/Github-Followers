@@ -48,6 +48,5 @@ extension GFUserInfoHeaderVC {
         uiConfig.nameLabel.text         = user.name ?? ""
         uiConfig.locationLabel.text     = user.location ?? "No Location"
         uiConfig.bioLabel.text          = user.bio ?? ""
-    }
-        
+    }   
 }

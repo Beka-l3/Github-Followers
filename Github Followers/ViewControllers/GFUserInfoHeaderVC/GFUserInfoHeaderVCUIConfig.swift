@@ -43,6 +43,8 @@ extension GFUserInfoHeaderVCUIConfig {
         rootView.addSubview(locationLabel)
         rootView.addSubview(bioLabel)
         
+        nameLabel.textColor = .secondaryLabel
+        locationLabel.textColor = .secondaryLabel
         bioLabel.numberOfLines = Constants.numberOfLineForBio
     }
     
@@ -55,12 +57,12 @@ extension GFUserInfoHeaderVCUIConfig {
             
             usernameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
             usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: Constants.textImagePadding),
-//            usernameLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
+            usernameLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
             usernameLabel.heightAnchor.constraint(equalToConstant: Constants.usernameLabelHeight),
             
             nameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor, constant: Constants.nameLabelYPadding),
             nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: Constants.textImagePadding),
-//            nameLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
+            nameLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
             nameLabel.heightAnchor.constraint(equalToConstant: Constants.usernameLabelHeight),
             
             locationImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: Constants.textImagePadding),
@@ -70,12 +72,12 @@ extension GFUserInfoHeaderVCUIConfig {
             
             locationLabel.centerYAnchor.constraint(equalTo: locationImageView.centerYAnchor),
             locationLabel.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: Constants.iconTextPadding),
-//            locationLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
+            locationLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
             locationLabel.heightAnchor.constraint(equalToConstant: Constants.locationLabelHeight),
             
             bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: Constants.textImagePadding),
             bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
-//            bioLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
+            bioLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
             bioLabel.heightAnchor.constraint(equalToConstant: Constants.bioLabelHeigh),
         ])
     }

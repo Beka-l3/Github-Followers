@@ -10,7 +10,6 @@ import UIKit
 
 final class UserInfoVC: UIViewController {
     
-    
     var follower: Follower!
     
     private var user: User! {
@@ -52,8 +51,6 @@ extension UserInfoVC {
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDoneButton))
         navigationItem.rightBarButtonItem = doneButton
-        
-        configureViewControllers()
     }
     
     private func configureNavbar() {
@@ -84,6 +81,8 @@ extension UserInfoVC {
             do {
                 user = try await NetworkManager.shared.getUser(for: follower.login)
                 headerVC.avatarUrl = follower.avatarUrl
+                configureViewControllers()
+                
             } catch {
                 print(error, error.localizedDescription, separator: "\n")
             }
@@ -97,7 +96,7 @@ extension UserInfoVC {
     private func add(childVC: UIViewController, to containerView: UIView) {
         addChild(childVC)
         containerView.addSubview(childVC.view)
-        childVC.view.frame = containerView.frame
+        childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
     }
 }

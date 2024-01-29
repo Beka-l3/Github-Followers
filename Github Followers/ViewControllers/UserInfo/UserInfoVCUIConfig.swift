@@ -19,6 +19,18 @@ final class UserInfoVCUIConfig {
         return view
     }()
     
+    lazy var itemViewOne: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var itemViewTwo: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
 }
 
 
