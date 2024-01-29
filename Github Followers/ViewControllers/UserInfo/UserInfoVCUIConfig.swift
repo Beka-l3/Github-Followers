@@ -10,9 +10,15 @@ import UIKit
 
 final class UserInfoVCUIConfig {
     
-    weak var rootView: UIView?
+    weak var rootView: UIView!
     
     
+    lazy var headerView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .systemPurple
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
 }
 
@@ -21,26 +27,31 @@ final class UserInfoVCUIConfig {
 extension UserInfoVCUIConfig {
     
     func configureUI() {
-        guard let rootView = rootView else {
-            // os log "no root view"
-            return
-        }
-        
         rootView.backgroundColor = .systemBackground
         
-        
+        rootView.addSubview(headerView)
     }
     
     func configureAutoLayout() {
-//        guard let rootView = rootView else {
-        guard let _ = rootView else {
-            // os log "no root view"
-            return
-        }
-        
         NSLayoutConstraint.activate([
-            
+            headerView.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: Constants.headerHeight),
         ])
+    }
+    
+}
+
+
+extension UserInfoVCUIConfig {
+    
+    enum Constants {
+        
+        static let padding:         CGFloat     = 20
+        static let headerHeight:    CGFloat     = 180
+        
+        
     }
     
 }

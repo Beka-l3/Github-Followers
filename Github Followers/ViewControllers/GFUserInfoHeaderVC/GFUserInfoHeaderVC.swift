@@ -10,7 +10,11 @@ import UIKit
 
 final class GFUserInfoHeaderVC: UIViewController {
     
-    private var user: User!
+    private var user: User! {
+        didSet {
+            setupData()
+        }
+    }
     
     private let uiConfig = GFUserInfoHeaderVCUIConfig()
     
@@ -42,6 +46,13 @@ extension GFUserInfoHeaderVC {
         uiConfig.rootView = view
         uiConfig.configureUI()
         uiConfig.configureAutoLayout()
+    }
+    
+    private func setupData() {
+        uiConfig.usernameLabel.text     = user.login
+        uiConfig.nameLabel.text         = user.name ?? ""
+        uiConfig.locationLabel.text     = user.location ?? "No Location"
+        uiConfig.bioLabel.text          = user.bio ?? ""
     }
     
 }

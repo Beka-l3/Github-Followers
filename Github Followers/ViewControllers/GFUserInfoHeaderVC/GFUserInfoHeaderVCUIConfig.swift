@@ -18,7 +18,8 @@ final class GFUserInfoHeaderVCUIConfig {
     
     lazy var locationImageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "location")
+        view.image = UIImage(systemName: Constants.locationIconName)
+        view.tintColor = .secondaryLabel
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -33,13 +34,16 @@ final class GFUserInfoHeaderVCUIConfig {
 extension GFUserInfoHeaderVCUIConfig {
     
     func configureUI() {
-        rootView.backgroundColor = .systemBackground
+        rootView.backgroundColor = .clear
         
         rootView.addSubview(avatarImageView)
         rootView.addSubview(usernameLabel)
         rootView.addSubview(locationImageView)
         rootView.addSubview(locationLabel)
         rootView.addSubview(bioLabel)
+        
+        bioLabel.numberOfLines = Constants.numberOfLineForBio
+        
     }
     
     func configureAutoLayout() {
@@ -82,6 +86,8 @@ extension GFUserInfoHeaderVCUIConfig {
     
     enum Constants {
         
+        static let numberOfLineForBio:      Int         = 3
+        
         static let padding:                 CGFloat     = 20
         static let textImagePadding:        CGFloat     = 12
         static let iconTextPadding:         CGFloat     = 5
@@ -92,5 +98,7 @@ extension GFUserInfoHeaderVCUIConfig {
         static let nameLabelYPadding:       CGFloat     = 8
         static let locationIconDimension:   CGFloat     = 20
         static let bioLabelHeigh:           CGFloat     = 60
+        
+        static let locationIconName:        String      = "mapping.and.ellipse"
     }
 }

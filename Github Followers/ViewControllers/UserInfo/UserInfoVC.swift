@@ -29,8 +29,7 @@ final class UserInfoVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.prefersLargeTitles = true
+        configureNavbar()
     }
     
     override func viewWillLayoutSubviews() {
@@ -50,6 +49,13 @@ extension UserInfoVC {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDoneButton))
         navigationItem.rightBarButtonItem = doneButton
         
+    }
+    
+    private func configureNavbar() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.backgroundColor = .secondarySystemBackground
+        navigationController?.navigationBar.tintColor = .systemGreen
     }
     
 }
