@@ -38,12 +38,12 @@ extension GFUserInfoHeaderVCUIConfig {
         
         rootView.addSubview(avatarImageView)
         rootView.addSubview(usernameLabel)
+        rootView.addSubview(nameLabel)
         rootView.addSubview(locationImageView)
         rootView.addSubview(locationLabel)
         rootView.addSubview(bioLabel)
         
         bioLabel.numberOfLines = Constants.numberOfLineForBio
-        
     }
     
     func configureAutoLayout() {
@@ -55,12 +55,12 @@ extension GFUserInfoHeaderVCUIConfig {
             
             usernameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
             usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: Constants.textImagePadding),
-            usernameLabel.leadingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
+//            usernameLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
             usernameLabel.heightAnchor.constraint(equalToConstant: Constants.usernameLabelHeight),
             
             nameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor, constant: Constants.nameLabelYPadding),
             nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: Constants.textImagePadding),
-            nameLabel.leadingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
+//            nameLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
             nameLabel.heightAnchor.constraint(equalToConstant: Constants.usernameLabelHeight),
             
             locationImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: Constants.textImagePadding),
@@ -70,12 +70,12 @@ extension GFUserInfoHeaderVCUIConfig {
             
             locationLabel.centerYAnchor.constraint(equalTo: locationImageView.centerYAnchor),
             locationLabel.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: Constants.iconTextPadding),
-            locationLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
+//            locationLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
             locationLabel.heightAnchor.constraint(equalToConstant: Constants.locationLabelHeight),
             
             bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: Constants.textImagePadding),
             bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
-            bioLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
+//            bioLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
             bioLabel.heightAnchor.constraint(equalToConstant: Constants.bioLabelHeigh),
         ])
     }
@@ -99,6 +99,6 @@ extension GFUserInfoHeaderVCUIConfig {
         static let locationIconDimension:   CGFloat     = 20
         static let bioLabelHeigh:           CGFloat     = 60
         
-        static let locationIconName:        String      = "mapping.and.ellipse"
+        static let locationIconName:        String      = "mappin.and.ellipse"
     }
 }

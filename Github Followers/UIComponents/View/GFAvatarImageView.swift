@@ -12,6 +12,18 @@ final class GFAvatarImageView: UIImageView {
     
     let placeholderImage = UIImage(named: "avatar-placeholder")
     
+    var imageUrl: String? {
+        didSet {
+            if let imageUrl = imageUrl {
+                downloadAvatarImage(from: imageUrl)
+            } else {
+                image = placeholderImage
+            }
+        }
+    }
+    
+    private let cache = NetworkManager.shared.cache
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,4 +46,26 @@ extension GFAvatarImageView {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
+}
+
+
+extension GFAvatarImageView {
+    
+    private func downloadAvatarImage(from urlString: String) {
+        
+        if let image = cache.object(forKey: NSString(string: urlString)) {
+            
+            self.image = image
+            
+        } else {
+            
+            image = .avatarPlaceholder
+            
+            Task {
+                do {
+                    image = try await NetworkManager.shared.getImage(from: urlString)
+                }
+            }
+        }
+    }
 }

@@ -12,8 +12,6 @@ final class FollowerCell: UICollectionViewCell {
     
     static let reuseID = "FollowerCellReuseID"
     
-    let cache = NetworkManager.shared.cache
-    
     lazy var avatarImageView = GFAvatarImageView(frame: .zero)
     lazy var usernameLabel = GFTitleLabel(alignment: .center, fontSize: Constants.usernameLabelFontSize)
     
@@ -37,42 +35,8 @@ extension FollowerCell {
     
     func set(follower: Follower) {
         usernameLabel.text = follower.login
-        downloadAvatarImage(from: follower.avatarUrl)
+        avatarImageView.imageUrl = follower.avatarUrl
     }
-}
- 
-
-extension FollowerCell {
-    
-    private func downloadAvatarImage(from urlString: String) {
-        
-        if let image = cache.object(forKey: NSString(string: urlString)) {
-            
-            avatarImageView.image = image
-            
-        } else {
-            
-            avatarImageView.image = .avatarPlaceholder
-            
-            guard let url = URL(string: urlString) else { return }
-            
-            let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-                guard error == nil else { return }
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-                guard let data = data else { return }
-                guard let image = UIImage(data: data) else { return }
-                
-                self?.cache.setObject(image, forKey: NSString(string: urlString))
-                DispatchQueue.main.async {
-                    self?.avatarImageView.image = image
-                }
-            }
-            
-            task.resume()
-            
-        }
-    }
-    
 }
 
 
@@ -92,21 +56,19 @@ extension FollowerCell {
             usernameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.paddingM),
             usernameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.paddingM),
             usernameLabel.heightAnchor.constraint(equalToConstant: Constants.usernameLabelHeight)
-            
         ])
     }
-    
 }
 
 
 extension FollowerCell {
     
     enum Constants {
+        
         static let padding: CGFloat = 8
         static let paddingM: CGFloat = 12
         
         static let usernameLabelFontSize: CGFloat = 16
         static let usernameLabelHeight: CGFloat = 20
     }
-    
 }

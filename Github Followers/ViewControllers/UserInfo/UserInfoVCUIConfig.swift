@@ -14,8 +14,7 @@ final class UserInfoVCUIConfig {
     
     
     lazy var headerView: UIView = {
-       let view = UIView()
-        view.backgroundColor = .systemPurple
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -40,7 +39,6 @@ extension UserInfoVCUIConfig {
             headerView.heightAnchor.constraint(equalToConstant: Constants.headerHeight),
         ])
     }
-    
 }
 
 
@@ -50,8 +48,5 @@ extension UserInfoVCUIConfig {
         
         static let padding:         CGFloat     = 20
         static let headerHeight:    CGFloat     = 180
-        
-        
     }
-    
 }

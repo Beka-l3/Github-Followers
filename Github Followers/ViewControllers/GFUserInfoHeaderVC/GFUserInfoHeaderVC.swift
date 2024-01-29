@@ -10,9 +10,15 @@ import UIKit
 
 final class GFUserInfoHeaderVC: UIViewController {
     
-    private var user: User! {
+    var user: User! {
         didSet {
-            setupData()
+            setData()
+        }
+    }
+    
+    var avatarUrl: String? {
+        didSet {
+            uiConfig.avatarImageView.imageUrl = avatarUrl
         }
     }
     
@@ -26,19 +32,8 @@ final class GFUserInfoHeaderVC: UIViewController {
         configure()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-    
-    
 }
+
 
 extension GFUserInfoHeaderVC {
     
@@ -48,11 +43,11 @@ extension GFUserInfoHeaderVC {
         uiConfig.configureAutoLayout()
     }
     
-    private func setupData() {
+    private func setData() {
         uiConfig.usernameLabel.text     = user.login
         uiConfig.nameLabel.text         = user.name ?? ""
         uiConfig.locationLabel.text     = user.location ?? "No Location"
         uiConfig.bioLabel.text          = user.bio ?? ""
     }
-    
+        
 }

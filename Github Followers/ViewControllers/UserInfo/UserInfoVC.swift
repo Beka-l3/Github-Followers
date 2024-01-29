@@ -13,10 +13,14 @@ final class UserInfoVC: UIViewController {
     
     var follower: Follower!
     
-    private var user: User!
+    private var user: User! {
+        didSet {
+            headerVC.user = user
+        }
+    }
     
     private let uiConfig = UserInfoVCUIConfig()
-    
+    private let headerVC = GFUserInfoHeaderVC()
     
     
 //    MARK: lifecycle
@@ -36,8 +40,8 @@ final class UserInfoVC: UIViewController {
         super.viewWillLayoutSubviews()
     }
     
-    
 }
+
 
 extension UserInfoVC {
     
@@ -49,6 +53,7 @@ extension UserInfoVC {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDoneButton))
         navigationItem.rightBarButtonItem = doneButton
         
+        configureViewControllers()
     }
     
     private func configureNavbar() {
@@ -58,6 +63,9 @@ extension UserInfoVC {
         navigationController?.navigationBar.tintColor = .systemGreen
     }
     
+    private func configureViewControllers() {
+        add(childVC: headerVC, to: uiConfig.headerView)
+    }
 }
 
 
@@ -66,25 +74,30 @@ extension UserInfoVC {
     @objc func handleDoneButton() {
         dismiss(animated: true)
     }
-    
 }
+
 
 extension UserInfoVC {
     
     private func fetchUser() {
         Task {
-            
             do {
-                let user = try await NetworkManager.shared.getUser(for: follower.login)
-                
-                print(user)
-                
+                user = try await NetworkManager.shared.getUser(for: follower.login)
+                headerVC.avatarUrl = follower.avatarUrl
             } catch {
-                print(error)
-                print(error.localizedDescription)
+                print(error, error.localizedDescription, separator: "\n")
             }
-            
         }
     }
+}
+
+
+extension UserInfoVC {
     
+    private func add(childVC: UIViewController, to containerView: UIView) {
+        addChild(childVC)
+        containerView.addSubview(childVC.view)
+        childVC.view.frame = containerView.frame
+        childVC.didMove(toParent: self)
+    }
 }
