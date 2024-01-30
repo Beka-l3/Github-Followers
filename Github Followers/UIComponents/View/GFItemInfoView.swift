@@ -49,8 +49,13 @@ final class GFItemInfoView: UIView {
 extension GFItemInfoView {
     
     private func configure() {
-        titleLabel.text = "Item"
-        countLabel.text = "0"
+        titleLabel.text = Constants.titleLabelTextDefault
+        countLabel.text = Constants.countLabelTextDefault
+        
+        addSubview(systemImageView)
+        addSubview(titleLabel)
+        addSubview(countLabel)
+        
         translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -85,19 +90,19 @@ extension GFItemInfoView {
         switch type {
             
         case .repos:
-            titleLabel.text = "Public Respos"
+            titleLabel.text = Constants.reposTitleText
             
         case .gists:
-            titleLabel.text = "Public Gists"
+            titleLabel.text = Constants.gistsTitleText
             
         case .followers:
-            titleLabel.text = "Followers"
+            titleLabel.text = Constants.followersTitleText
             
         case .following:
-            titleLabel.text = "Following"
+            titleLabel.text = Constants.followingTitleText
             
         case .none:
-            titleLabel.text = "Item"
+            titleLabel.text = Constants.titleLabelTextDefault
         }
     }
 }
@@ -116,5 +121,9 @@ extension GFItemInfoView {
         
         static let titleLabelTextDefault:       String      = "Item"
         static let countLabelTextDefault:       String      = "0"
+        static let reposTitleText:              String      = "Public Respos"
+        static let gistsTitleText:              String      = "Public Gistss"
+        static let followingTitleText:          String      = "Following"
+        static let followersTitleText:          String      = "Followers"
     }
 }

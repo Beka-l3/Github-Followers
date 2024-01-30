@@ -10,12 +10,6 @@ import UIKit
 
 final class GFItemInfoVCUIConfig {
     
-    enum InfoType {
-        case projects(repos: Int, gists: Int)
-        case people(following: Int, followers: Int)
-    }
-    
-    
     weak var rootView: UIView!
     
     
@@ -61,7 +55,7 @@ extension GFItemInfoVCUIConfig {
         ])
     }
     
-    func configureInfoType(type: InfoType) {
+    func configureInfoType(type: GFItemInfoVC.InfoType) {
         
         switch type {
             
@@ -76,6 +70,9 @@ extension GFItemInfoVCUIConfig {
             itemInfoTwo.setData(type: .followers, count: followers)
             button.backgroundColor = .systemGreen
             button.setTitle(Constants.peopleButtonTitle, for: .normal)
+            
+        case .none:
+            break
             
         }
     }

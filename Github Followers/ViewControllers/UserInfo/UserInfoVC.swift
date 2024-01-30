@@ -16,7 +16,8 @@ final class UserInfoVC: UIViewController {
     
     private let uiConfig = UserInfoVCUIConfig()
     private let headerVC = GFUserInfoHeaderVC()
-    
+    private let itemInfoVCOne = GFItemInfoVC()
+    private let itemInfoVCTwo = GFItemInfoVC()
     
 //    MARK: lifecycle
     override func viewDidLoad() {
@@ -52,7 +53,13 @@ extension UserInfoVC {
     }
     
     private func configureViewControllers() {
+        headerVC.avatarUrl = follower.avatarUrl
+        itemInfoVCOne.setType(.projects(repos: user.publicRepos, gists: user.publicGists))
+        itemInfoVCTwo.setType(.people(following: user.following, followers: user.followers))
+        
         add(childVC: headerVC, to: uiConfig.headerView)
+        add(childVC: itemInfoVCOne, to: uiConfig.itemViewOne)
+        add(childVC: itemInfoVCTwo, to: uiConfig.itemViewTwo)
     }
 }
 
@@ -71,7 +78,6 @@ extension UserInfoVC {
         Task {
             do {
                 user = try await NetworkManager.shared.getUser(for: follower.login)
-                headerVC.avatarUrl = follower.avatarUrl
                 configureViewControllers()
                 
             } catch {

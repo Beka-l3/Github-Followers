@@ -21,14 +21,12 @@ final class UserInfoVCUIConfig {
     
     lazy var itemViewOne: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemPink
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var itemViewTwo: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemBlue
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
