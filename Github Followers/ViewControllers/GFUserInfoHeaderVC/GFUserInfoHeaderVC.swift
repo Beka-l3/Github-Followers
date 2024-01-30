@@ -10,17 +10,8 @@ import UIKit
 
 final class GFUserInfoHeaderVC: UIViewController {
     
-    var user: User! {
-        didSet {
-            setData()
-        }
-    }
-    
-    var avatarUrl: String? {
-        didSet {
-            uiConfig.avatarImageView.imageUrl = avatarUrl
-        }
-    }
+    var user:       User!   { didSet { setData() } }
+    var avatarUrl:  String? { didSet { uiConfig.avatarImageView.imageUrl = avatarUrl } }
     
     private let uiConfig = GFUserInfoHeaderVCUIConfig()
     

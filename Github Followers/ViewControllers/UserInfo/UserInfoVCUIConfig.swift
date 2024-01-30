@@ -53,7 +53,6 @@ extension UserInfoVCUIConfig {
         rootView.addSubview(scrollView)
         
         scrollView.addSubview(headerView)
-        
         scrollView.addSubview(itemViewOne)
         scrollView.addSubview(itemViewTwo)
     }

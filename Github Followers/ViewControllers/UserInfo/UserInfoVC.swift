@@ -12,11 +12,7 @@ final class UserInfoVC: UIViewController {
     
     var follower: Follower!
     
-    private var user: User! {
-        didSet {
-            headerVC.user = user
-        }
-    }
+    private var user: User! { didSet { headerVC.user = user } }
     
     private let uiConfig = UserInfoVCUIConfig()
     private let headerVC = GFUserInfoHeaderVC()
@@ -34,11 +30,6 @@ final class UserInfoVC: UIViewController {
         
         configureNavbar()
     }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-    
 }
 
 
