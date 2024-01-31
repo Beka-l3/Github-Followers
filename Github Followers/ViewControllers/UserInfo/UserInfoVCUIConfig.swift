@@ -31,6 +31,8 @@ final class UserInfoVCUIConfig {
         return view
     }()
     
+    lazy var dateLabel = GFBodyLabel(alignment: .center)
+    
     lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.backgroundColor = .clear
@@ -53,6 +55,7 @@ extension UserInfoVCUIConfig {
         scrollView.addSubview(headerView)
         scrollView.addSubview(itemViewOne)
         scrollView.addSubview(itemViewTwo)
+        scrollView.addSubview(dateLabel)
     }
     
     func configureAutoLayout() {
@@ -81,8 +84,20 @@ extension UserInfoVCUIConfig {
             itemViewTwo.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -Constants.padding),
             itemViewTwo.heightAnchor.constraint(equalToConstant: Constants.headerHeight),
             
-            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: Constants.padding),
+            dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: Constants.padding),
+            dateLabel.centerXAnchor.constraint(equalTo: scrollView.contentLayoutGuide.centerXAnchor),
+            dateLabel.heightAnchor.constraint(equalToConstant: Constants.dateLabelHeight),
+            
+            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: Constants.padding),
         ])
+    }
+}
+
+
+extension UserInfoVCUIConfig {
+    
+    func setDate(dateString: String) {
+        dateLabel.text = Constants.dateLabelPrefix + dateString.convertToDisplayFormat()
     }
 }
 
@@ -94,7 +109,10 @@ extension UserInfoVCUIConfig {
         static let padding:                     CGFloat     = 20
         static let headerHeight:                CGFloat     = 180
         static let itemViewHeight:              CGFloat     = 140
+        static let dateLabelHeight:             CGFloat     = 18
         
         static let scrollViewContentHeight:     CGFloat     = headerHeight + 2 * itemViewHeight + 3 * padding
+        
+        static let dateLabelPrefix:              String     = "Github since "
     }
 }

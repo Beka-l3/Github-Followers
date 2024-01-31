@@ -52,11 +52,14 @@ extension UserInfoVC {
         navigationController?.navigationBar.tintColor = .systemGreen
     }
     
-    private func configureViewControllers() {
+    private func configureInfo() {
         headerVC.avatarUrl = follower.avatarUrl
         itemInfoVCOne.setType(.projects(repos: user.publicRepos, gists: user.publicGists))
         itemInfoVCTwo.setType(.people(following: user.following, followers: user.followers))
-        
+        uiConfig.setDate(dateString: user.createdAt)
+    }
+    
+    private func configureViewControllers() {
         add(childVC: headerVC, to: uiConfig.headerView)
         add(childVC: itemInfoVCOne, to: uiConfig.itemViewOne)
         add(childVC: itemInfoVCTwo, to: uiConfig.itemViewTwo)
@@ -78,6 +81,7 @@ extension UserInfoVC {
         Task {
             do {
                 user = try await NetworkManager.shared.getUser(for: follower.login)
+                configureInfo()
                 configureViewControllers()
                 
             } catch {

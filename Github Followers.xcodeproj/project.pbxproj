@@ -41,6 +41,8 @@
 		07E054FB2B66C6AB00A8B6A5 /* FollowersListVC+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E054FA2B66C6AB00A8B6A5 /* FollowersListVC+Search.swift */; };
 		07F23EF32B69676D00ED2129 /* GFItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F23EF22B69676D00ED2129 /* GFItemInfoVC.swift */; };
 		07F23EF52B69679100ED2129 /* GFItemInfoVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F23EF42B69679100ED2129 /* GFItemInfoVCUIConfig.swift */; };
+		07F23EF72B697DC900ED2129 /* Date+ConverteToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F23EF62B697DC900ED2129 /* Date+ConverteToString.swift */; };
+		07F23EF92B697DF200ED2129 /* String+ConverteToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F23EF82B697DF200ED2129 /* String+ConverteToDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		07E054FA2B66C6AB00A8B6A5 /* FollowersListVC+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersListVC+Search.swift"; sourceTree = "<group>"; };
 		07F23EF22B69676D00ED2129 /* GFItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVC.swift; sourceTree = "<group>"; };
 		07F23EF42B69679100ED2129 /* GFItemInfoVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVCUIConfig.swift; sourceTree = "<group>"; };
+		07F23EF62B697DC900ED2129 /* Date+ConverteToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ConverteToString.swift"; sourceTree = "<group>"; };
+		07F23EF82B697DF200ED2129 /* String+ConverteToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ConverteToDate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,8 @@
 				077898FA2B65CBF4004BB732 /* UIViewController+Show.swift */,
 				0715C20D2B66741E005BA206 /* UIViewController+ActivityIndicator.swift */,
 				0715C2112B667D71005BA206 /* UIViewController+EmptyState.swift */,
+				07F23EF62B697DC900ED2129 /* Date+ConverteToString.swift */,
+				07F23EF82B697DF200ED2129 /* String+ConverteToDate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,6 +398,7 @@
 				077898EB2B6596B3004BB732 /* SearchVCUIConfig.swift in Sources */,
 				0741DA5D2B67B82C00E02CE3 /* GFSecondaryTitleLabel.swift in Sources */,
 				077899022B65D39E004BB732 /* Follower.swift in Sources */,
+				07F23EF72B697DC900ED2129 /* Date+ConverteToString.swift in Sources */,
 				077898E52B659360004BB732 /* GFTextField.swift in Sources */,
 				07E054F72B66C41600A8B6A5 /* UserInfoVCUIConfig.swift in Sources */,
 				07F23EF32B69676D00ED2129 /* GFItemInfoVC.swift in Sources */,
@@ -407,6 +414,7 @@
 				0715C2122B667D71005BA206 /* UIViewController+EmptyState.swift in Sources */,
 				0778990D2B65FAAB004BB732 /* GFAvatarImageView.swift in Sources */,
 				077898F62B65B286004BB732 /* GFAlertVC.swift in Sources */,
+				07F23EF92B697DF200ED2129 /* String+ConverteToDate.swift in Sources */,
 				07E054FB2B66C6AB00A8B6A5 /* FollowersListVC+Search.swift in Sources */,
 				077898E12B6562E3004BB732 /* FavoritesListVC.swift in Sources */,
 				077899042B65D454004BB732 /* User.swift in Sources */,

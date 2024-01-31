@@ -28,8 +28,8 @@ final class GFItemInfoView: UIView {
         return view
     }()
     
-    lazy var titleLabel = GFTitleLabel(alignment: .left, fontSize: 14)
-    lazy var countLabel = GFTitleLabel(alignment: .center, fontSize: 14)
+    lazy var titleLabel = GFTitleLabel(alignment: .left, fontSize: 15)
+    lazy var countLabel = GFTitleLabel(alignment: .center, fontSize: 15)
     
     private var type: ItemType = .none
     
