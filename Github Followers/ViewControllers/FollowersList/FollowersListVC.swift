@@ -91,6 +91,7 @@ extension FollowersListVC {
     func fetchFollowers() {
         showLoadingView()
         
+        
         Task {
             do {
                 followers += try await NetworkManager.shared.getFollowers(for: username, page: page)

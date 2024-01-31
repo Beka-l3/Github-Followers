@@ -16,10 +16,10 @@ extension UserInfoVC: GFItemInfoVCDelegate {
         switch type {
             
         case .projects:
-            print("Get profile")
+            showSafariView()
             
         case .people:
-            print("Get followers")
+            dismissAndPassNewUsername()
             
         default:
             break
@@ -27,18 +27,18 @@ extension UserInfoVC: GFItemInfoVCDelegate {
         }
     }
     
-    func showSafariView() {
+    private func showSafariView() {
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "OK")
             return
         }
         
-        let safariVC = SFSafariViewController(url: url)
-        safariVC.preferredBarTintColor = .systemGreen
-        present(safariVC, animated: true)
+        presentSafariVC(with: url)
     }
     
-    
+    private func dismissAndPassNewUsername() {
+        delegate?.getFollowers(for: user.login)
+    }
 }
 
 

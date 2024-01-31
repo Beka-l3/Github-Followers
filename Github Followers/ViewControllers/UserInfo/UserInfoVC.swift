@@ -8,9 +8,16 @@
 import UIKit
 
 
+protocol UserInfoVCDelegate: AnyObject {
+    func getFollowers(for username: String)
+}
+
+
 final class UserInfoVC: UIViewController {
     
     var follower: Follower!
+    
+    weak var delegate: UserInfoVCDelegate?
     
     private(set) var user: User! { didSet { headerVC.user = user } }
     
