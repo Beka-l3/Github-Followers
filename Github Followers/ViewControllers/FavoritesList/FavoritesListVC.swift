@@ -54,6 +54,10 @@ extension FavoritesListVC {
 
 extension FavoritesListVC {
     
+    func removeFavorite(at indexPath: IndexPath) {
+        favorites.remove(at: indexPath.item)
+    }
+    
     func pushFollowersListVC(username: String) {
         let followersListVC = FollowersListVC()
         followersListVC.resetUsername(to: username)
