@@ -38,7 +38,7 @@ extension UserInfoVC: GFItemInfoVCDelegate {
     
     private func dismissAndPassNewUsername() {
         guard user.followers > 0 else {
-            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers on their github account. What a shame 🙃", buttonTitle: "OK")
+            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers on their github account. What a shame 🙃", buttonTitle: "So sad")
             return
         }
         

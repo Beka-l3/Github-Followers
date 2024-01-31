@@ -87,6 +87,7 @@ extension FollowersListVC {
         self.username = username
         self.followers = []
         self.filteredFollowers = []
+//        uiConfig.collectionView.setContentOffset(.zero, animated: true)
         updateData(on: [])
         title = username
     }
