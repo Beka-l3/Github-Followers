@@ -38,6 +38,7 @@ extension UserInfoVC: GFItemInfoVCDelegate {
     
     private func dismissAndPassNewUsername() {
         delegate?.getFollowers(for: user.login)
+        dismiss(animated: true)
     }
 }
 
