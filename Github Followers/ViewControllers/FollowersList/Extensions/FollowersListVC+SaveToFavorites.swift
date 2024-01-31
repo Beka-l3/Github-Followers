@@ -26,13 +26,13 @@ extension FollowersListVC {
             } catch {
                 
                 if let networkError = error as? NetworkService.ServiceError {
-                    
                     presentGFAlertOnMainThread(title: "Network error", message: networkError.rawValue, buttonTitle: "OK")
                     
                 } else if let persistenceError = error as? PersistenceService.ServiceError {
-                    
                     presentGFAlertOnMainThread(title: "Storage error", message: persistenceError.rawValue, buttonTitle: "OK")
                     
+                }  else {
+                    presentGFAlertOnMainThread(title: "Somthing went wrong", message: error.localizedDescription, buttonTitle: "OK")
                 }
             }
             

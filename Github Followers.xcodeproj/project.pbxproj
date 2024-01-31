@@ -41,6 +41,9 @@
 		07C5CBE42B6A8D8800C8A02E /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBE32B6A8D8800C8A02E /* PersistenceService.swift */; };
 		07C5CBE62B6A962B00C8A02E /* FollowersListVC+SaveToFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBE52B6A962B00C8A02E /* FollowersListVC+SaveToFavorites.swift */; };
 		07C5CBE82B6A9A6100C8A02E /* FollowersListVC+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBE72B6A9A6100C8A02E /* FollowersListVC+Fetch.swift */; };
+		07C5CBEA2B6A9BF000C8A02E /* FavoritesListVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBE92B6A9BF000C8A02E /* FavoritesListVCUIConfig.swift */; };
+		07C5CBEC2B6AA0EC00C8A02E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBEB2B6AA0EC00C8A02E /* FavoriteCell.swift */; };
+		07C5CBEE2B6AA56200C8A02E /* FavoritesListVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBED2B6AA56100C8A02E /* FavoritesListVC+TableView.swift */; };
 		07DD2BD12B691358009779EA /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD2BD02B691358009779EA /* GFItemInfoView.swift */; };
 		07E054F52B66C3FE00A8B6A5 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E054F42B66C3FE00A8B6A5 /* UserInfoVC.swift */; };
 		07E054F72B66C41600A8B6A5 /* UserInfoVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E054F62B66C41600A8B6A5 /* UserInfoVCUIConfig.swift */; };
@@ -89,6 +92,9 @@
 		07C5CBE32B6A8D8800C8A02E /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		07C5CBE52B6A962B00C8A02E /* FollowersListVC+SaveToFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersListVC+SaveToFavorites.swift"; sourceTree = "<group>"; };
 		07C5CBE72B6A9A6100C8A02E /* FollowersListVC+Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersListVC+Fetch.swift"; sourceTree = "<group>"; };
+		07C5CBE92B6A9BF000C8A02E /* FavoritesListVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVCUIConfig.swift; sourceTree = "<group>"; };
+		07C5CBEB2B6AA0EC00C8A02E /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		07C5CBED2B6AA56100C8A02E /* FavoritesListVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesListVC+TableView.swift"; sourceTree = "<group>"; };
 		07DD2BD02B691358009779EA /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 		07E054F42B66C3FE00A8B6A5 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		07E054F62B66C41600A8B6A5 /* UserInfoVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVCUIConfig.swift; sourceTree = "<group>"; };
@@ -200,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				077898E02B6562E3004BB732 /* FavoritesListVC.swift */,
+				07C5CBE92B6A9BF000C8A02E /* FavoritesListVCUIConfig.swift */,
+				07C5CBED2B6AA56100C8A02E /* FavoritesListVC+TableView.swift */,
 			);
 			path = FavoritesList;
 			sourceTree = "<group>";
@@ -289,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				077899092B65EC67004BB732 /* FollowerCell.swift */,
+				07C5CBEB2B6AA0EC00C8A02E /* FavoriteCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -444,6 +453,7 @@
 				0741DA5D2B67B82C00E02CE3 /* GFSecondaryTitleLabel.swift in Sources */,
 				07C5CBE62B6A962B00C8A02E /* FollowersListVC+SaveToFavorites.swift in Sources */,
 				077899022B65D39E004BB732 /* Follower.swift in Sources */,
+				07C5CBEE2B6AA56200C8A02E /* FavoritesListVC+TableView.swift in Sources */,
 				07F23EF72B697DC900ED2129 /* Date+ConverteToString.swift in Sources */,
 				077898E52B659360004BB732 /* GFTextField.swift in Sources */,
 				07E054F72B66C41600A8B6A5 /* UserInfoVCUIConfig.swift in Sources */,
@@ -462,6 +472,8 @@
 				0778990D2B65FAAB004BB732 /* GFAvatarImageView.swift in Sources */,
 				077898F62B65B286004BB732 /* GFAlertVC.swift in Sources */,
 				07C5CBE02B6A557200C8A02E /* FollowersListVC+UserInfoVCDelegate.swift in Sources */,
+				07C5CBEA2B6A9BF000C8A02E /* FavoritesListVCUIConfig.swift in Sources */,
+				07C5CBEC2B6AA0EC00C8A02E /* FavoriteCell.swift in Sources */,
 				07F23EF92B697DF200ED2129 /* String+ConverteToDate.swift in Sources */,
 				07E054FB2B66C6AB00A8B6A5 /* FollowersListVC+Search.swift in Sources */,
 				077898E12B6562E3004BB732 /* FavoritesListVC.swift in Sources */,

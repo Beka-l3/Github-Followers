@@ -65,7 +65,6 @@ extension UserInfoVC {
         itemInfoVCOne.setType(.projects(repos: user.publicRepos, gists: user.publicGists))
         itemInfoVCTwo.setType(.people(following: user.following, followers: user.followers))
         uiConfig.setDate(dateString: user.createdAt)
-        print(user.createdAt)
     }
     
     private func configureViewControllers() {
@@ -97,7 +96,13 @@ extension UserInfoVC {
                 configureViewControllers()
                 
             } catch {
-                print(error, error.localizedDescription, separator: "\n")
+                
+                if let networkError = error as? NetworkService.ServiceError {
+                    presentGFAlertOnMainThread(title: "Network error", message: networkError.rawValue, buttonTitle: "OK")
+                    
+                } else {
+                    presentGFAlertOnMainThread(title: "Network error", message: error.localizedDescription, buttonTitle: "OK")
+                }
             }
         }
     }

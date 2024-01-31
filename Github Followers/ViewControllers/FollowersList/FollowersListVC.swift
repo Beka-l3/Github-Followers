@@ -33,6 +33,7 @@ final class FollowersListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        configureNavbar()
         fetchFollowers()
     }
     
@@ -59,7 +60,9 @@ extension FollowersListVC {
         uiConfig.collectionView.delegate = self
         uiConfig.searchController.searchResultsUpdater = self
         uiConfig.searchController.searchBar.delegate = self
-        
+    }
+    
+    private func configureNavbar() {
         navigationItem.searchController = uiConfig.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
@@ -100,7 +103,6 @@ extension FollowersListVC {
         self.username = username
         self.followers = []
         self.filteredFollowers = []
-//        uiConfig.collectionView.setContentOffset(.zero, animated: true)
         updateData(on: [])
         title = username
     }
