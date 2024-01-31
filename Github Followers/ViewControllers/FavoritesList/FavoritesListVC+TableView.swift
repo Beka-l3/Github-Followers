@@ -31,9 +31,10 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         
+        let favorite = favorites[indexPath.item]
         removeFavorite(at: indexPath)
         tableView.deleteRows(at: [indexPath], with: .left)
-        removeFavoriteFromStorage(favorites[indexPath.item])
+        removeFavoriteFromStorage(favorite)
     }
     
     private func removeFavoriteFromStorage(_ favorite: Follower) {
