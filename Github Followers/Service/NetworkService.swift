@@ -8,9 +8,9 @@
 import UIKit
 
 
-final class NetworkManager {
+final class NetworkService {
     
-    static let shared = NetworkManager()
+    static let shared = NetworkService()
     
     let baseUrl = "https://api.github.com/users"
     let perPage = 100
@@ -19,11 +19,10 @@ final class NetworkManager {
     
     
     private init() { }
-    
 }
 
 
-extension NetworkManager {
+extension NetworkService {
     
     private func decodeData<T: Decodable>(from endpoint: String) async throws -> T {
         let data = try await getData(endpoint: endpoint)
@@ -38,7 +37,7 @@ extension NetworkManager {
     private func getData(endpoint: String) async throws -> Data {
         return try await withCheckedThrowingContinuation { continuation in
             guard let url = URL(string: endpoint) else {
-                continuation.resume(throwing: NetworkManager.ServiceError.badUrl)
+                continuation.resume(throwing: NetworkService.ServiceError.badUrl)
                 return
             }
             
@@ -50,12 +49,12 @@ extension NetworkManager {
                 }
                 
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    continuation.resume(throwing: NetworkManager.ServiceError.badResponse)
+                    continuation.resume(throwing: NetworkService.ServiceError.badResponse)
                     return
                 }
                 
                 guard let data = data else {
-                    continuation.resume(throwing: NetworkManager.ServiceError.invalidData)
+                    continuation.resume(throwing: NetworkService.ServiceError.invalidData)
                     return
                 }
                 
@@ -68,7 +67,7 @@ extension NetworkManager {
 }
 
 
-extension NetworkManager {
+extension NetworkService {
     
     func getFollowers(for username: String, page: Int) async throws -> [Follower] {
         let endpoint = self.baseUrl + "/\(username)/followers" + "?per_page=\(self.perPage)&page=\(page)"
@@ -94,7 +93,7 @@ extension NetworkManager {
 }
 
 
-extension NetworkManager {
+extension NetworkService {
     
     enum ServiceError: String, Error {
         

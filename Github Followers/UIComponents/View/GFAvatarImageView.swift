@@ -22,7 +22,7 @@ final class GFAvatarImageView: UIImageView {
         }
     }
     
-    private let cache = NetworkManager.shared.cache
+    private let cache = NetworkService.shared.cache
     
     
     override init(frame: CGRect) {
@@ -63,7 +63,7 @@ extension GFAvatarImageView {
             
             Task {
                 do {
-                    image = try await NetworkManager.shared.getImage(from: urlString)
+                    image = try await NetworkService.shared.getImage(from: urlString)
                 }
             }
         }

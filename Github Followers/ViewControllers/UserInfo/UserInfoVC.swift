@@ -92,7 +92,7 @@ extension UserInfoVC {
     private func fetchUser() {
         Task {
             do {
-                user = try await NetworkManager.shared.getUser(for: follower.login)
+                user = try await NetworkService.shared.getUser(for: follower.login)
                 configureInfo()
                 configureViewControllers()
                 

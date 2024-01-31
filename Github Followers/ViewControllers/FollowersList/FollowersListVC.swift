@@ -47,7 +47,6 @@ final class FollowersListVC: UIViewController {
         super.viewWillLayoutSubviews()
         uiConfig.configureFrames()
     }
-    
 }
 
 
@@ -63,8 +62,10 @@ extension FollowersListVC {
         
         navigationItem.searchController = uiConfig.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToFavorites))
+        navigationItem.rightBarButtonItem = addButton
     }
-    
 }
 
 
@@ -101,7 +102,7 @@ extension FollowersListVC {
         
         Task {
             do {
-                followers += try await NetworkManager.shared.getFollowers(for: username, page: page)
+                followers += try await NetworkService.shared.getFollowers(for: username, page: page)
                 
                 if followers.isEmpty {
                     showEmptyStateView(with: "This user does not haveany followers. So, go follow them 🙃", in: view)
@@ -109,13 +110,13 @@ extension FollowersListVC {
                 }
                 
                 updateData(on: followers)
-                hasMoreFollowers = followers.count >= NetworkManager.shared.perPage
+                hasMoreFollowers = followers.count >= NetworkService.shared.perPage
                 page += 1
                 
             } catch {
                 
                 var message = "Something went wrong"
-                if let error = error as? NetworkManager.ServiceError {
+                if let error = error as? NetworkService.ServiceError {
                     message = error.rawValue
                 }
                 
@@ -130,5 +131,13 @@ extension FollowersListVC {
     func fetchFollowersForNewUsername(_ username: String) {
         resetUsername(to: username)
         fetchFollowers()
+    }
+}
+
+
+extension FollowersListVC {
+    
+    @objc func addToFavorites() {
+        
     }
 }
