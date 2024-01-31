@@ -75,6 +75,18 @@ extension FollowersListVC {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
+    func appendToFavorites(_ array: [Follower]) {
+        followers += array
+    }
+    
+    func setHasMoreFollowers(_ newValue: Bool) {
+        hasMoreFollowers = newValue
+    }
+    
+    func incrementPage() {
+        page += 1
+    }
+    
     func setFilteredFollowers(_ newValue: [Follower]) {
         self.filteredFollowers = newValue
     }
@@ -94,42 +106,3 @@ extension FollowersListVC {
     }
 }
 
-
-extension FollowersListVC {
-    
-    func fetchFollowers() {
-        showLoadingView()
-        
-        Task {
-            do {
-                followers += try await NetworkService.shared.getFollowers(for: username, page: page)
-                
-                if followers.isEmpty {
-                    showEmptyStateView(with: "This user does not haveany followers. So, go follow them 🙃", in: view)
-                    return
-                }
-                
-                updateData(on: followers)
-                hasMoreFollowers = followers.count >= NetworkService.shared.perPage
-                page += 1
-                
-            } catch {
-                
-                var message = "Something went wrong"
-                if let error = error as? NetworkService.ServiceError {
-                    message = error.rawValue
-                }
-                
-                presentGFAlertOnMainThread(title: "Got an error", message: message, buttonTitle: "OK")
-                // os log: "error", error, error.localizedDescription
-            }
-            
-            dismissLoadingView()
-        }
-    }
-    
-    func fetchFollowersForNewUsername(_ username: String) {
-        resetUsername(to: username)
-        fetchFollowers()
-    }
-}
