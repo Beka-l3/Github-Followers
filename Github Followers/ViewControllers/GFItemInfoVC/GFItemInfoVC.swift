@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol GFItemInfoVCDelegate: AnyObject {
-    func handleItemInfoButton(sender: UIButton)
+    func handleItemInfoButton(of type: GFItemInfoVC.InfoType)
 }
 
 
@@ -53,27 +53,14 @@ extension GFItemInfoVC {
     func setType(_ type: InfoType) {
         self.type = type
         uiConfig.configureInfoType(type: type)
-        
-        switch type {
-        
-        case .projects:
-            uiConfig.button.tag = 1
-            
-        case .people:
-            uiConfig.button.tag = 2
-            
-        case .none:
-            break
-            
-        }
     }
 }
 
 
 extension GFItemInfoVC {
     
-    @objc func handleButton(sender: UIButton) {
-        delegate?.handleItemInfoButton(sender: sender)
+    @objc func handleButton() {
+        delegate?.handleItemInfoButton(of: type)
     }
     
 }

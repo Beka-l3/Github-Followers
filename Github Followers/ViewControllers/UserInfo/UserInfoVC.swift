@@ -12,12 +12,13 @@ final class UserInfoVC: UIViewController {
     
     var follower: Follower!
     
-    private var user: User! { didSet { headerVC.user = user } }
+    private(set) var user: User! { didSet { headerVC.user = user } }
     
     private let uiConfig = UserInfoVCUIConfig()
     private let headerVC = GFUserInfoHeaderVC()
     private let itemInfoVCOne = GFItemInfoVC()
     private let itemInfoVCTwo = GFItemInfoVC()
+    
     
 //    MARK: lifecycle
     override func viewDidLoad() {
@@ -76,7 +77,6 @@ extension UserInfoVC {
     @objc func handleDoneButton() {
         dismiss(animated: true)
     }
-    
 }
 
 
@@ -107,24 +107,3 @@ extension UserInfoVC {
     }
 }
 
-
-extension UserInfoVC: GFItemInfoVCDelegate {
-    
-    func handleItemInfoButton(sender: UIButton) {
-        
-        switch sender.tag {
-            
-        case 1:
-            print("Get profile")
-            
-        case 2:
-            print("Get followers")
-            
-        default:
-            break
-            
-        }
-        
-    }
-    
-}
