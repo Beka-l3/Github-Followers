@@ -25,5 +25,6 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        pushFollowersListVC(username: favorites[indexPath.item].login)
     }
 }
