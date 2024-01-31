@@ -39,6 +39,22 @@ extension PersistenceService {
             
         }
     }
+    
+    static func saveFavorites(_ favorites: [Follower]) async throws {
+        
+        do {
+            
+            let encoder = JSONEncoder()
+            let favoritesData = try encoder.encode(favorites)
+            
+            defaults.setValue(favoritesData, forKey: Keys.favorites)
+            
+        } catch {
+            
+            throw ServiceError.unableToSave
+            
+        }
+    }
 }
 
 
@@ -48,5 +64,6 @@ extension PersistenceService {
         
         case noData             = "No data found in storage"
         case unableToFavorite   = "There was an error favoriting this user. Please try again."
+        case unableToSave       = "Could not decode into the data and asave it in storage. Please try again"
     }
 }
