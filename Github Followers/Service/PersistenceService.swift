@@ -20,6 +20,31 @@ extension PersistenceService {
         static let favorites = "favorites"
     }
     
+    enum ActionType {
+        case add, remove
+    }
+}
+
+
+extension PersistenceService {
+    
+    static func updateWith(favorite: Follower, action: ActionType) async throws {
+        let favorites = try await retrieveFavorites()
+        var mutableFavorites = favorites
+        
+        switch action {
+            
+        case .add:
+            guard !mutableFavorites.contains(favorite) else { throw ServiceError.alreadyInFavorites }
+            mutableFavorites.append(favorite)
+ 
+        case .remove:
+            mutableFavorites.removeAll { $0.login == favorite.login }
+            
+        }
+        
+        try await saveFavorites(mutableFavorites)
+    }
     
     static func retrieveFavorites() async throws -> [Follower] {
         guard let favoritesData = defaults.object(forKey: Keys.favorites) as? Data else {
@@ -41,7 +66,6 @@ extension PersistenceService {
     }
     
     static func saveFavorites(_ favorites: [Follower]) async throws {
-        
         do {
             
             let encoder = JSONEncoder()
@@ -62,8 +86,9 @@ extension PersistenceService {
     
     enum ServiceError: String, Error {
         
-        case noData             = "No data found in storage"
-        case unableToFavorite   = "There was an error favoriting this user. Please try again."
-        case unableToSave       = "Could not decode into the data and asave it in storage. Please try again"
+        case noData                 = "No data found in storage"
+        case unableToFavorite       = "There was an error favoriting this user. Please try again."
+        case unableToSave           = "Could not decode into the data and asave it in storage. Please try again"
+        case alreadyInFavorites     = "You've already favorited this user. You must REALLY like them 🙃"
     }
 }
