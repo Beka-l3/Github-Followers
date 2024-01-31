@@ -57,12 +57,16 @@ extension UserInfoVC {
         itemInfoVCOne.setType(.projects(repos: user.publicRepos, gists: user.publicGists))
         itemInfoVCTwo.setType(.people(following: user.following, followers: user.followers))
         uiConfig.setDate(dateString: user.createdAt)
+        print(user.createdAt)
     }
     
     private func configureViewControllers() {
         add(childVC: headerVC, to: uiConfig.headerView)
         add(childVC: itemInfoVCOne, to: uiConfig.itemViewOne)
         add(childVC: itemInfoVCTwo, to: uiConfig.itemViewTwo)
+        
+        itemInfoVCOne.delegate = self
+        itemInfoVCTwo.delegate = self
     }
 }
 
@@ -72,6 +76,7 @@ extension UserInfoVC {
     @objc func handleDoneButton() {
         dismiss(animated: true)
     }
+    
 }
 
 
@@ -100,4 +105,26 @@ extension UserInfoVC {
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
     }
+}
+
+
+extension UserInfoVC: GFItemInfoVCDelegate {
+    
+    func handleItemInfoButton(sender: UIButton) {
+        
+        switch sender.tag {
+            
+        case 1:
+            print("Get profile")
+            
+        case 2:
+            print("Get followers")
+            
+        default:
+            break
+            
+        }
+        
+    }
+    
 }
