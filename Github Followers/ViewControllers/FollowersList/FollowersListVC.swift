@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//import OSLog
 
 
 final class FollowersListVC: UIViewController {
@@ -83,6 +82,14 @@ extension FollowersListVC {
         isSearching = newValue
     }
     
+    func resetUsername(to username: String) {
+        self.page = 1
+        self.username = username
+        self.followers = []
+        self.filteredFollowers = []
+        updateData(on: [])
+        title = username
+    }
 }
 
 
@@ -90,7 +97,6 @@ extension FollowersListVC {
     
     func fetchFollowers() {
         showLoadingView()
-        
         
         Task {
             do {
@@ -118,5 +124,10 @@ extension FollowersListVC {
             
             dismissLoadingView()
         }
+    }
+    
+    func fetchFollowersForNewUsername(_ username: String) {
+        resetUsername(to: username)
+        fetchFollowers()
     }
 }

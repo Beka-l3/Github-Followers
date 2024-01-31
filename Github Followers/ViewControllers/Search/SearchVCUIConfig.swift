@@ -11,7 +11,7 @@ import UIKit
 
 final class SearchVCUIConfig {
     
-    weak var rootView: UIView?
+    weak var rootView: UIView!
     
     
     lazy var logoImageView: UIImageView = {
@@ -30,36 +30,24 @@ final class SearchVCUIConfig {
     lazy var usernameTextField: GFTextField = .init(placeholder: "Enter username")
     
     lazy var callToActionButton: GFButton = .init(backgroundColor: .systemGreen, title: "Get Followers")
-    
 }
 
 
 extension SearchVCUIConfig {
     
     func configureUI() {
-        guard let rootView = rootView else {
-            // os log "no root view"
-            return
-        }
-        
         rootView.backgroundColor = .systemBackground
         
         rootView.addSubview(logoImageView)
         rootView.addSubview(usernameTextField)
         rootView.addSubview(callToActionButton)
     }
-    
 }
 
 
 extension SearchVCUIConfig {
     
     func configureAutoLayout() {
-        guard let rootView = rootView else {
-            // os log "no root view"
-            return
-        }
-        
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor, constant: 80),
             logoImageView.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
@@ -74,7 +62,5 @@ extension SearchVCUIConfig {
             callToActionButton.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -50),
             callToActionButton.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor, constant: -50),
         ])
-        
     }
-    
 }

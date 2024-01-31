@@ -11,7 +11,6 @@ import UIKit
 extension FollowersListVC: UserInfoVCDelegate {
     
     func getFollowers(for username: String) {
-        self.username = username
-        fetchFollowers()
+        fetchFollowersForNewUsername(username)
     }
 }

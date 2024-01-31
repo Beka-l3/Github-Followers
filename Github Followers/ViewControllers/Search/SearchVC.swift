@@ -30,8 +30,6 @@ class SearchVC: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
-
-
 }
 
 
@@ -47,7 +45,6 @@ extension SearchVC {
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing)))
     }
-    
 }
 
 
@@ -60,11 +57,9 @@ extension SearchVC {
         }
         
         let followersListVC = FollowersListVC()
-        followersListVC.username = username
-        followersListVC.title = username
+        followersListVC.resetUsername(to: username)
         navigationController?.pushViewController(followersListVC, animated: true)
     }
-    
 }
 
 
@@ -74,5 +69,4 @@ extension SearchVC: UITextFieldDelegate {
         pushFollowersListVC()
         return true
     }
-    
 }
