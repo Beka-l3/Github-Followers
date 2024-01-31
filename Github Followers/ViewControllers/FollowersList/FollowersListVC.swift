@@ -133,11 +133,3 @@ extension FollowersListVC {
         fetchFollowers()
     }
 }
-
-
-extension FollowersListVC {
-    
-    @objc func addToFavorites() {
-        
-    }
-}
