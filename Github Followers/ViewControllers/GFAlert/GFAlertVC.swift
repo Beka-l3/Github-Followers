@@ -14,7 +14,6 @@ final class GFAlertVC: UIViewController {
     var message: String?
     var buttonTitle: String?
     
-    
     private let uiConfig: GFAlertVCUIConfig = .init()
     
     
@@ -40,8 +39,6 @@ final class GFAlertVC: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
-    
-    
 }
 
 
@@ -52,13 +49,12 @@ extension GFAlertVC {
         uiConfig.configureUI()
         uiConfig.configureAutoLayout()
         
-        uiConfig.titleLabel.text = alertTitle ?? "Something went wrong"
-        uiConfig.actionButton.setTitle(buttonTitle ?? "OK", for: .normal)
-        uiConfig.messageLabel.text = message ?? "Unable to complete request"
+        uiConfig.titleLabel.text        = alertTitle    ?? Text.defaultTitle
+        uiConfig.messageLabel.text      = message       ?? Text.defaultMessage
+        uiConfig.actionButton.setTitle(buttonTitle      ?? Text.defaultButton, for: .normal)
         
         uiConfig.actionButton.addTarget(self, action: #selector(handleOkButton), for: .touchUpInside)
     }
-    
 }
 
 
@@ -67,5 +63,4 @@ extension GFAlertVC {
     @objc func handleOkButton() {
         dismiss(animated: true)
     }
-    
 }

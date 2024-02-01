@@ -17,34 +17,28 @@ final class GFAlertVCUIConfig {
         let view = UIView()
         view.backgroundColor = .systemBackground
         
-        view.layer.borderWidth = 2
+        view.layer.borderWidth = Constants.borderWidth
         view.layer.borderColor = UIColor.white.cgColor
-        
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = Constants.cornerRadius
         
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var titleLabel = GFTitleLabel(alignment: .center, fontSize: 20)
+    lazy var titleLabel = GFTitleLabel(alignment: .center, fontSize: Constants.titleLabelFontSize)
     lazy var messageLabel = GFBodyLabel(alignment: .center)
-    lazy var actionButton = GFButton(backgroundColor: .systemPink, title: "OK")
-    
+    lazy var actionButton = GFButton(backgroundColor: .systemPink, title: GFAlertVC.Text.defaultButton)
 }
-
 
 
 extension GFAlertVCUIConfig {
     
     func configureUI() {
-        guard let rootView = rootView else {
-            // os log "no root view"
-            return
-        }
+        guard let rootView = rootView else { return }
         
-        rootView.backgroundColor = UIColor(white: 0, alpha: 0.75)
+        rootView.backgroundColor = Constants.bgColor
         
-        messageLabel.numberOfLines = 4
+        messageLabel.numberOfLines = Constants.messageNumberOfLines
         
         rootView.addSubview(containerView)
         rootView.addSubview(titleLabel)
@@ -52,16 +46,8 @@ extension GFAlertVCUIConfig {
         rootView.addSubview(messageLabel)
     }
     
-}
-
-
-extension GFAlertVCUIConfig {
-    
     func configureAutoLayout() {
-        guard let rootView = rootView else {
-            // os log "no root view"
-            return
-        }
+        guard let rootView = rootView else { return }
         
         NSLayoutConstraint.activate([
             containerView.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
@@ -84,16 +70,23 @@ extension GFAlertVCUIConfig {
             messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Constants.padding),
             messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -Constants.paddingM),
         ])
-        
     }
-    
 }
 
 extension GFAlertVCUIConfig {
     enum Constants {
         
-        static let paddingS: CGFloat = 8
-        static let paddingM: CGFloat = 12
-        static let padding: CGFloat = 20
+        static let messageNumberOfLines:        Int             = 4
+        
+        static let paddingS:                    CGFloat         = 8
+        static let paddingM:                    CGFloat         = 12
+        static let padding:                     CGFloat         = 20
+        static let cornerRadius:                CGFloat         = 16
+        static let borderWidth:                 CGFloat         = 2
+        
+        static let titleLabelFontSize:          CGFloat         = 20
+        
+        static let bgColor:                     UIColor?        = UIColor(white: 0, alpha: 0.75)
+        
     }
 }

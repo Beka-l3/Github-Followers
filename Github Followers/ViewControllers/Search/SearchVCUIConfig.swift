@@ -11,7 +11,7 @@ import UIKit
 
 final class SearchVCUIConfig {
     
-    weak var rootView: UIView!
+    weak var rootView: UIView?
     
     
     lazy var logoImageView: UIImageView = {
@@ -37,18 +37,18 @@ final class SearchVCUIConfig {
 extension SearchVCUIConfig {
     
     func configureUI() {
+        guard let rootView = rootView else { return }
+        
         rootView.backgroundColor = .systemBackground
         
         rootView.addSubview(logoImageView)
         rootView.addSubview(usernameTextField)
         rootView.addSubview(callToActionButton)
     }
-}
-
-
-extension SearchVCUIConfig {
     
     func configureAutoLayout() {
+        guard let rootView = rootView else { return }
+        
         let padding = DeviceType.isiPhoneSE || DeviceType.isiPhone8Zoomed
         ? Constants.paddingXS
         : Constants.paddingM
@@ -70,6 +70,13 @@ extension SearchVCUIConfig {
             callToActionButton.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.padding),
         ])
     }
+}
+
+
+extension SearchVCUIConfig {
+    
+    func clearUsernameTF() { usernameTextField.text = .empty }
+    func usernameTFShouldResignFR() { usernameTextField.resignFirstResponder() }
 }
 
 

@@ -13,14 +13,6 @@ class SearchVC: UIViewController {
     
     
 //    MARK: lifecycle
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -29,6 +21,7 @@ class SearchVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        uiConfig.clearUsernameTF()
     }
 }
 
@@ -52,9 +45,16 @@ extension SearchVC {
     
     @objc func pushFollowersListVC() {
         guard let username = uiConfig.usernameTextField.text, !username.isEmpty else {
-            presentGFAlertOnMainThread(title: "Empty username", message: "Please enter a username. We need to know who search for 🙂", buttonTitle: "OK")
+            presentGFAlertOnMainThread(
+                title: GFAlertVC.Text.emptyUsername.title,
+                message: GFAlertVC.Text.emptyUsername.message,
+                buttonTitle: GFAlertVC.Text.emptyUsername.buttonTitle
+            )
+            
             return
         }
+        
+        uiConfig.usernameTFShouldResignFR()
         
         let followersListVC = FollowersListVC()
         followersListVC.resetUsername(to: username)
