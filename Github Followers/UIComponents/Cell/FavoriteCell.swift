@@ -13,7 +13,7 @@ final class FavoriteCell: UITableViewCell {
     static let reuseId = "FavoriteCellReuseId"
     
     lazy var avatarImageView = GFAvatarImageView(frame: .zero)
-    lazy var usernameLabel = GFTitleLabel(alignment: .left, fontSize: Constants.usernameLabelFontSize)
+    lazy var usernameLabel = GFTitleLabel(type: .first(alignment: .left), fontSize: Constants.usernameLabelFontSize)
     
     
 //    MARK: lifecycle

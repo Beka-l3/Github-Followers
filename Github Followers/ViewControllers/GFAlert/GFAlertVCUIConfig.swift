@@ -12,9 +12,8 @@ final class GFAlertVCUIConfig {
     
     weak var rootView: UIView?
     
-    
     lazy var containerView = GFAlertContainerView()
-    lazy var titleLabel = GFTitleLabel(alignment: .center, fontSize: Constants.titleLabelFontSize)
+    lazy var titleLabel = GFTitleLabel(type: .first(alignment: .center), fontSize: Constants.titleLabelFontSize)
     lazy var messageLabel = GFBodyLabel(alignment: .center)
     lazy var actionButton = GFButton(backgroundColor: .systemPink, title: GFAlertVC.Text.defaultButton)
 }
@@ -60,6 +59,7 @@ extension GFAlertVCUIConfig {
         ])
     }
 }
+
 
 extension GFAlertVCUIConfig {
     

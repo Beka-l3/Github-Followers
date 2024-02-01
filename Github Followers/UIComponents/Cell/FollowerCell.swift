@@ -13,7 +13,7 @@ final class FollowerCell: UICollectionViewCell {
     static let reuseID = "FollowerCellReuseID"
     
     lazy var avatarImageView = GFAvatarImageView(frame: .zero)
-    lazy var usernameLabel = GFTitleLabel(alignment: .center, fontSize: Constants.usernameLabelFontSize)
+    lazy var usernameLabel = GFTitleLabel(type: .first(alignment: .center), fontSize: Constants.usernameLabelFontSize)
     
     
 //    MARK: lifecycle

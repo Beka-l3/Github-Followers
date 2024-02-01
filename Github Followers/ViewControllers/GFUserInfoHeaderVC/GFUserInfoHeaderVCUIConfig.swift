@@ -13,8 +13,8 @@ final class GFUserInfoHeaderVCUIConfig {
     weak var rootView: UIView!
     
     lazy var avatarImageView = GFAvatarImageView(frame: .zero)
-    lazy var usernameLabel = GFTitleLabel(alignment: .left, fontSize: 34)
-    lazy var nameLabel = GFSecondaryTitleLabel(fontSize: 18)
+    lazy var usernameLabel = GFTitleLabel(type: .first(alignment: .left), fontSize: 34)
+    lazy var nameLabel = GFTitleLabel(type: .secondary, fontSize: 18, textColor: .secondaryLabel)
     
     lazy var locationImageView: UIImageView = {
         let view = UIImageView()
@@ -24,7 +24,7 @@ final class GFUserInfoHeaderVCUIConfig {
         return view
     }()
     
-    lazy var locationLabel = GFSecondaryTitleLabel(fontSize: 18)
+    lazy var locationLabel = GFTitleLabel(type: .secondary, fontSize: 18, textColor: .secondaryLabel)
     lazy var bioLabel = GFBodyLabel(alignment: .left)
     
 }
@@ -43,8 +43,6 @@ extension GFUserInfoHeaderVCUIConfig {
         rootView.addSubview(locationLabel)
         rootView.addSubview(bioLabel)
         
-        nameLabel.textColor = .secondaryLabel
-        locationLabel.textColor = .secondaryLabel
         bioLabel.numberOfLines = Constants.numberOfLineForBio
     }
     

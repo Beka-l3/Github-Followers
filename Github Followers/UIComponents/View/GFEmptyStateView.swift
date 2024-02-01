@@ -10,7 +10,7 @@ import UIKit
 
 final class GFEmptyStateView: UIView {
     
-    lazy var messageLabel = GFTitleLabel(alignment: .center, fontSize: 28)
+    lazy var messageLabel = GFTitleLabel(type: .first(alignment: .center), fontSize: 28)
     lazy var logoImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "empty-state-logo")
