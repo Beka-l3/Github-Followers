@@ -10,23 +10,25 @@ import UIKit
 
 final class GFAlertVC: UIViewController {
     
-    var alertTitle: String?
-    var message: String?
-    var buttonTitle: String?
+    var alertTitle:     String
+    var message:        String
+    var buttonTitle:    String
     
     private let uiConfig: GFAlertVCUIConfig = .init()
     
     
 //    MARK: lifecycle
-    init(title: String, message: String, buttonTitle: String) {
+    init(title: String = Text.defaultTitle, message: String = Text.defaultMessage, buttonTitle: String = Text.defaultButton) {
+        self.alertTitle     = title
+        self.message        = message
+        self.buttonTitle    = buttonTitle
         super.init(nibName: nil, bundle: nil)
-        
-        self.alertTitle = title
-        self.message = message
-        self.buttonTitle = buttonTitle
     }
     
     required init?(coder: NSCoder) {
+        self.alertTitle     = Text.defaultTitle
+        self.message        = Text.defaultMessage
+        self.buttonTitle    = Text.defaultButton
         super.init(coder: coder)
     }
     
@@ -48,11 +50,7 @@ extension GFAlertVC {
         uiConfig.rootView = view
         uiConfig.configureUI()
         uiConfig.configureAutoLayout()
-        
-        uiConfig.titleLabel.text        = alertTitle    ?? Text.defaultTitle
-        uiConfig.messageLabel.text      = message       ?? Text.defaultMessage
-        uiConfig.actionButton.setTitle(buttonTitle      ?? Text.defaultButton, for: .normal)
-        
+        uiConfig.setTitles(title: alertTitle, message: message, button: buttonTitle)
         uiConfig.actionButton.addTarget(self, action: #selector(handleOkButton), for: .touchUpInside)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 
 
 extension GFAlertVC {
+    
     typealias AlertText = (title: String, message: String, buttonTitle: String)
 
     enum Text {
