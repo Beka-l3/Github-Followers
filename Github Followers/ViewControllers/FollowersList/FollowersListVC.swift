@@ -10,26 +10,40 @@ import UIKit
 
 final class FollowersListVC: UIViewController {
     
-    var username: String!
-    
     private(set) var isSearching:           Bool        = false
     private(set) var hasMoreFollowers:      Bool        = false
     private(set) var page:                  Int         = 1
+    
+    private(set) var username:              String
+    
     private(set) var followers:             [Follower]  = []
     private(set) var filteredFollowers:     [Follower]  = []
     
     private let uiConfig:                   FollowersListVCUIConfig     = .init()
     
-    private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Follower> = .init(
-        collectionView: uiConfig.collectionView
-    ) { collectionView, indexPath, follower in
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as! FollowerCell
-        cell.set(follower: follower)
-        return cell
+    private typealias Diffable = UICollectionViewDiffableDataSource<Section, Follower>
+    private lazy var dataSource: Diffable = .init( collectionView: uiConfig.collectionView ) { collectionView, indexPath, follower in
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as? FollowerCell {
+            cell.set(follower: follower)
+            return cell
+        }
+        
+        return .init()
     }
     
     
 //    MARK: lifecycle
+    init(username: String) {
+        self.username = username
+        super.init(nibName: nil, bundle: nil)
+        title = username
+    }
+    
+    required init?(coder: NSCoder) {
+        self.username = .empty
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -69,6 +83,13 @@ extension FollowersListVC {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToFavorites))
         navigationItem.rightBarButtonItem = addButton
     }
+    
+    private func resetData() {
+        self.page = 1
+        self.followers = []
+        self.filteredFollowers = []
+        updateData(on: [])
+    }
 }
 
 
@@ -99,12 +120,9 @@ extension FollowersListVC {
     }
     
     func resetUsername(to username: String) {
-        self.page = 1
         self.username = username
-        self.followers = []
-        self.filteredFollowers = []
-        updateData(on: [])
         title = username
+        resetData()
     }
 }
 

@@ -59,9 +59,7 @@ extension FavoritesListVC {
     }
     
     func pushFollowersListVC(username: String) {
-        let followersListVC = FollowersListVC()
-        followersListVC.resetUsername(to: username)
-        navigationController?.pushViewController(followersListVC, animated: true)
+        navigationController?.pushViewController(FollowersListVC(username: username), animated: true)
     }
 }
 
