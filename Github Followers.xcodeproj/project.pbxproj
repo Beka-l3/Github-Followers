@@ -45,6 +45,7 @@
 		07C5CBEC2B6AA0EC00C8A02E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBEB2B6AA0EC00C8A02E /* FavoriteCell.swift */; };
 		07C5CBEE2B6AA56200C8A02E /* FavoritesListVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBED2B6AA56100C8A02E /* FavoritesListVC+TableView.swift */; };
 		07C5CBF12B6B9B0000C8A02E /* GFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBF02B6B9B0000C8A02E /* GFTabBarController.swift */; };
+		07C5CBF32B6B9D7F00C8A02E /* GFConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBF22B6B9D7F00C8A02E /* GFConstants.swift */; };
 		07DD2BD12B691358009779EA /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD2BD02B691358009779EA /* GFItemInfoView.swift */; };
 		07E054F52B66C3FE00A8B6A5 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E054F42B66C3FE00A8B6A5 /* UserInfoVC.swift */; };
 		07E054F72B66C41600A8B6A5 /* UserInfoVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E054F62B66C41600A8B6A5 /* UserInfoVCUIConfig.swift */; };
@@ -97,6 +98,7 @@
 		07C5CBEB2B6AA0EC00C8A02E /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		07C5CBED2B6AA56100C8A02E /* FavoritesListVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesListVC+TableView.swift"; sourceTree = "<group>"; };
 		07C5CBF02B6B9B0000C8A02E /* GFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarController.swift; sourceTree = "<group>"; };
+		07C5CBF22B6B9D7F00C8A02E /* GFConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFConstants.swift; sourceTree = "<group>"; };
 		07DD2BD02B691358009779EA /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 		07E054F42B66C3FE00A8B6A5 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		07E054F62B66C41600A8B6A5 /* UserInfoVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVCUIConfig.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			children = (
 				07AC2EDB2B6A01EA0067B061 /* Protocols */,
 				077898FC2B65CBF8004BB732 /* Extensions */,
+				07C5CBF22B6B9D7F00C8A02E /* GFConstants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				0741DA5D2B67B82C00E02CE3 /* GFSecondaryTitleLabel.swift in Sources */,
 				07C5CBE62B6A962B00C8A02E /* FollowersListVC+SaveToFavorites.swift in Sources */,
 				077899022B65D39E004BB732 /* Follower.swift in Sources */,
+				07C5CBF32B6B9D7F00C8A02E /* GFConstants.swift in Sources */,
 				07C5CBEE2B6AA56200C8A02E /* FavoritesListVC+TableView.swift in Sources */,
 				07F23EF72B697DC900ED2129 /* Date+ConverteToString.swift in Sources */,
 				077898E52B659360004BB732 /* GFTextField.swift in Sources */,
