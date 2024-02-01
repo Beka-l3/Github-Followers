@@ -16,20 +16,21 @@ final class SearchVCUIConfig {
     
     lazy var logoImageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "gh-logo")
+        view.image = Images.githubLogo
         
         NSLayoutConstraint.activate([
-            view.widthAnchor.constraint(equalToConstant: 200),
-            view.heightAnchor.constraint(equalToConstant: 200),
+            view.widthAnchor.constraint(equalToConstant: Constants.logoImageDimension),
+            view.heightAnchor.constraint(equalToConstant: Constants.logoImageDimension),
         ])
         
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var usernameTextField: GFTextField = .init(placeholder: "Enter username")
+    var logoImageViewTopConstraint: NSLayoutConstraint?
     
-    lazy var callToActionButton: GFButton = .init(backgroundColor: .systemGreen, title: "Get Followers")
+    lazy var usernameTextField: GFTextField = .init(placeholder: Constants.usernamePlaceholder)
+    lazy var callToActionButton: GFButton = .init(backgroundColor: .systemGreen, title: Constants.callToActionText)
 }
 
 
@@ -48,19 +49,42 @@ extension SearchVCUIConfig {
 extension SearchVCUIConfig {
     
     func configureAutoLayout() {
+        let padding = DeviceType.isiPhoneSE || DeviceType.isiPhone8Zoomed
+        ? Constants.paddingXS
+        : Constants.paddingM
+        
+        logoImageViewTopConstraint = logoImageView.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor, constant: padding)
+        logoImageViewTopConstraint?.isActive = true
+        
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor, constant: 80),
             logoImageView.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
             
-            usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
-            usernameTextField.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: 50),
-            usernameTextField.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -50),
-            usernameTextField.heightAnchor.constraint(equalToConstant: 50),
+            usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: Constants.paddingS),
+            usernameTextField.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: Constants.padding),
+            usernameTextField.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
+            usernameTextField.heightAnchor.constraint(equalToConstant: Constants.padding),
             
-            callToActionButton.heightAnchor.constraint(equalToConstant: 50),
-            callToActionButton.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: 50),
-            callToActionButton.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -50),
-            callToActionButton.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            callToActionButton.heightAnchor.constraint(equalToConstant: Constants.padding),
+            callToActionButton.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: Constants.padding),
+            callToActionButton.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
+            callToActionButton.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.padding),
         ])
+    }
+}
+
+
+extension SearchVCUIConfig {
+ 
+    enum Constants {
+        
+        static let paddingXS:               CGFloat     = 20
+        static let paddingS:                CGFloat     = 48
+        static let padding:                 CGFloat     = 50
+        static let paddingM:                CGFloat     = 80
+        static let logoImageDimension:      CGFloat     = 200
+        
+        static let usernamePlaceholder:     String      = "Enter username"
+        static let callToActionText:        String      = "Get Followers"
+        
     }
 }

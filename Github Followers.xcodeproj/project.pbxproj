@@ -187,13 +187,13 @@
 		077898E82B65937E004BB732 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				077898F42B65B277004BB732 /* GFAlert */,
 				077898E92B659697004BB732 /* Search */,
 				077898ED2B65A685004BB732 /* FollowersList */,
 				07E054F32B66C3E800A8B6A5 /* UserInfo */,
 				0741DA572B67B75000E02CE3 /* GFUserInfoHeaderVC */,
 				07F23EF12B69673F00ED2129 /* GFItemInfoVC */,
 				077898EC2B65A666004BB732 /* FavoritesList */,
+				077898F42B65B277004BB732 /* GFAlert */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

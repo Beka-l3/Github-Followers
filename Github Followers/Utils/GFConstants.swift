@@ -8,6 +8,11 @@
 import UIKit
 
 
+enum Images {
+    
+    static let githubLogo               = UIImage(named: "gh-logo")
+}
+
 enum ScreenSize {
     
     static let width                    = UIScreen.main.bounds.width
