@@ -24,13 +24,6 @@ final class GFTitleLabel: UILabel {
         super.init(coder: coder)
     }
     
-//    convenience init(alignment: NSTextAlignment, fontSize: CGFloat) {
-//        self.init(frame: .zero)
-//        
-//        self.textAlignment = alignment
-//        self.font = .systemFont(ofSize: fontSize, weight: .bold)
-//    }
-    
     convenience init(type: TitleType, fontSize: CGFloat, textColor: UIColor = .label) {
         self.init(frame: .zero)
         
