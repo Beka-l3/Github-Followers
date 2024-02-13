@@ -8,7 +8,7 @@
 import UIKit
 
 
-extension FollowersListVC {
+extension FollowersListVC  {
     
     func fetchFollowers() {
         showLoadingView()

@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class FollowersListVC: UIViewController {
+final class FollowersListVC: GFDataLoadingVC {
     
     private(set) var isSearching:           Bool        = false
     private(set) var hasMoreFollowers:      Bool        = false

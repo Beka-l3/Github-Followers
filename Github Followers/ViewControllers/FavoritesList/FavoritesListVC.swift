@@ -7,8 +7,8 @@
 
 import UIKit
 
-class FavoritesListVC: UIViewController {
-    
+
+final class FavoritesListVC: GFDataLoadingVC {
     
     private let uiConfig = FavoritesListVCUIConfig()
     private(set) var favorites: [Follower] = []
