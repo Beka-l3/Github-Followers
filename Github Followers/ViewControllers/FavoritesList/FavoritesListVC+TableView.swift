@@ -30,18 +30,15 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        
-        let favorite = favorites[indexPath.item]
-        removeFavorite(at: indexPath)
-        tableView.deleteRows(at: [indexPath], with: .left)
-        removeFavoriteFromStorage(favorite)
+        removeFavoriteFromStorage(favorites[indexPath.item], tableView, forRowAt: indexPath)
     }
     
-    private func removeFavoriteFromStorage(_ favorite: Follower) {
+    private func removeFavoriteFromStorage(_ favorite: Follower, _ tableView: UITableView, forRowAt indexPath: IndexPath) {
         Task {
             do {
                 
                 try await PersistenceService.updateWith(favorite: favorite, action: .remove)
+                updateFavoritesList(tableView, forRowAt: indexPath)
                 
             } catch {
                 
@@ -53,5 +50,10 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
+    }
+    
+    private func updateFavoritesList(_ tableView: UITableView, forRowAt indexPath: IndexPath) {
+        removeFavorite(at: indexPath)
+        tableView.deleteRows(at: [indexPath], with: .left)
     }
 }

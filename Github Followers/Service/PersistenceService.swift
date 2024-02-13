@@ -29,21 +29,20 @@ extension PersistenceService {
 extension PersistenceService {
     
     static func updateWith(favorite: Follower, action: ActionType) async throws {
-        let favorites = try await retrieveFavorites()
-        var mutableFavorites = favorites
+        var favorites = try await retrieveFavorites()
         
         switch action {
             
         case .add:
-            guard !mutableFavorites.contains(favorite) else { throw ServiceError.alreadyInFavorites }
-            mutableFavorites.append(favorite)
+            guard !favorites.contains(favorite) else { throw ServiceError.alreadyInFavorites }
+            favorites.append(favorite)
  
         case .remove:
-            mutableFavorites.removeAll { $0.login == favorite.login }
+            favorites.removeAll { $0.login == favorite.login }
             
         }
         
-        try await saveFavorites(mutableFavorites)
+        try await saveFavorites(favorites)
     }
     
     static func retrieveFavorites() async throws -> [Follower] {
