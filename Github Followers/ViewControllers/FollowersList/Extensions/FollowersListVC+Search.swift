@@ -27,6 +27,7 @@ extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
     
     private func noSearchValue() {
         setIsSearching(false)
+        setFilteredFollowers([])
         updateData(on: followers)
     }
     

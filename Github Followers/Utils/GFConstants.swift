@@ -7,12 +7,32 @@
 
 import UIKit
 
+enum SFSymbols: String {
+    
+    case folder             = "folder"
+    case textAlignLeft      = "text.alignleft"
+    case person2            = "person.2"
+    case heart              = "heart"
+    case circle             = "circle"
+    case mapAndEllipse      = "mappin.and.ellipse"
+}
+
 
 enum Images {
     
     static let githubLogo               = UIImage(named: "gh-logo")
     static let avatarPlaceholder        = UIImage(named: "avatar-placeholder")
     static let emptyStateLogo           = UIImage(named: "empty-state-logo")
+    
+    enum System {
+        
+        static let repos                = UIImage(systemName: SFSymbols.folder.rawValue)
+        static let gists                = UIImage(systemName: SFSymbols.textAlignLeft.rawValue)
+        static let followers            = UIImage(systemName: SFSymbols.person2.rawValue)
+        static let following            = UIImage(systemName: SFSymbols.heart.rawValue)
+        static let location             = UIImage(systemName: SFSymbols.mapAndEllipse.rawValue)
+        static let none                 = UIImage(systemName: SFSymbols.circle.rawValue)
+    }
 }
 
 enum ScreenSize {

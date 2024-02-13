@@ -52,10 +52,7 @@ extension UserInfoVCUIConfig {
         
         rootView.addSubview(scrollView)
         
-        scrollView.addSubview(headerView)
-        scrollView.addSubview(itemViewOne)
-        scrollView.addSubview(itemViewTwo)
-        scrollView.addSubview(dateLabel)
+        scrollView.addSubviews(headerView, itemViewOne, itemViewTwo, dateLabel)
     }
     
     func configureAutoLayout() {

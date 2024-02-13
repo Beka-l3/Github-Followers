@@ -27,10 +27,7 @@ extension GFAlertVCUIConfig {
         
         messageLabel.numberOfLines = Constants.messageNumberOfLines
         
-        rootView.addSubview(containerView)
-        rootView.addSubview(titleLabel)
-        rootView.addSubview(actionButton)
-        rootView.addSubview(messageLabel)
+        rootView.addSubviews(containerView, titleLabel, actionButton, messageLabel)
     }
     
     func configureAutoLayout() {

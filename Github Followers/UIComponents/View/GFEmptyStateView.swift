@@ -43,11 +43,13 @@ extension GFEmptyStateView {
         messageLabel.numberOfLines = Constants.numberOfLines
         messageLabel.textColor = .secondaryLabel
         
-        addSubview(messageLabel)
-        addSubview(logoImageView)
+        addSubviews(messageLabel, logoImageView)
+        
+        let labelContraintYConstant = DeviceType.isiPhoneSE || DeviceType.isiPhone8Zoomed ? Constants.paddingM : Constants.paddingL
+        let logoContraintBottomConstant = DeviceType.isiPhoneSE || DeviceType.isiPhone8Zoomed ? Constants.paddingM : Constants.padding
         
         NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -Constants.paddingL),
+            messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -labelContraintYConstant),
             messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.padding),
             messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.padding),
             messageLabel.heightAnchor.constraint(equalToConstant: Constants.messageLabelHeight),
@@ -55,7 +57,7 @@ extension GFEmptyStateView {
             logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: Constants.widthMultiplier),
             logoImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: Constants.widthMultiplier),
             logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Constants.paddingXL),
-            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Constants.padding),
+            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: logoContraintBottomConstant),
         ])
     }
 }
@@ -67,6 +69,7 @@ extension GFEmptyStateView {
         static let numberOfLines:                   Int         = 3
         
         static let padding:                         CGFloat     = 40
+        static let paddingM:                        CGFloat     = 80
         static let paddingL:                        CGFloat     = 150
         static let paddingXL:                       CGFloat     = 170
         

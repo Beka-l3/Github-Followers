@@ -43,8 +43,7 @@ extension FavoriteCell {
     private func configure() {
         accessoryType = .disclosureIndicator
         
-        addSubview(avatarImageView)
-        addSubview(usernameLabel)
+        addSubviews(avatarImageView, usernameLabel)
         
         NSLayoutConstraint.activate([
             avatarImageView.centerYAnchor.constraint(equalTo: centerYAnchor),

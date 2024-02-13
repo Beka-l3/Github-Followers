@@ -13,18 +13,18 @@ final class GFUserInfoHeaderVCUIConfig {
     weak var rootView: UIView!
     
     lazy var avatarImageView = GFAvatarImageView(frame: .zero)
-    lazy var usernameLabel = GFTitleLabel(type: .first(alignment: .left), fontSize: 34)
-    lazy var nameLabel = GFTitleLabel(type: .secondary, fontSize: 18, textColor: .secondaryLabel)
+    lazy var usernameLabel = GFTitleLabel(type: .first(alignment: .left), fontSize: Constants.usernameLabelFontSize)
+    lazy var nameLabel = GFTitleLabel(type: .secondary, fontSize: Constants.nameLabelFontSize, textColor: .secondaryLabel)
     
     lazy var locationImageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: Constants.locationIconName)
+        view.image = Images.System.location
         view.tintColor = .secondaryLabel
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var locationLabel = GFTitleLabel(type: .secondary, fontSize: 18, textColor: .secondaryLabel)
+    lazy var locationLabel = GFTitleLabel(type: .secondary, fontSize: Constants.locationLabelFontSize, textColor: .secondaryLabel)
     lazy var bioLabel = GFBodyLabel(alignment: .left)
     
 }
@@ -36,12 +36,7 @@ extension GFUserInfoHeaderVCUIConfig {
     func configureUI() {
         rootView.backgroundColor = .clear
         
-        rootView.addSubview(avatarImageView)
-        rootView.addSubview(usernameLabel)
-        rootView.addSubview(nameLabel)
-        rootView.addSubview(locationImageView)
-        rootView.addSubview(locationLabel)
-        rootView.addSubview(bioLabel)
+        rootView.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
         
         bioLabel.numberOfLines = Constants.numberOfLineForBio
     }
@@ -98,7 +93,8 @@ extension GFUserInfoHeaderVCUIConfig {
         static let nameLabelYPadding:       CGFloat     = 8
         static let locationIconDimension:   CGFloat     = 20
         static let bioLabelHeigh:           CGFloat     = 60
-        
-        static let locationIconName:        String      = "mappin.and.ellipse"
+        static let usernameLabelFontSize:   CGFloat     = 34
+        static let nameLabelFontSize:       CGFloat     = 18
+        static let locationLabelFontSize:   CGFloat     = 18
     }
 }

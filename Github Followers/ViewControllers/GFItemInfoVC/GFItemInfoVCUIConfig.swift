@@ -38,8 +38,7 @@ extension GFItemInfoVCUIConfig {
         rootView.backgroundColor = .secondarySystemBackground
         rootView.layer.cornerRadius = Constants.cornerRadius
         
-        rootView.addSubview(stackView)
-        rootView.addSubview(button)
+        rootView.addSubviews(stackView, button)
     }
     
     func configureAutoLayout() {

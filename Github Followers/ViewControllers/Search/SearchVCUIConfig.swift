@@ -41,9 +41,7 @@ extension SearchVCUIConfig {
         
         rootView.backgroundColor = .systemBackground
         
-        rootView.addSubview(logoImageView)
-        rootView.addSubview(usernameTextField)
-        rootView.addSubview(callToActionButton)
+        rootView.addSubviews(logoImageView, usernameTextField, callToActionButton)
     }
     
     func configureAutoLayout() {

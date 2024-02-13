@@ -11,6 +11,7 @@ import UIKit
 class GFDataLoadingVC: UIViewController {
     
     var containerView: UIView?
+    private(set) var isLoading: Bool = false
     
     
     func showEmptyStateView(with message: String, in view: UIView) {
@@ -20,6 +21,7 @@ class GFDataLoadingVC: UIViewController {
     }
     
     func showLoadingView() {
+        isLoading = true
         containerView = UIView(frame: view.bounds)
         guard let containerView = containerView else { return }
         
@@ -37,8 +39,8 @@ class GFDataLoadingVC: UIViewController {
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
         ])
         
         activityIndicator.startAnimating()
@@ -46,6 +48,7 @@ class GFDataLoadingVC: UIViewController {
     
     
     func dismissLoadingView() {
+        isLoading = false
         containerView?.removeFromSuperview()
         containerView = nil
     }

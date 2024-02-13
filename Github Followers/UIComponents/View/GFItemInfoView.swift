@@ -10,26 +10,26 @@ import UIKit
 
 final class GFItemInfoView: UIView {
     
-    enum ItemType: String {
-        case repos          = "folder"
-        case gists          = "text.alignleft"
-        case followers      = "person.2"
-        case following      = "heart"
-        case none           = "circle"
+    enum ItemType {
+        case repos
+        case gists
+        case followers
+        case following
+        case none
     }
     
     
     lazy var systemImageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: type.rawValue)
+        view.image = Images.System.none
         view.tintColor = .label
         view.contentMode = .scaleAspectFill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var titleLabel = GFTitleLabel(type: .first(alignment: .left), fontSize: 15)
-    lazy var countLabel = GFTitleLabel(type: .first(alignment: .center), fontSize: 15)
+    lazy var titleLabel = GFTitleLabel(type: .first(alignment: .left), fontSize: Constants.titleLabelFontSize)
+    lazy var countLabel = GFTitleLabel(type: .first(alignment: .center), fontSize: Constants.countLabelFontSize)
     
     private var type: ItemType = .none
     
@@ -52,9 +52,7 @@ extension GFItemInfoView {
         titleLabel.text = Constants.titleLabelTextDefault
         countLabel.text = Constants.countLabelTextDefault
         
-        addSubview(systemImageView)
-        addSubview(titleLabel)
-        addSubview(countLabel)
+        addSubviews(systemImageView, titleLabel, countLabel)
         
         translatesAutoresizingMaskIntoConstraints = false
     }
@@ -84,25 +82,29 @@ extension GFItemInfoView {
     
     func setData(type: ItemType, count: Int) {
         self.type = type
-        self.systemImageView.image = UIImage(systemName: type.rawValue)
         self.countLabel.text = "\(count)"
         
         switch type {
             
         case .repos:
             titleLabel.text = Constants.reposTitleText
+            self.systemImageView.image = Images.System.repos
             
         case .gists:
             titleLabel.text = Constants.gistsTitleText
+            self.systemImageView.image = Images.System.gists
             
         case .followers:
             titleLabel.text = Constants.followersTitleText
+            self.systemImageView.image = Images.System.followers
             
         case .following:
             titleLabel.text = Constants.followingTitleText
+            self.systemImageView.image = Images.System.following
             
         case .none:
             titleLabel.text = Constants.titleLabelTextDefault
+            self.systemImageView.image = Images.System.none
         }
     }
 }
@@ -113,7 +115,9 @@ extension GFItemInfoView {
     enum Constants {
         static let paddingS:                    CGFloat     = 4
         static let padding:                     CGFloat     = 12
+        static let titleLabelFontSize:          CGFloat     = 15
         static let titleLabelHeight:            CGFloat     = 18
+        static let countLabelFontSize:          CGFloat     = 15
         static let countLabelHeight:            CGFloat     = 18
         static let systemImageDimension:        CGFloat     = 20
         
