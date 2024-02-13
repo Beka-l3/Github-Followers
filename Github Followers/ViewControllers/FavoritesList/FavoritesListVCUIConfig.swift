@@ -10,7 +10,7 @@ import UIKit
 
 final class FavoritesListVCUIConfig {
     
-    weak var rootView: UIView!
+    weak var rootView: UIView?
     
     
     lazy var tableView: UITableView = {
@@ -27,12 +27,14 @@ final class FavoritesListVCUIConfig {
 extension FavoritesListVCUIConfig {
     
     func configureUI() {
+        guard let rootView = rootView else { return }
         rootView.backgroundColor = .systemBackground
         
         rootView.addSubview(tableView)
     }
     
     func configureFrames() {
+        guard let rootView = rootView else { return }
         tableView.frame = rootView.bounds
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 final class GFUserInfoHeaderVCUIConfig {
     
-    weak var rootView: UIView!
+    weak var rootView: UIView?
     
     lazy var avatarImageView = GFAvatarImageView(frame: .zero)
     lazy var usernameLabel = GFTitleLabel(type: .first(alignment: .left), fontSize: Constants.usernameLabelFontSize)
@@ -34,6 +34,7 @@ final class GFUserInfoHeaderVCUIConfig {
 extension GFUserInfoHeaderVCUIConfig {
     
     func configureUI() {
+        guard let rootView = rootView else { return }
         rootView.backgroundColor = .clear
         
         rootView.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
@@ -42,6 +43,7 @@ extension GFUserInfoHeaderVCUIConfig {
     }
     
     func configureAutoLayout() {
+        guard let rootView = rootView else { return }
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: rootView.topAnchor, constant: Constants.padding),
             avatarImageView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: Constants.padding),

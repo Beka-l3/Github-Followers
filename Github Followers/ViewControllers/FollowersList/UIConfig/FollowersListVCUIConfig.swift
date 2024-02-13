@@ -10,7 +10,7 @@ import UIKit
 
 final class FollowersListVCUIConfig {
     
-    weak var rootView: UIView!
+    weak var rootView: UIView?
     
  
     lazy var collectionView: UICollectionView = {
@@ -38,12 +38,14 @@ final class FollowersListVCUIConfig {
 extension FollowersListVCUIConfig {
     
     func configureUI() {
+        guard let rootView = rootView else { return }
         rootView.backgroundColor = .systemBackground
         
         rootView.addSubview(collectionView)
     }
     
     func configureFrames() {
+        guard let rootView = rootView else { return }
         collectionView.frame = rootView.bounds
     }
 }

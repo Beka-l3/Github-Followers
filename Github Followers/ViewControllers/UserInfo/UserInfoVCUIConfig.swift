@@ -10,7 +10,7 @@ import UIKit
 
 final class UserInfoVCUIConfig {
     
-    weak var rootView: UIView!
+    weak var rootView: UIView?
     
     
     lazy var headerView: UIView = {
@@ -48,6 +48,7 @@ final class UserInfoVCUIConfig {
 extension UserInfoVCUIConfig {
     
     func configureUI() {
+        guard let rootView = rootView else { return }
         rootView.backgroundColor = .systemBackground
         
         rootView.addSubview(scrollView)
@@ -56,12 +57,11 @@ extension UserInfoVCUIConfig {
     }
     
     func configureAutoLayout() {
+        guard let rootView = rootView else { return }
+        
+        scrollView.pinToEdges(of: rootView)
+        
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
-            
             scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: scrollView.topAnchor),
             scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
