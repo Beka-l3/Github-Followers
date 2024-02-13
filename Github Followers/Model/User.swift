@@ -25,6 +25,6 @@ struct User: Codable {
     
     let htmlUrl: String
     
-    let createdAt: String
+    let createdAt: Date
     
 }

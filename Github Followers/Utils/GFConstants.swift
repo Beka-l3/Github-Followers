@@ -11,6 +11,8 @@ import UIKit
 enum Images {
     
     static let githubLogo               = UIImage(named: "gh-logo")
+    static let avatarPlaceholder        = UIImage(named: "avatar-placeholder")
+    static let emptyStateLogo           = UIImage(named: "empty-state-logo")
 }
 
 enum ScreenSize {

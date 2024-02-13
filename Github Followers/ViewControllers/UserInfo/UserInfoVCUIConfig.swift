@@ -99,6 +99,10 @@ extension UserInfoVCUIConfig {
     func setDate(dateString: String) {
         dateLabel.text = Constants.dateLabelPrefix + dateString.convertToDisplayFormat()
     }
+    
+    func setDate(date: Date) {
+        dateLabel.text = Constants.dateLabelPrefix + date.convertToMothYearFormat()
+    }
 }
 
 

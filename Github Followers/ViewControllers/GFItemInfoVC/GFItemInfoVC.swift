@@ -32,7 +32,6 @@ final class GFItemInfoVC: UIViewController {
         super.viewDidLoad()
         configure()
     }
-    
 }
 
 
@@ -62,5 +61,4 @@ extension GFItemInfoVC {
     @objc func handleButton() {
         delegate?.handleItemInfoButton(of: type)
     }
-    
 }

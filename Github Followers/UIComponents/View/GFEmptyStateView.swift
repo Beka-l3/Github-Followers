@@ -10,10 +10,10 @@ import UIKit
 
 final class GFEmptyStateView: UIView {
     
-    lazy var messageLabel = GFTitleLabel(type: .first(alignment: .center), fontSize: 28)
+    lazy var messageLabel = GFTitleLabel(type: .first(alignment: .center), fontSize: Constants.messageLabelFontSize)
     lazy var logoImageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "empty-state-logo")
+        view.image = Images.emptyStateLogo
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -40,23 +40,38 @@ final class GFEmptyStateView: UIView {
 extension GFEmptyStateView {
 
     private func configure() {
-        messageLabel.numberOfLines = 3
+        messageLabel.numberOfLines = Constants.numberOfLines
         messageLabel.textColor = .secondaryLabel
         
         addSubview(messageLabel)
         addSubview(logoImageView)
         
         NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -150),
-            messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
-            messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            messageLabel.heightAnchor.constraint(equalToConstant: 200),
+            messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -Constants.paddingL),
+            messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.padding),
+            messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.padding),
+            messageLabel.heightAnchor.constraint(equalToConstant: Constants.messageLabelHeight),
             
-            logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.3),
-            logoImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1.3),
-            logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 170),
-            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 40),
+            logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: Constants.widthMultiplier),
+            logoImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: Constants.widthMultiplier),
+            logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Constants.paddingXL),
+            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Constants.padding),
         ])
     }
+}
+
+
+extension GFEmptyStateView {
+    
+    enum Constants {
+        static let numberOfLines:                   Int         = 3
         
+        static let padding:                         CGFloat     = 40
+        static let paddingL:                        CGFloat     = 150
+        static let paddingXL:                       CGFloat     = 170
+        
+        static let widthMultiplier:                 CGFloat     = 1.3
+        static let messageLabelHeight:              CGFloat     = 200
+        static let messageLabelFontSize:            CGFloat     = 28
+    }
 }

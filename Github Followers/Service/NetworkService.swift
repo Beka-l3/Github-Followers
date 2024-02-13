@@ -29,6 +29,7 @@ extension NetworkService {
         
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
         
         let decodedData = try decoder.decode(T.self, from: data)
         return decodedData

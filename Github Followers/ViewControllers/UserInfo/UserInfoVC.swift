@@ -64,7 +64,7 @@ extension UserInfoVC {
         headerVC.avatarUrl = follower.avatarUrl
         itemInfoVCOne.setType(.projects(repos: user.publicRepos, gists: user.publicGists))
         itemInfoVCTwo.setType(.people(following: user.following, followers: user.followers))
-        uiConfig.setDate(dateString: user.createdAt)
+        uiConfig.setDate(date: user.createdAt)
     }
     
     private func configureViewControllers() {

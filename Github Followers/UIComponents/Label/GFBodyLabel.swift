@@ -24,7 +24,6 @@ final class GFBodyLabel: UILabel {
         self.init(frame: .zero)
         self.textAlignment = alignment
     }
-    
 }
 
 

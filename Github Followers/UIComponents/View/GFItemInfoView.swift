@@ -117,8 +117,6 @@ extension GFItemInfoView {
         static let countLabelHeight:            CGFloat     = 18
         static let systemImageDimension:        CGFloat     = 20
         
-        
-        
         static let titleLabelTextDefault:       String      = "Item"
         static let countLabelTextDefault:       String      = "0"
         static let reposTitleText:              String      = "Public Respos"
