@@ -92,7 +92,7 @@ extension GFUserInfoHeaderVCUIConfig {
         static let locationLabelHeight:     CGFloat     = 20
         static let nameLabelYPadding:       CGFloat     = 8
         static let locationIconDimension:   CGFloat     = 20
-        static let bioLabelHeigh:           CGFloat     = 60
+        static let bioLabelHeigh:           CGFloat     = 90
         static let usernameLabelFontSize:   CGFloat     = 34
         static let nameLabelFontSize:       CGFloat     = 18
         static let locationLabelFontSize:   CGFloat     = 18

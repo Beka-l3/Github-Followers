@@ -33,6 +33,7 @@ extension GFBodyLabel {
         textColor = .secondaryLabel
         
         font = .preferredFont(forTextStyle: .body)
+        adjustsFontForContentSizeCategory = true
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.75
         lineBreakMode = .byWordWrapping

@@ -108,9 +108,9 @@ extension UserInfoVCUIConfig {
     enum Constants {
         
         static let padding:                     CGFloat     = 20
-        static let headerHeight:                CGFloat     = 180
+        static let headerHeight:                CGFloat     = 210
         static let itemViewHeight:              CGFloat     = 140
-        static let dateLabelHeight:             CGFloat     = 18
+        static let dateLabelHeight:             CGFloat     = 50
         
         static let scrollViewContentHeight:     CGFloat     = headerHeight + 2 * itemViewHeight + 3 * padding
         
