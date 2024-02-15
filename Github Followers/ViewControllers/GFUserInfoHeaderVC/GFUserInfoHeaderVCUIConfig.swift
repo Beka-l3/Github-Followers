@@ -55,7 +55,7 @@ extension GFUserInfoHeaderVCUIConfig {
 extension GFUserInfoHeaderVCUIConfig {
     
     func configureUI() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         rootView.backgroundColor = .clear
         
         rootView.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
@@ -65,7 +65,7 @@ extension GFUserInfoHeaderVCUIConfig {
     
     
     func configureAutoLayout() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: rootView.topAnchor, constant: Constants.padding),
             avatarImageView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: Constants.padding),

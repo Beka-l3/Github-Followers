@@ -45,7 +45,7 @@ extension GFItemInfoVCUIConfig {
 extension GFItemInfoVCUIConfig {
     
     func configureUI() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         rootView.backgroundColor = .secondarySystemBackground
         rootView.layer.cornerRadius = Constants.cornerRadius
         
@@ -54,7 +54,7 @@ extension GFItemInfoVCUIConfig {
     
     
     func configureAutoLayout() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: rootView.topAnchor, constant: Constants.padding),
             stackView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: Constants.padding),

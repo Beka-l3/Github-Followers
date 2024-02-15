@@ -49,7 +49,7 @@ extension SearchVCUIConfig {
 extension SearchVCUIConfig {
     
     func configureUI() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         
         rootView.backgroundColor = .systemBackground
         
@@ -58,7 +58,7 @@ extension SearchVCUIConfig {
     
     
     func configureAutoLayout() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         
         let padding = DeviceType.isiPhoneSE || DeviceType.isiPhone8Zoomed
         ? Constants.paddingXS

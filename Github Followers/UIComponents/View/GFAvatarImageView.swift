@@ -12,7 +12,7 @@ final class GFAvatarImageView: UIImageView {
         
     var imageUrl: String? {
         didSet {
-            if let imageUrl = imageUrl {
+            if let imageUrl {
                 downloadAvatarImage(from: imageUrl)
             } else {
                 image = Constants.placeholderImage

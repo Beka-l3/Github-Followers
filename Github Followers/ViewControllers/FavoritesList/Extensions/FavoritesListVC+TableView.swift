@@ -39,18 +39,16 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
     private func removeFavoriteFromStorage(_ favorite: Follower, _ tableView: UITableView, forRowAt indexPath: IndexPath) {
         Task {
             do {
-                
                 try await PersistenceService.updateWith(favorite: favorite, action: .remove)
                 updateFavoritesList(tableView, forRowAt: indexPath)
                 
+            } catch let persistenceError as PersistenceService.ServiceError {
+                
+                presentGFAlert(title: "Storage error", message: persistenceError.rawValue, buttonTitle: "OK")
+                
             } catch {
                 
-                if let persistenceError = error as? PersistenceService.ServiceError {
-                    presentGFAlert(title: "Storage error", message: persistenceError.rawValue, buttonTitle: "OK")
-                    
-                } else {
-                    presentDefaultAlertError()
-                }
+                presentDefaultAlertError()
             }
         }
     }

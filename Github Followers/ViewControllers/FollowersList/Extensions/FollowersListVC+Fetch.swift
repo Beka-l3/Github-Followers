@@ -25,14 +25,13 @@ extension FollowersListVC  {
                 setHasMoreFollowers(followers.count >= NetworkService.shared.perPage)
                 incrementPage()
                 
+            } catch let networkError as NetworkService.ServiceError {
+                
+                presentGFAlert(title: "Got an error", message: networkError.rawValue, buttonTitle: "OK")
+                
             } catch {
                 
-                var message = "Something went wrong"
-                if let error = error as? NetworkService.ServiceError {
-                    message = error.rawValue
-                }
-                
-                presentGFAlert(title: "Got an error", message: message, buttonTitle: "OK")
+                presentDefaultAlertError()
             }
             
             dismissLoadingView()

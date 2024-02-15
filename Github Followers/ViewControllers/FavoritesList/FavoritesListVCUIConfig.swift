@@ -33,7 +33,7 @@ extension FavoritesListVCUIConfig {
 extension FavoritesListVCUIConfig {
     
     func configureUI() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         rootView.backgroundColor = .systemBackground
         
         rootView.addSubview(tableView)
@@ -41,7 +41,7 @@ extension FavoritesListVCUIConfig {
     
     
     func configureFrames() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         tableView.frame = rootView.bounds
     }
 }

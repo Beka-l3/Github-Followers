@@ -51,7 +51,7 @@ extension FollowersListVCUIConfig {
 extension FollowersListVCUIConfig {
     
     func configureUI() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         rootView.backgroundColor = .systemBackground
         
         rootView.addSubview(collectionView)
@@ -59,7 +59,7 @@ extension FollowersListVCUIConfig {
     
     
     func configureFrames() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         collectionView.frame = rootView.bounds
     }
 }

@@ -21,7 +21,7 @@ final class GFAlertVCUIConfig {
 extension GFAlertVCUIConfig {
     
     func configureUI() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         rootView.backgroundColor = Constants.bgColor
         
         messageLabel.numberOfLines = Constants.messageNumberOfLines
@@ -31,7 +31,7 @@ extension GFAlertVCUIConfig {
     
     
     func configureAutoLayout() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         
         NSLayoutConstraint.activate([
             containerView.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),

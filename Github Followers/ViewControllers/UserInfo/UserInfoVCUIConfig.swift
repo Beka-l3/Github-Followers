@@ -61,7 +61,7 @@ extension UserInfoVCUIConfig {
 extension UserInfoVCUIConfig {
     
     func configureUI() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         rootView.backgroundColor = .systemBackground
         
         rootView.addSubview(scrollView)
@@ -71,7 +71,7 @@ extension UserInfoVCUIConfig {
     
     
     func configureAutoLayout() {
-        guard let rootView = rootView else { return }
+        guard let rootView else { return }
         
         scrollView.pinToEdges(of: rootView)
         
