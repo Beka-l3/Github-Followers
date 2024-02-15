@@ -13,12 +13,15 @@ final class NetworkService {
     
     let baseUrl = "https://api.github.com/users"
     let perPage = 100
-    
+    let decoder = JSONDecoder()
     let cache = NSCache<NSString, UIImage>()
     
 
 //    MARK: lifecycle
-    private init() { }
+    private init() {
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+    }
 }
 
 
@@ -37,43 +40,21 @@ extension NetworkService {
     private func decodeData<T: Decodable>(from endpoint: String) async throws -> T {
         let data = try await getData(endpoint: endpoint)
         
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dateDecodingStrategy = .iso8601
-        
         let decodedData = try decoder.decode(T.self, from: data)
         return decodedData
     }
     
     
     private func getData(endpoint: String) async throws -> Data {
-        return try await withCheckedThrowingContinuation { continuation in
-            guard let url = URL(string: endpoint) else {
-                continuation.resume(throwing: NetworkService.ServiceError.badUrl)
-                return
-            }
-            
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                if let error = error {
-                    continuation.resume(throwing: error)
-                    return
-                }
-                
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    continuation.resume(throwing: NetworkService.ServiceError.badResponse)
-                    return
-                }
-                
-                guard let data = data else {
-                    continuation.resume(throwing: NetworkService.ServiceError.invalidData)
-                    return
-                }
-                
-                return continuation.resume(returning: data)
-            }
-            
-            task.resume()
+        guard let url = URL(string: endpoint) else { throw NetworkService.ServiceError.badUrl }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let urlResponse = response as? HTTPURLResponse, urlResponse.statusCode == 200 else {
+            throw NetworkService.ServiceError.badResponse
         }
+        
+        return data
     }
 }
 

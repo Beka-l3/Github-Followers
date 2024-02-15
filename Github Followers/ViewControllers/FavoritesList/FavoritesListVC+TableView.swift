@@ -46,10 +46,10 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
             } catch {
                 
                 if let persistenceError = error as? PersistenceService.ServiceError {
-                    presentGFAlertOnMainThread(title: "Storage error", message: persistenceError.rawValue, buttonTitle: "OK")
+                    presentGFAlert(title: "Storage error", message: persistenceError.rawValue, buttonTitle: "OK")
                     
                 } else {
-                    presentGFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "OK")
+                    presentDefaultAlertError()
                 }
             }
         }

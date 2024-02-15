@@ -100,10 +100,10 @@ extension UserInfoVC {
             } catch {
                 
                 if let networkError = error as? NetworkService.ServiceError {
-                    presentGFAlertOnMainThread(title: "Network error", message: networkError.rawValue, buttonTitle: "OK")
+                    presentGFAlert(title: "Network error", message: networkError.rawValue, buttonTitle: "OK")
                     
                 } else {
-                    presentGFAlertOnMainThread(title: "Network error", message: error.localizedDescription, buttonTitle: "OK")
+                    presentDefaultAlertError()
                 }
             }
         }

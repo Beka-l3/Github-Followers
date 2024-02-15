@@ -88,10 +88,10 @@ extension FavoritesListVC {
             } catch {
                 
                 if let persistanceError = error as? PersistenceService.ServiceError {
-                    presentGFAlertOnMainThread(title: "Storage error", message: persistanceError.rawValue, buttonTitle: "OK")
+                    presentGFAlert(title: "Storage error", message: persistanceError.rawValue, buttonTitle: "OK")
                     
                 } else {
-                    presentGFAlertOnMainThread(title: "Somthing went wrong", message: error.localizedDescription, buttonTitle: "OK")
+                    presentDefaultAlertError()
                 }
             }
             

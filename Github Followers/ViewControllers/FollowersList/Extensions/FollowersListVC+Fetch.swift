@@ -32,7 +32,7 @@ extension FollowersListVC  {
                     message = error.rawValue
                 }
                 
-                presentGFAlertOnMainThread(title: "Got an error", message: message, buttonTitle: "OK")
+                presentGFAlert(title: "Got an error", message: message, buttonTitle: "OK")
             }
             
             dismissLoadingView()

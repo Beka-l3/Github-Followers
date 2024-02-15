@@ -45,7 +45,7 @@ extension SearchVC {
     
     @objc func pushFollowersListVC() {
         guard let username = uiConfig.usernameTextField.text, !username.isEmpty else {
-            presentGFAlertOnMainThread(
+            presentGFAlert(
                 title: GFAlertVC.Text.emptyUsername.title,
                 message: GFAlertVC.Text.emptyUsername.message,
                 buttonTitle: GFAlertVC.Text.emptyUsername.buttonTitle

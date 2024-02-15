@@ -28,7 +28,7 @@ extension UserInfoVC: GFItemInfoVCDelegate {
     
     private func showSafariView() {
         guard let url = URL(string: user.htmlUrl) else {
-            presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "OK")
+            presentGFAlert(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "OK")
             return
         }
         
@@ -38,7 +38,7 @@ extension UserInfoVC: GFItemInfoVCDelegate {
     
     private func dismissAndPassNewUsername() {
         guard user.followers > 0 else {
-            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers on their github account. What a shame 🙃", buttonTitle: "So sad")
+            presentGFAlert(title: "No followers", message: "This user has no followers on their github account. What a shame 🙃", buttonTitle: "So sad")
             return
         }
         
