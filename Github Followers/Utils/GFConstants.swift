@@ -20,10 +20,17 @@ enum SFSymbols: String {
 }
 
 
+enum ImageNames {
+    static let githubLogo               = "gh-logo"
+    static let avatarPlaceholder        = "avatar-placeholder"
+    static let emptyStateLogo           = "empty-state-logo"
+}
+
+
 enum Images {
-    static let githubLogo               = UIImage(named: "gh-logo")
-    static let avatarPlaceholder        = UIImage(named: "avatar-placeholder")
-    static let emptyStateLogo           = UIImage(named: "empty-state-logo")
+    static let githubLogo               = UIImage(named: ImageNames.githubLogo)
+    static let avatarPlaceholder        = UIImage(named: ImageNames.avatarPlaceholder)
+    static let emptyStateLogo           = UIImage(named: ImageNames.emptyStateLogo)
     
     enum System {
         static let repos                = UIImage(systemName: SFSymbols.folder.rawValue)
