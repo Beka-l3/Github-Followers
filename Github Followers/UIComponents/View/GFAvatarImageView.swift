@@ -66,7 +66,7 @@ extension GFAvatarImageView {
             image = .avatarPlaceholder
             
             Task {
-                do { image = try await NetworkService.shared.getImage(from: urlString) }
+                do { image = await NetworkService.shared.getImage(from: urlString) }
             }
         }
     }

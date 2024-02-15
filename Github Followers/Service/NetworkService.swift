@@ -74,12 +74,9 @@ extension NetworkService {
     }
     
     
-    func getImage(from urlString: String) async throws -> UIImage {
-        let data = try await getData(endpoint: urlString)
-        
-        guard let image = UIImage(data: data) else {
-            throw ServiceError.badResponse
-        }
+    func getImage(from urlString: String) async -> UIImage? {
+        guard let data = try? await getData(endpoint: urlString) else { return nil }
+        guard let image = UIImage(data: data) else { return nil }
         
         cache.setObject(image, forKey: NSString(string: urlString))
         
