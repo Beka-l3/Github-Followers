@@ -10,9 +10,6 @@ import Foundation
 extension Date {
     
     func convertToMothYearFormat() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM YYYY"
-        
-        return formatter.string(from: self)
+        formatted(.dateTime.month().year())
     }
 }
