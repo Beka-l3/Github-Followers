@@ -65,6 +65,10 @@ extension FavoritesListVC {
     func pushFollowersListVC(username: String) {
         navigationController?.pushViewController(FollowersListVC(username: username), animated: true)
     }
+    
+    func showEmptyState() {
+        showEmptyStateView(with: "No Favorites\nAdd one on the follower screen.", in: view)
+    }
 }
 
 
@@ -78,7 +82,7 @@ extension FavoritesListVC {
                 favorites = try await PersistenceService.retrieveFavorites()
                 
                 if favorites.isEmpty {
-                    showEmptyStateView(with: "No Favorites\nAdd one on the follower screen.", in: view)
+                    showEmptyState()
                     
                 } else {
                     uiConfig.tableView.reloadData()
