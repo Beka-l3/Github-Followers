@@ -69,6 +69,7 @@ extension NetworkService {
     
     func getUser(for username: String) async throws -> User {
         let endpoint = self.baseUrl + "/\(username)"
+        
         return try await decodeData(from: endpoint)
     }
     

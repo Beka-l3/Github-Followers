@@ -85,14 +85,13 @@ extension FavoritesListVC {
                     view.bringSubviewToFront(uiConfig.tableView)
                 }
                 
-            } catch {
+            } catch let persistanceError as PersistenceService.ServiceError {
                 
-                if let persistanceError = error as? PersistenceService.ServiceError {
-                    presentGFAlert(title: "Storage error", message: persistanceError.rawValue, buttonTitle: "OK")
+                presentGFAlert(title: "Storage error", message: persistanceError.rawValue, buttonTitle: "OK")
+                
+            } catch {
                     
-                } else {
-                    presentDefaultAlertError()
-                }
+                presentDefaultAlertError()
             }
             
             dismissLoadingView()

@@ -97,14 +97,13 @@ extension UserInfoVC {
                 configureInfo()
                 configureViewControllers()
                 
+            } catch let networkError as NetworkService.ServiceError {
+                
+                presentGFAlert(title: "Network error", message: networkError.rawValue, buttonTitle: "OK")
+                
             } catch {
                 
-                if let networkError = error as? NetworkService.ServiceError {
-                    presentGFAlert(title: "Network error", message: networkError.rawValue, buttonTitle: "OK")
-                    
-                } else {
-                    presentDefaultAlertError()
-                }
+                presentDefaultAlertError()
             }
         }
     }
