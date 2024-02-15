@@ -214,7 +214,7 @@
 			children = (
 				077898E02B6562E3004BB732 /* FavoritesListVC.swift */,
 				07C5CBE92B6A9BF000C8A02E /* FavoritesListVCUIConfig.swift */,
-				07C5CBED2B6AA56100C8A02E /* FavoritesListVC+TableView.swift */,
+				079D06292B7E43C000694E83 /* Extensions */,
 			);
 			path = FavoritesList;
 			sourceTree = "<group>";
@@ -324,6 +324,14 @@
 			isa = PBXGroup;
 			children = (
 				07C5CBDD2B6A53FD00C8A02E /* UserInfoVC+GFItemInfoVCDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		079D06292B7E43C000694E83 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				07C5CBED2B6AA56100C8A02E /* FavoritesListVC+TableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
