@@ -88,12 +88,12 @@ extension UserInfoVCUIConfig {
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: Constants.padding),
             itemViewOne.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: Constants.padding),
             itemViewOne.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -Constants.padding),
-            itemViewOne.heightAnchor.constraint(equalToConstant: Constants.headerHeight),
+            itemViewOne.heightAnchor.constraint(equalToConstant: Constants.itemViewHeight),
             
             itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: Constants.padding),
             itemViewTwo.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: Constants.padding),
             itemViewTwo.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -Constants.padding),
-            itemViewTwo.heightAnchor.constraint(equalToConstant: Constants.headerHeight),
+            itemViewTwo.heightAnchor.constraint(equalToConstant: Constants.itemViewHeight),
             
             dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: Constants.padding),
             dateLabel.centerXAnchor.constraint(equalTo: scrollView.contentLayoutGuide.centerXAnchor),
