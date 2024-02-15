@@ -57,6 +57,10 @@ extension GFButton {
         configuration?.title = title
         
         configuration?.image = image
-        
     }
+}
+
+
+#Preview {
+    GFButton(color: .systemBlue, title: "Testing button", systemImage: UIImage(systemName: "pencil"))
 }
