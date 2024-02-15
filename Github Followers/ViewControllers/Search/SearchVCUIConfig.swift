@@ -27,7 +27,7 @@ final class SearchVCUIConfig {
     var logoImageViewTopConstraint: NSLayoutConstraint?
     
     lazy var usernameTextField: GFTextField = .init(placeholder: Constants.usernamePlaceholder)
-    lazy var callToActionButton: GFButton = .init(backgroundColor: .systemGreen, title: Constants.callToActionText)
+    lazy var callToActionButton: GFButton = .init(color: .systemGreen, title: Constants.callToActionText, systemImage: Images.System.person3)
 }
 
 

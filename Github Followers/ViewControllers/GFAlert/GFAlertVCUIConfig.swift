@@ -14,7 +14,7 @@ final class GFAlertVCUIConfig {
     lazy var containerView = GFAlertContainerView()
     lazy var titleLabel = GFTitleLabel(type: .first(alignment: .center), fontSize: Constants.titleLabelFontSize)
     lazy var messageLabel = GFBodyLabel(alignment: .center)
-    lazy var actionButton = GFButton(backgroundColor: .systemPink, title: GFAlertVC.Text.defaultButton)
+    lazy var actionButton = GFButton(color: .systemPink, title: GFAlertVC.Text.defaultButton, systemImage: Images.System.ok)
 }
 
 
@@ -63,7 +63,7 @@ extension GFAlertVCUIConfig {
     func setTitles(title: String, message: String, button: String) {
         titleLabel.text = title
         messageLabel.text = message
-        actionButton.setTitle(button, for: .normal)
+        actionButton.configuration?.title = button
     }
 }
 

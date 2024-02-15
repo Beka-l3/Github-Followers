@@ -76,14 +76,12 @@ extension GFItemInfoVCUIConfig {
         case let .projects(respos, gists):
             itemInfoOne.setData(type: .repos, count: respos)
             itemInfoTwo.setData(type: .gists, count: gists)
-            button.backgroundColor = .systemPurple
-            button.setTitle(Constants.projectsButtonTitle, for: .normal)
+            button.set(color: .systemPurple, title: Constants.projectsButtonTitle, systemImage: Images.System.person)
             
         case let .people(following, followers):
             itemInfoOne.setData(type: .following, count: following)
             itemInfoTwo.setData(type: .followers, count: followers)
-            button.backgroundColor = .systemGreen
-            button.setTitle(Constants.peopleButtonTitle, for: .normal)
+            button.set(color: .systemGreen, title: Constants.peopleButtonTitle, systemImage: Images.System.person3)
             
         case .none:
             break

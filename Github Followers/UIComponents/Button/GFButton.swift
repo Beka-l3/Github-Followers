@@ -20,10 +20,10 @@ final class GFButton: UIButton {
     }
     
     
-    convenience init(backgroundColor: UIColor, title: String) {
+    convenience init(color: UIColor, title: String, systemImage image: UIImage? = nil) {
         self.init(frame: .zero)
-        self.backgroundColor = backgroundColor
-        self.setTitle(title, for: .normal)
+        
+        set(color: color, title: title, systemImage: image)
     }
     
 }
@@ -32,7 +32,7 @@ final class GFButton: UIButton {
 extension GFButton {
     
     enum Constants {
-        static let cornerRadius:        CGFloat     = 10
+        static let imagePadding:        CGFloat     = 6
     }
 }
 
@@ -40,10 +40,23 @@ extension GFButton {
 extension GFButton {
     
     private func configure() {
-        layer.cornerRadius = Constants.cornerRadius
-        setTitleColor(.white, for: .normal)
-        titleLabel?.font = .preferredFont(forTextStyle: .headline)
+        configuration = .tinted()
+        configuration?.cornerStyle = .medium
+        configuration?.imagePadding = Constants.imagePadding
+        configuration?.imagePlacement = .leading
         translatesAutoresizingMaskIntoConstraints = false
     }
+}
+
+
+extension GFButton {
     
+    func set(color: UIColor, title: String, systemImage image: UIImage? = nil) {
+        configuration?.baseBackgroundColor = color
+        configuration?.baseForegroundColor = color
+        configuration?.title = title
+        
+        configuration?.image = image
+        
+    }
 }
