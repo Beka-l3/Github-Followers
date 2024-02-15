@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol GFItemInfoVCDelegate: AnyObject {
     func handleItemInfoButton(of type: GFItemInfoVC.InfoType)
 }

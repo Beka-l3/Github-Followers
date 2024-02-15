@@ -7,22 +7,32 @@
 
 import UIKit
 
-
 final class GFTextField: UITextField {
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
+    
     convenience init(placeholder: String) {
         self.init(frame: .zero)
         self.placeholder = placeholder
+    }
+}
+
+
+extension GFTextField {
+ 
+    enum Constants {
+        static let cornerRadius:            CGFloat     = 10
+        static let borderWidth:             CGFloat     = 2
+        static let minimumFontSize:         CGFloat     = 12
     }
 }
 
@@ -48,16 +58,5 @@ extension GFTextField {
         clearButtonMode             = .whileEditing
         
         translatesAutoresizingMaskIntoConstraints = false
-    }
-}
-
-
-extension GFTextField {
- 
-    enum Constants {
-        
-        static let cornerRadius:            CGFloat     = 10
-        static let borderWidth:             CGFloat     = 2
-        static let minimumFontSize:         CGFloat     = 12
     }
 }

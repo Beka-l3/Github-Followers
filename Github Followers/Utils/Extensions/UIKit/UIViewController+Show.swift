@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension UIViewController {
     
     func presentGFAlertOnMainThread(title: String, message: String, buttonTitle: String) {
@@ -18,5 +17,4 @@ extension UIViewController {
             self.present(alertVC, animated: true)
         }
     }
-    
 }

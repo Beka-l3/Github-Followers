@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class GFItemInfoView: UIView {
     
     enum ItemType {
@@ -17,7 +16,6 @@ final class GFItemInfoView: UIView {
         case following
         case none
     }
-    
     
     lazy var systemImageView: UIImageView = {
         let view = UIImageView()
@@ -34,14 +32,37 @@ final class GFItemInfoView: UIView {
     private var type: ItemType = .none
     
     
+//    MARK: lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
         configureAutoLayout()
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+}
+
+
+extension GFItemInfoView {
+ 
+    enum Constants {
+        static let paddingS:                    CGFloat     = 4
+        static let padding:                     CGFloat     = 12
+        static let titleLabelFontSize:          CGFloat     = 15
+        static let titleLabelHeight:            CGFloat     = 18
+        static let countLabelFontSize:          CGFloat     = 15
+        static let countLabelHeight:            CGFloat     = 18
+        static let systemImageDimension:        CGFloat     = 20
+        
+        static let titleLabelTextDefault:       String      = "Item"
+        static let countLabelTextDefault:       String      = "0"
+        static let reposTitleText:              String      = "Public Respos"
+        static let gistsTitleText:              String      = "Public Gistss"
+        static let followingTitleText:          String      = "Following"
+        static let followersTitleText:          String      = "Followers"
     }
 }
 
@@ -56,6 +77,7 @@ extension GFItemInfoView {
         
         translatesAutoresizingMaskIntoConstraints = false
     }
+    
     
     private func configureAutoLayout() {
         NSLayoutConstraint.activate([
@@ -106,26 +128,5 @@ extension GFItemInfoView {
             titleLabel.text = Constants.titleLabelTextDefault
             self.systemImageView.image = Images.System.none
         }
-    }
-}
-
-
-extension GFItemInfoView {
- 
-    enum Constants {
-        static let paddingS:                    CGFloat     = 4
-        static let padding:                     CGFloat     = 12
-        static let titleLabelFontSize:          CGFloat     = 15
-        static let titleLabelHeight:            CGFloat     = 18
-        static let countLabelFontSize:          CGFloat     = 15
-        static let countLabelHeight:            CGFloat     = 18
-        static let systemImageDimension:        CGFloat     = 20
-        
-        static let titleLabelTextDefault:       String      = "Item"
-        static let countLabelTextDefault:       String      = "0"
-        static let reposTitleText:              String      = "Public Respos"
-        static let gistsTitleText:              String      = "Public Gistss"
-        static let followingTitleText:          String      = "Following"
-        static let followersTitleText:          String      = "Followers"
     }
 }

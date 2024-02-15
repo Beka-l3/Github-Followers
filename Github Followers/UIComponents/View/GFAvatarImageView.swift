@@ -9,15 +9,13 @@ import UIKit
 
 
 final class GFAvatarImageView: UIImageView {
-    
-    let placeholderImage = Images.avatarPlaceholder
-    
+        
     var imageUrl: String? {
         didSet {
             if let imageUrl = imageUrl {
                 downloadAvatarImage(from: imageUrl)
             } else {
-                image = placeholderImage
+                image = Constants.placeholderImage
             }
         }
     }
@@ -31,6 +29,7 @@ final class GFAvatarImageView: UIImageView {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -39,10 +38,19 @@ final class GFAvatarImageView: UIImageView {
 
 extension GFAvatarImageView {
     
+    enum Constants {
+        static let cornerRadius:        CGFloat     = 10
+        static let placeholderImage:    UIImage?    = Images.avatarPlaceholder
+    }
+}
+
+
+extension GFAvatarImageView {
+    
     private func configure() {
-        layer.cornerRadius = 10
+        layer.cornerRadius = Constants.cornerRadius
         clipsToBounds = true
-        image = placeholderImage
+        image = Constants.placeholderImage
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

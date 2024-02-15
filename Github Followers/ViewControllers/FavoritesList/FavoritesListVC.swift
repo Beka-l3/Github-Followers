@@ -7,18 +7,19 @@
 
 import UIKit
 
-
 final class FavoritesListVC: GFDataLoadingVC {
     
     private let uiConfig = FavoritesListVCUIConfig()
     private(set) var favorites: [Follower] = []
     
 
+//    MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         configureNavbar()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,6 +29,7 @@ final class FavoritesListVC: GFDataLoadingVC {
         
         getFavoritesList()
     }
+    
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -46,6 +48,7 @@ extension FavoritesListVC {
         uiConfig.tableView.dataSource = self
     }
     
+    
     private func configureNavbar() {
         title = "Favorites"
     }
@@ -57,6 +60,7 @@ extension FavoritesListVC {
     func removeFavorite(at indexPath: IndexPath) {
         favorites.remove(at: indexPath.item)
     }
+    
     
     func pushFollowersListVC(username: String) {
         navigationController?.pushViewController(FollowersListVC(username: username), animated: true)
@@ -70,9 +74,7 @@ extension FavoritesListVC {
         showLoadingView()
         
         Task {
-            
             do {
-                
                 favorites = try await PersistenceService.retrieveFavorites()
                 
                 if favorites.isEmpty {

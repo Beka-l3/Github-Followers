@@ -6,13 +6,10 @@
 //
 
 import UIKit
-//import OSLog
-
 
 final class SearchVCUIConfig {
     
     weak var rootView: UIView?
-    
     
     lazy var logoImageView: UIImageView = {
         let view = UIImageView()
@@ -35,6 +32,21 @@ final class SearchVCUIConfig {
 
 
 extension SearchVCUIConfig {
+ 
+    enum Constants {
+        static let paddingXS:               CGFloat     = 20
+        static let paddingS:                CGFloat     = 48
+        static let padding:                 CGFloat     = 50
+        static let paddingM:                CGFloat     = 80
+        static let logoImageDimension:      CGFloat     = 200
+        
+        static let usernamePlaceholder:     String      = "Enter username"
+        static let callToActionText:        String      = "Get Followers"
+    }
+}
+
+
+extension SearchVCUIConfig {
     
     func configureUI() {
         guard let rootView = rootView else { return }
@@ -43,6 +55,7 @@ extension SearchVCUIConfig {
         
         rootView.addSubviews(logoImageView, usernameTextField, callToActionButton)
     }
+    
     
     func configureAutoLayout() {
         guard let rootView = rootView else { return }
@@ -73,23 +86,12 @@ extension SearchVCUIConfig {
 
 extension SearchVCUIConfig {
     
-    func clearUsernameTF() { usernameTextField.text = .empty }
-    func usernameTFShouldResignFR() { usernameTextField.resignFirstResponder() }
-}
-
-
-extension SearchVCUIConfig {
- 
-    enum Constants {
-        
-        static let paddingXS:               CGFloat     = 20
-        static let paddingS:                CGFloat     = 48
-        static let padding:                 CGFloat     = 50
-        static let paddingM:                CGFloat     = 80
-        static let logoImageDimension:      CGFloat     = 200
-        
-        static let usernamePlaceholder:     String      = "Enter username"
-        static let callToActionText:        String      = "Get Followers"
-        
+    func clearUsernameTF() {
+        usernameTextField.text = .empty
+    }
+    
+    
+    func usernameTFShouldResignFR() {
+        usernameTextField.resignFirstResponder()
     }
 }

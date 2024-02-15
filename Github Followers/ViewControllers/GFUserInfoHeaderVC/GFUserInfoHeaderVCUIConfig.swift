@@ -26,9 +26,30 @@ final class GFUserInfoHeaderVCUIConfig {
     
     lazy var locationLabel = GFTitleLabel(type: .secondary, fontSize: Constants.locationLabelFontSize, textColor: .secondaryLabel)
     lazy var bioLabel = GFBodyLabel(alignment: .left)
-    
 }
 
+
+extension GFUserInfoHeaderVCUIConfig {
+    
+    enum Constants {
+        
+        static let numberOfLineForBio:      Int         = 3
+        
+        static let padding:                 CGFloat     = 20
+        static let textImagePadding:        CGFloat     = 12
+        static let iconTextPadding:         CGFloat     = 5
+        static let avatarImageDimension:    CGFloat     = 90
+        static let usernameLabelHeight:     CGFloat     = 38
+        static let nameLabelHeight:         CGFloat     = 20
+        static let locationLabelHeight:     CGFloat     = 20
+        static let nameLabelYPadding:       CGFloat     = 8
+        static let locationIconDimension:   CGFloat     = 20
+        static let bioLabelHeigh:           CGFloat     = 90
+        static let usernameLabelFontSize:   CGFloat     = 34
+        static let nameLabelFontSize:       CGFloat     = 18
+        static let locationLabelFontSize:   CGFloat     = 18
+    }
+}
 
 
 extension GFUserInfoHeaderVCUIConfig {
@@ -41,6 +62,7 @@ extension GFUserInfoHeaderVCUIConfig {
         
         bioLabel.numberOfLines = Constants.numberOfLineForBio
     }
+    
     
     func configureAutoLayout() {
         guard let rootView = rootView else { return }
@@ -75,28 +97,5 @@ extension GFUserInfoHeaderVCUIConfig {
             bioLabel.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -Constants.padding),
             bioLabel.heightAnchor.constraint(equalToConstant: Constants.bioLabelHeigh),
         ])
-    }
-}
-
-
-extension GFUserInfoHeaderVCUIConfig {
-    
-    enum Constants {
-        
-        static let numberOfLineForBio:      Int         = 3
-        
-        static let padding:                 CGFloat     = 20
-        static let textImagePadding:        CGFloat     = 12
-        static let iconTextPadding:         CGFloat     = 5
-        static let avatarImageDimension:    CGFloat     = 90
-        static let usernameLabelHeight:     CGFloat     = 38
-        static let nameLabelHeight:         CGFloat     = 20
-        static let locationLabelHeight:     CGFloat     = 20
-        static let nameLabelYPadding:       CGFloat     = 8
-        static let locationIconDimension:   CGFloat     = 20
-        static let bioLabelHeigh:           CGFloat     = 90
-        static let usernameLabelFontSize:   CGFloat     = 34
-        static let nameLabelFontSize:       CGFloat     = 18
-        static let locationLabelFontSize:   CGFloat     = 18
     }
 }

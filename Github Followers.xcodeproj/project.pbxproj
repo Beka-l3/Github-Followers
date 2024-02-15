@@ -33,7 +33,6 @@
 		0778990A2B65EC67004BB732 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077899092B65EC67004BB732 /* FollowerCell.swift */; };
 		0778990D2B65FAAB004BB732 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778990C2B65FAAB004BB732 /* GFAvatarImageView.swift */; };
 		0778990F2B65FE44004BB732 /* FollowersListVCUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778990E2B65FE44004BB732 /* FollowersListVCUIConfig.swift */; };
-		07AC2EDD2B6A01FA0067B061 /* GFTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC2EDC2B6A01FA0067B061 /* GFTag.swift */; };
 		07C5CBDE2B6A53FD00C8A02E /* UserInfoVC+GFItemInfoVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBDD2B6A53FD00C8A02E /* UserInfoVC+GFItemInfoVCDelegate.swift */; };
 		07C5CBE02B6A557200C8A02E /* FollowersListVC+UserInfoVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBDF2B6A557200C8A02E /* FollowersListVC+UserInfoVCDelegate.swift */; };
 		07C5CBE22B6A568000C8A02E /* UIViewController+SafariVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CBE12B6A568000C8A02E /* UIViewController+SafariVC.swift */; };
@@ -88,7 +87,6 @@
 		077899092B65EC67004BB732 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		0778990C2B65FAAB004BB732 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		0778990E2B65FE44004BB732 /* FollowersListVCUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVCUIConfig.swift; sourceTree = "<group>"; };
-		07AC2EDC2B6A01FA0067B061 /* GFTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTag.swift; sourceTree = "<group>"; };
 		07C5CBDD2B6A53FD00C8A02E /* UserInfoVC+GFItemInfoVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfoVC+GFItemInfoVCDelegate.swift"; sourceTree = "<group>"; };
 		07C5CBDF2B6A557200C8A02E /* FollowersListVC+UserInfoVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersListVC+UserInfoVCDelegate.swift"; sourceTree = "<group>"; };
 		07C5CBE12B6A568000C8A02E /* UIViewController+SafariVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SafariVC.swift"; sourceTree = "<group>"; };
@@ -225,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				077898EE2B65A6A6004BB732 /* FollowersListVC.swift */,
-				07E054FC2B66C75F00A8B6A5 /* UIConfig */,
+				0778990E2B65FE44004BB732 /* FollowersListVCUIConfig.swift */,
 				07E054FD2B66C76D00A8B6A5 /* Extensions */,
 			);
 			path = FollowersList;
@@ -245,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				07C5CBF22B6B9D7F00C8A02E /* GFConstants.swift */,
-				07AC2EDB2B6A01EA0067B061 /* Protocols */,
 				077898FC2B65CBF8004BB732 /* Extensions */,
 			);
 			path = Utils;
@@ -323,6 +320,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		079D06282B7E13EF00694E83 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				07C5CBDD2B6A53FD00C8A02E /* UserInfoVC+GFItemInfoVCDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		07AC2ED92B6A01D20067B061 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,14 +348,6 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		07AC2EDB2B6A01EA0067B061 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				07AC2EDC2B6A01FA0067B061 /* GFTag.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		07C5CBEF2B6B9AE800C8A02E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,17 +362,9 @@
 			children = (
 				07E054F42B66C3FE00A8B6A5 /* UserInfoVC.swift */,
 				07E054F62B66C41600A8B6A5 /* UserInfoVCUIConfig.swift */,
-				07C5CBDD2B6A53FD00C8A02E /* UserInfoVC+GFItemInfoVCDelegate.swift */,
+				079D06282B7E13EF00694E83 /* Extensions */,
 			);
 			path = UserInfo;
-			sourceTree = "<group>";
-		};
-		07E054FC2B66C75F00A8B6A5 /* UIConfig */ = {
-			isa = PBXGroup;
-			children = (
-				0778990E2B65FE44004BB732 /* FollowersListVCUIConfig.swift */,
-			);
-			path = UIConfig;
 			sourceTree = "<group>";
 		};
 		07E054FD2B66C76D00A8B6A5 /* Extensions */ = {
@@ -515,7 +504,6 @@
 				077898FB2B65CBF4004BB732 /* UIViewController+Show.swift in Sources */,
 				07C5CBF52B6BA5C500C8A02E /* String+empty.swift in Sources */,
 				07C5CBF72B6BAAE100C8A02E /* GFAlertVC+Text.swift in Sources */,
-				07AC2EDD2B6A01FA0067B061 /* GFTag.swift in Sources */,
 				077898F32B65B105004BB732 /* GFBodyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

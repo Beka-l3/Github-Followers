@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class GFUserInfoHeaderVC: UIViewController {
     
     var user:       User!   { didSet { setData() } }
@@ -15,14 +14,12 @@ final class GFUserInfoHeaderVC: UIViewController {
     
     private let uiConfig = GFUserInfoHeaderVCUIConfig()
     
-    
-    
-    //    MARK: lifecycle
+        
+//    MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
-    
 }
 
 
@@ -33,6 +30,7 @@ extension GFUserInfoHeaderVC {
         uiConfig.configureUI()
         uiConfig.configureAutoLayout()
     }
+    
     
     private func setData() {
         uiConfig.usernameLabel.text     = user.login

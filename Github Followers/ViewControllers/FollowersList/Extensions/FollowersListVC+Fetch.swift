@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension FollowersListVC  {
     
     func fetchFollowers() {
@@ -39,6 +38,7 @@ extension FollowersListVC  {
             dismissLoadingView()
         }
     }
+    
     
     func fetchFollowersForNewUsername(_ username: String) {
         resetUsername(to: username)

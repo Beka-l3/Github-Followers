@@ -7,11 +7,9 @@
 
 import UIKit
 
-
 protocol UserInfoVCDelegate: AnyObject {
     func getFollowers(for username: String)
 }
-
 
 final class UserInfoVC: UIViewController {
     
@@ -34,6 +32,7 @@ final class UserInfoVC: UIViewController {
         fetchUser()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -53,6 +52,7 @@ extension UserInfoVC {
         navigationItem.rightBarButtonItem = doneButton
     }
     
+    
     private func configureNavbar() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = false
@@ -60,12 +60,14 @@ extension UserInfoVC {
         navigationController?.navigationBar.tintColor = .systemGreen
     }
     
+    
     private func configureInfo() {
         headerVC.avatarUrl = follower.avatarUrl
         itemInfoVCOne.setType(.projects(repos: user.publicRepos, gists: user.publicGists))
         itemInfoVCTwo.setType(.people(following: user.following, followers: user.followers))
         uiConfig.setDate(date: user.createdAt)
     }
+    
     
     private func configureViewControllers() {
         add(childVC: headerVC, to: uiConfig.headerView)
@@ -75,13 +77,13 @@ extension UserInfoVC {
         itemInfoVCOne.delegate = self
         itemInfoVCTwo.delegate = self
     }
-}
-
-
-extension UserInfoVC {
     
-    @objc func handleDoneButton() {
-        dismiss(animated: true)
+    
+    private func add(childVC: UIViewController, to containerView: UIView) {
+        addChild(childVC)
+        containerView.addSubview(childVC.view)
+        childVC.view.frame = containerView.bounds
+        childVC.didMove(toParent: self)
     }
 }
 
@@ -111,11 +113,7 @@ extension UserInfoVC {
 
 extension UserInfoVC {
     
-    private func add(childVC: UIViewController, to containerView: UIView) {
-        addChild(childVC)
-        containerView.addSubview(childVC.view)
-        childVC.view.frame = containerView.bounds
-        childVC.didMove(toParent: self)
+    @objc func handleDoneButton() {
+        dismiss(animated: true)
     }
 }
-

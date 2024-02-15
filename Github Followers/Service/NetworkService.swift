@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class NetworkService {
     
     static let shared = NetworkService()
@@ -17,8 +16,19 @@ final class NetworkService {
     
     let cache = NSCache<NSString, UIImage>()
     
-    
+
+//    MARK: lifecycle
     private init() { }
+}
+
+
+extension NetworkService {
+    
+    enum ServiceError: String, Error {
+        case badUrl         = "Oops. Seems like gihub.com server is not responding"
+        case badResponse    = "Server could not find a data about followers of this user"
+        case invalidData    = "Server sent invalid data. Please, try again later"
+    }
 }
 
 
@@ -35,6 +45,7 @@ extension NetworkService {
         return decodedData
     }
     
+    
     private func getData(endpoint: String) async throws -> Data {
         return try await withCheckedThrowingContinuation { continuation in
             guard let url = URL(string: endpoint) else {
@@ -43,7 +54,6 @@ extension NetworkService {
             }
             
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                
                 if let error = error {
                     continuation.resume(throwing: error)
                     return
@@ -75,10 +85,12 @@ extension NetworkService {
         return try await decodeData(from: endpoint)
     }
     
+    
     func getUser(for username: String) async throws -> User {
         let endpoint = self.baseUrl + "/\(username)"
         return try await decodeData(from: endpoint)
     }
+    
     
     func getImage(from urlString: String) async throws -> UIImage {
         let data = try await getData(endpoint: urlString)
@@ -92,15 +104,3 @@ extension NetworkService {
         return image
     }
 }
-
-
-extension NetworkService {
-    
-    enum ServiceError: String, Error {
-        
-        case badUrl = "Oops. Seems like gihub.com server is not responding"
-        case badResponse = "Server could not find a data about followers of this user"
-        case invalidData = "Server sent invalid data. Please, try again later"
-    }
-}
-

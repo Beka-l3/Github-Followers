@@ -7,12 +7,10 @@
 
 import UIKit
 
-
 extension FollowersListVC: UICollectionViewDelegate {
     
-    enum Section {
-        case main
-    }
+    enum Section { case main }
+    
     
     func updateData(on followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
@@ -20,6 +18,7 @@ extension FollowersListVC: UICollectionViewDelegate {
         snapshot.appendItems(followers)
         applySnapshot(snapshot)
     }
+    
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offsetY         = scrollView.contentOffset.y
@@ -32,10 +31,12 @@ extension FollowersListVC: UICollectionViewDelegate {
         }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let follower = isSearching ? filteredFollowers[indexPath.item] : followers[indexPath.item]
         presentUserInfoVC(with: follower)
     }
+    
     
     private func presentUserInfoVC(with follower: Follower) {
         let userInfoVC = UserInfoVC()

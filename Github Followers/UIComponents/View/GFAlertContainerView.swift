@@ -7,21 +7,30 @@
 
 import UIKit
 
-
 final class GFAlertContainerView: UIView {
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
+    
     convenience init() {
         self.init(frame: .zero)
+    }
+}
+
+
+extension GFAlertContainerView {
+    
+    enum Constants {
+        static let borderWidth:     CGFloat     = 2
+        static let cornerRadius:    CGFloat     = 16
     }
 }
 
@@ -36,15 +45,5 @@ extension GFAlertContainerView {
         layer.cornerRadius = Constants.cornerRadius
         
         translatesAutoresizingMaskIntoConstraints = false
-    }
-}
-
-
-extension GFAlertContainerView {
-    
-    enum Constants {
-        
-        static let borderWidth:     CGFloat     = 2
-        static let cornerRadius:    CGFloat     = 16
     }
 }

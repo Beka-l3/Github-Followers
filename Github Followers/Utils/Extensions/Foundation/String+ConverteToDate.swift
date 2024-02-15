@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 extension String {
     
     func converteToDate() -> Date? {
@@ -18,6 +17,7 @@ extension String {
         
         return formatter.date(from: self)
     }
+    
     
     func convertToDisplayFormat() -> String {
         guard let date = converteToDate() else { return "N/A" }

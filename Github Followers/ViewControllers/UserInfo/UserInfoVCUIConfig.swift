@@ -7,11 +7,9 @@
 
 import UIKit
 
-
 final class UserInfoVCUIConfig {
     
     weak var rootView: UIView?
-    
     
     lazy var headerView: UIView = {
         let view = UIView()
@@ -41,8 +39,23 @@ final class UserInfoVCUIConfig {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
 }
+
+
+extension UserInfoVCUIConfig {
+    
+    enum Constants {
+        static let padding:                     CGFloat     = 20
+        static let headerHeight:                CGFloat     = 210
+        static let itemViewHeight:              CGFloat     = 140
+        static let dateLabelHeight:             CGFloat     = 50
+        
+        static let scrollViewContentHeight:     CGFloat     = headerHeight + 2 * itemViewHeight + 3 * padding
+        
+        static let dateLabelPrefix:             String      = "Github since "
+    }
+}
+
 
 
 extension UserInfoVCUIConfig {
@@ -55,6 +68,7 @@ extension UserInfoVCUIConfig {
         
         scrollView.addSubviews(headerView, itemViewOne, itemViewTwo, dateLabel)
     }
+    
     
     func configureAutoLayout() {
         guard let rootView = rootView else { return }
@@ -97,23 +111,8 @@ extension UserInfoVCUIConfig {
         dateLabel.text = Constants.dateLabelPrefix + dateString.convertToDisplayFormat()
     }
     
+    
     func setDate(date: Date) {
         dateLabel.text = Constants.dateLabelPrefix + date.convertToMothYearFormat()
-    }
-}
-
-
-extension UserInfoVCUIConfig {
-    
-    enum Constants {
-        
-        static let padding:                     CGFloat     = 20
-        static let headerHeight:                CGFloat     = 210
-        static let itemViewHeight:              CGFloat     = 140
-        static let dateLabelHeight:             CGFloat     = 50
-        
-        static let scrollViewContentHeight:     CGFloat     = headerHeight + 2 * itemViewHeight + 3 * padding
-        
-        static let dateLabelPrefix:              String     = "Github since "
     }
 }

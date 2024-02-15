@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class GFEmptyStateView: UIView {
     
     lazy var messageLabel = GFTitleLabel(type: .first(alignment: .center), fontSize: Constants.messageLabelFontSize)
@@ -19,21 +18,39 @@ final class GFEmptyStateView: UIView {
     }()
     
     
-    //    MARK: lifecycle
+//    MARK: lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
     
     convenience init(message: String) {
         self.init(frame: .zero)
         self.messageLabel.text = message
     }
     
+}
+
+
+extension GFEmptyStateView {
+    
+    enum Constants {
+        static let numberOfLines:                   Int         = 3
+        
+        static let padding:                         CGFloat     = 40
+        static let paddingM:                        CGFloat     = 80
+        static let paddingL:                        CGFloat     = 150
+        static let paddingXL:                       CGFloat     = 170
+        static let widthMultiplier:                 CGFloat     = 1.3
+        static let messageLabelHeight:              CGFloat     = 200
+        static let messageLabelFontSize:            CGFloat     = 28
+    }
 }
 
 
@@ -59,22 +76,5 @@ extension GFEmptyStateView {
             logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Constants.paddingXL),
             logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: logoContraintBottomConstant),
         ])
-    }
-}
-
-
-extension GFEmptyStateView {
-    
-    enum Constants {
-        static let numberOfLines:                   Int         = 3
-        
-        static let padding:                         CGFloat     = 40
-        static let paddingM:                        CGFloat     = 80
-        static let paddingL:                        CGFloat     = 150
-        static let paddingXL:                       CGFloat     = 170
-        
-        static let widthMultiplier:                 CGFloat     = 1.3
-        static let messageLabelHeight:              CGFloat     = 200
-        static let messageLabelFontSize:            CGFloat     = 28
     }
 }

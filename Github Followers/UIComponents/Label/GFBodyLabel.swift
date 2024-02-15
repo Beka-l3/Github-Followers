@@ -7,18 +7,18 @@
 
 import UIKit
 
-
 final class GFBodyLabel: UILabel {
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
     
     convenience init(alignment: NSTextAlignment) {
         self.init(frame: .zero)
@@ -40,5 +40,4 @@ extension GFBodyLabel {
         
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
 }

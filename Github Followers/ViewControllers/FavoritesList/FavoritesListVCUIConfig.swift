@@ -7,11 +7,9 @@
 
 import UIKit
 
-
 final class FavoritesListVCUIConfig {
     
     weak var rootView: UIView?
-    
     
     lazy var tableView: UITableView = {
         let view = UITableView()
@@ -25,6 +23,14 @@ final class FavoritesListVCUIConfig {
 
 
 extension FavoritesListVCUIConfig {
+ 
+    enum Constants {
+        static let rowHeight:       CGFloat     = 80
+    }
+}
+
+
+extension FavoritesListVCUIConfig {
     
     func configureUI() {
         guard let rootView = rootView else { return }
@@ -33,16 +39,9 @@ extension FavoritesListVCUIConfig {
         rootView.addSubview(tableView)
     }
     
+    
     func configureFrames() {
         guard let rootView = rootView else { return }
         tableView.frame = rootView.bounds
-    }
-}
-
-extension FavoritesListVCUIConfig {
- 
-    enum Constants {
-        
-        static let rowHeight:       CGFloat     = 80
     }
 }

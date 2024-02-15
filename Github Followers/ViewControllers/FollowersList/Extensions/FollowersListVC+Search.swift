@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -21,14 +20,15 @@ extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
         updateData(on: filteredFollowers)
     }
     
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         noSearchValue()
     }
+    
     
     private func noSearchValue() {
         setIsSearching(false)
         setFilteredFollowers([])
         updateData(on: followers)
     }
-    
 }

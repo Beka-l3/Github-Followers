@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class FollowersListVC: GFDataLoadingVC {
     
     private(set) var isSearching:           Bool        = false
@@ -39,10 +38,12 @@ final class FollowersListVC: GFDataLoadingVC {
         title = username
     }
     
+    
     required init?(coder: NSCoder) {
         self.username = .empty
         super.init(coder: coder)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +52,14 @@ final class FollowersListVC: GFDataLoadingVC {
         fetchFollowers()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -76,6 +79,7 @@ extension FollowersListVC {
         uiConfig.searchController.searchBar.delegate = self
     }
     
+    
     private func configureNavbar() {
         navigationItem.searchController = uiConfig.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -83,6 +87,7 @@ extension FollowersListVC {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToFavorites))
         navigationItem.rightBarButtonItem = addButton
     }
+    
     
     private func resetData() {
         self.page = 1
@@ -99,25 +104,31 @@ extension FollowersListVC {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
+    
     func appendToFavorites(_ array: [Follower]) {
         followers += array
     }
+    
     
     func setHasMoreFollowers(_ newValue: Bool) {
         hasMoreFollowers = newValue
     }
     
+    
     func incrementPage() {
         page += 1
     }
+    
     
     func setFilteredFollowers(_ newValue: [Follower]) {
         self.filteredFollowers = newValue
     }
     
+    
     func setIsSearching(_ newValue: Bool) {
         isSearching = newValue
     }
+    
     
     func resetUsername(to username: String) {
         self.username = username
@@ -125,4 +136,3 @@ extension FollowersListVC {
         resetData()
     }
 }
-

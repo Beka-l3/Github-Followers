@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class GFTabBarController: UITabBarController {
     
     override func viewDidLoad() {
@@ -25,6 +24,7 @@ extension GFTabBarController {
         viewControllers = [createSearchNC(), createFavoritesNC()]
     }
     
+    
     private func createSearchNC() -> UINavigationController {
         let searchVC = SearchVC()
         searchVC.title = "Search"
@@ -33,6 +33,7 @@ extension GFTabBarController {
         return createNC(rootViewController: searchVC)
     }
     
+    
     private func createFavoritesNC() -> UINavigationController {
         let favoritesVC = FavoritesListVC()
         favoritesVC.title = "Favorites"
@@ -40,6 +41,7 @@ extension GFTabBarController {
         
         return createNC(rootViewController: favoritesVC)
     }
+    
     
     private func createNC(rootViewController: UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: rootViewController)

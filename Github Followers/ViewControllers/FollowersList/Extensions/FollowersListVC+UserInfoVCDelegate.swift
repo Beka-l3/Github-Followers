@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension FollowersListVC: UserInfoVCDelegate {
     
     func getFollowers(for username: String) {

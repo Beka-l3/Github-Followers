@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class GFAlertVC: UIViewController {
     
     var alertTitle:     String
@@ -25,6 +24,7 @@ final class GFAlertVC: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    
     required init?(coder: NSCoder) {
         self.alertTitle     = Text.defaultTitle
         self.message        = Text.defaultMessage
@@ -32,10 +32,12 @@ final class GFAlertVC: UIViewController {
         super.init(coder: coder)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

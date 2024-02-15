@@ -7,11 +7,9 @@
 
 import UIKit
 
-
 final class GFItemInfoVCUIConfig {
     
     weak var rootView: UIView?
-    
     
     lazy var itemInfoOne = GFItemInfoView()
     lazy var itemInfoTwo = GFItemInfoView()
@@ -27,7 +25,20 @@ final class GFItemInfoVCUIConfig {
     }()
     
     lazy var button = GFButton()
+}
+
+
+extension GFItemInfoVCUIConfig {
     
+    enum Constants {
+        static let padding:                 CGFloat     = 20
+        static let cornerRadius:            CGFloat     = 10
+        static let stackHeight:             CGFloat     = 50
+        static let buttonHeight:            CGFloat     = 44
+        
+        static let projectsButtonTitle:     String      = "Github Profile"
+        static let peopleButtonTitle:       String      = "Get Followers"
+    }
 }
 
 
@@ -40,6 +51,7 @@ extension GFItemInfoVCUIConfig {
         
         rootView.addSubviews(stackView, button)
     }
+    
     
     func configureAutoLayout() {
         guard let rootView = rootView else { return }
@@ -55,6 +67,7 @@ extension GFItemInfoVCUIConfig {
             button.bottomAnchor.constraint(equalTo: rootView.bottomAnchor, constant: -Constants.padding),
         ])
     }
+    
     
     func configureInfoType(type: GFItemInfoVC.InfoType) {
         
@@ -76,20 +89,5 @@ extension GFItemInfoVCUIConfig {
             break
             
         }
-    }
-}
-
-
-extension GFItemInfoVCUIConfig {
-    
-    enum Constants {
-        
-        static let padding:                 CGFloat     = 20
-        static let cornerRadius:            CGFloat     = 10
-        static let stackHeight:             CGFloat     = 50
-        static let buttonHeight:            CGFloat     = 44
-        
-        static let projectsButtonTitle:     String      = "Github Profile"
-        static let peopleButtonTitle:       String      = "Get Followers"
     }
 }

@@ -8,7 +8,6 @@
 import UIKit
 import SafariServices
 
-
 extension UIViewController {
     
     func presentSafariVC(with url: URL) {

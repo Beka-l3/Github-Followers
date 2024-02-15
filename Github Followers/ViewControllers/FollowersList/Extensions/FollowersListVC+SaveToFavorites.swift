@@ -7,16 +7,13 @@
 
 import Foundation
 
-
 extension FollowersListVC {
     
     @objc func addToFavorites() {
         showLoadingView()
         
         Task {
-            
             do {
-                
                 let userInfo = try await NetworkService.shared.getUser(for: username)
                 let follower = Follower(login: username, avatarUrl: userInfo.avatarUrl)
                 
@@ -38,6 +35,5 @@ extension FollowersListVC {
             
             dismissLoadingView()
         }
-        
     }
 }

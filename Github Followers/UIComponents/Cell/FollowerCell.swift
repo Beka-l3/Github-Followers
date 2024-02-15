@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class FollowerCell: UICollectionViewCell {
     
     static let reuseID = "FollowerCellReuseID"
@@ -22,18 +21,21 @@ final class FollowerCell: UICollectionViewCell {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 }
 
 
-// MARK: exposed func
 extension FollowerCell {
     
-    func set(follower: Follower) {
-        usernameLabel.text = follower.login
-        avatarImageView.imageUrl = follower.avatarUrl
+    enum Constants {
+        static let padding:                 CGFloat     = 8
+        static let paddingM:                CGFloat     = 12
+        
+        static let usernameLabelFontSize:   CGFloat     = 16
+        static let usernameLabelHeight:     CGFloat     = 20
     }
 }
 
@@ -60,12 +62,8 @@ extension FollowerCell {
 
 extension FollowerCell {
     
-    enum Constants {
-        
-        static let padding: CGFloat = 8
-        static let paddingM: CGFloat = 12
-        
-        static let usernameLabelFontSize: CGFloat = 16
-        static let usernameLabelHeight: CGFloat = 20
+    func set(follower: Follower) {
+        usernameLabel.text = follower.login
+        avatarImageView.imageUrl = follower.avatarUrl
     }
 }

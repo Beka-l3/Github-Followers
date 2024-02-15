@@ -8,11 +8,9 @@
 import UIKit
 import SafariServices
 
-
 extension UserInfoVC: GFItemInfoVCDelegate {
     
     func handleItemInfoButton(of type: GFItemInfoVC.InfoType) {
-        
         switch type {
             
         case .projects:
@@ -27,6 +25,7 @@ extension UserInfoVC: GFItemInfoVCDelegate {
         }
     }
     
+    
     private func showSafariView() {
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "OK")
@@ -35,6 +34,7 @@ extension UserInfoVC: GFItemInfoVCDelegate {
         
         presentSafariVC(with: url)
     }
+    
     
     private func dismissAndPassNewUsername() {
         guard user.followers > 0 else {
@@ -46,5 +46,3 @@ extension UserInfoVC: GFItemInfoVCDelegate {
         dismiss(animated: true)
     }
 }
-
-

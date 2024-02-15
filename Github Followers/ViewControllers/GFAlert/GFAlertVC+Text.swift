@@ -7,13 +7,11 @@
 
 import Foundation
 
-
 extension GFAlertVC {
     
     typealias AlertText = (title: String, message: String, buttonTitle: String)
 
     enum Text {
-        
         static let defaultButton                          = "OK"
         static let defaultTitle                           = "Something went wrong"
         static let defaultMessage                         = "Unable to complete request"

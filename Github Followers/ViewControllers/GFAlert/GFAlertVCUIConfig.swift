@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class GFAlertVCUIConfig {
     
     weak var rootView: UIView?
@@ -29,6 +28,7 @@ extension GFAlertVCUIConfig {
         
         rootView.addSubviews(containerView, titleLabel, actionButton, messageLabel)
     }
+    
     
     func configureAutoLayout() {
         guard let rootView = rootView else { return }
@@ -70,7 +70,6 @@ extension GFAlertVCUIConfig {
 
 extension GFAlertVCUIConfig {
     enum Constants {
-        
         static let messageNumberOfLines:        Int             = 4
         
         static let paddingS:                    CGFloat         = 8

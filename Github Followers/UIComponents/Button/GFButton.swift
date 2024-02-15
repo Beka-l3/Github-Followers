@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class GFButton: UIButton {
     
     override init(frame: CGRect) {
@@ -15,9 +14,11 @@ final class GFButton: UIButton {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
     
     convenience init(backgroundColor: UIColor, title: String) {
         self.init(frame: .zero)
@@ -30,8 +31,16 @@ final class GFButton: UIButton {
 
 extension GFButton {
     
+    enum Constants {
+        static let cornerRadius:        CGFloat     = 10
+    }
+}
+
+
+extension GFButton {
+    
     private func configure() {
-        layer.cornerRadius = 10
+        layer.cornerRadius = Constants.cornerRadius
         setTitleColor(.white, for: .normal)
         titleLabel?.font = .preferredFont(forTextStyle: .headline)
         translatesAutoresizingMaskIntoConstraints = false

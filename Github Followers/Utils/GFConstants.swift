@@ -8,24 +8,21 @@
 import UIKit
 
 enum SFSymbols: String {
-    
-    case folder             = "folder"
-    case textAlignLeft      = "text.alignleft"
-    case person2            = "person.2"
-    case heart              = "heart"
-    case circle             = "circle"
-    case mapAndEllipse      = "mappin.and.ellipse"
+    case folder                         = "folder"
+    case textAlignLeft                  = "text.alignleft"
+    case person2                        = "person.2"
+    case heart                          = "heart"
+    case circle                         = "circle"
+    case mapAndEllipse                  = "mappin.and.ellipse"
 }
 
 
 enum Images {
-    
     static let githubLogo               = UIImage(named: "gh-logo")
     static let avatarPlaceholder        = UIImage(named: "avatar-placeholder")
     static let emptyStateLogo           = UIImage(named: "empty-state-logo")
     
     enum System {
-        
         static let repos                = UIImage(systemName: SFSymbols.folder.rawValue)
         static let gists                = UIImage(systemName: SFSymbols.textAlignLeft.rawValue)
         static let followers            = UIImage(systemName: SFSymbols.person2.rawValue)
@@ -35,16 +32,16 @@ enum Images {
     }
 }
 
+
 enum ScreenSize {
-    
     static let width                    = UIScreen.main.bounds.width
     static let height                   = UIScreen.main.bounds.height
     static let maxLength                = max(width, height)
     static let minLength                = min(width, height)
 }
 
+
 enum DeviceType {
-    
     static let idiom                    = UIDevice.current.userInterfaceIdiom
     static let nativeScale              = UIScreen.main.nativeScale
     static let scale                    = UIScreen.main.scale

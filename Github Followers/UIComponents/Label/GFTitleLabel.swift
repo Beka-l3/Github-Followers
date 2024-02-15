@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class GFTitleLabel: UILabel {
     
     enum TitleType {
@@ -15,14 +14,17 @@ final class GFTitleLabel: UILabel {
         case secondary
     }
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
     
     convenience init(type: TitleType, fontSize: CGFloat, textColor: UIColor = .label) {
         self.init(frame: .zero)

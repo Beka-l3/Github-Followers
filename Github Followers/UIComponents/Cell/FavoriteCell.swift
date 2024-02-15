@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class FavoriteCell: UITableViewCell {
     
     static let reuseId = "FavoriteCellReuseId"
@@ -22,18 +21,21 @@ final class FavoriteCell: UITableViewCell {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 }
 
 
-// MARK: exposed func
 extension FavoriteCell {
     
-    func set(favorite: Follower) {
-        usernameLabel.text = favorite.login
-        avatarImageView.imageUrl = favorite.avatarUrl
+    enum Constants {
+        static let padding:                     CGFloat     = 12
+        static let paddingM:                    CGFloat     = 16
+        static let avatarImageDimension:        CGFloat     = 60
+        static let usernameLabelFontSize:       CGFloat     = 26
+        static let usernameLabelHeight:         CGFloat     = 40
     }
 }
 
@@ -62,15 +64,8 @@ extension FavoriteCell {
 
 extension FavoriteCell {
     
-    enum Constants {
-        
-        static let padding:                     CGFloat     = 12
-        static let paddingM:                    CGFloat     = 16
-        static let avatarImageDimension:        CGFloat     = 60
-        static let usernameLabelFontSize:       CGFloat     = 26
-        static let usernameLabelHeight:         CGFloat     = 40
+    func set(favorite: Follower) {
+        usernameLabel.text = favorite.login
+        avatarImageView.imageUrl = favorite.avatarUrl
     }
 }
-
-    
-
