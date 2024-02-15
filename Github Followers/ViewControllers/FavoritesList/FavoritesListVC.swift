@@ -35,6 +35,10 @@ final class FavoritesListVC: GFDataLoadingVC {
         super.viewWillLayoutSubviews()
         uiConfig.configureFrames()
     }
+    
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        contentUnavailableConfiguration = favorites.isEmpty ? UIContentUnavailableConfiguration.noFavorites : nil
+    }
 }
 
 
@@ -80,14 +84,10 @@ extension FavoritesListVC {
         Task {
             do {
                 favorites = try await PersistenceService.retrieveFavorites()
+                setNeedsUpdateContentUnavailableConfiguration()
                 
-                if favorites.isEmpty {
-                    showEmptyState()
-                    
-                } else {
-                    uiConfig.tableView.reloadData()
-                    view.bringSubviewToFront(uiConfig.tableView)
-                }
+                uiConfig.tableView.reloadData()
+                view.bringSubviewToFront(uiConfig.tableView)
                 
             } catch let persistanceError as PersistenceService.ServiceError {
                 

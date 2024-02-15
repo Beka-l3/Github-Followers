@@ -57,6 +57,6 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
     private func updateFavoritesList(_ tableView: UITableView, forRowAt indexPath: IndexPath) {
         removeFavorite(at: indexPath)
         tableView.deleteRows(at: [indexPath], with: .left)
-        if favorites.isEmpty { showEmptyState() }
+        setNeedsUpdateContentUnavailableConfiguration()
     }
 }

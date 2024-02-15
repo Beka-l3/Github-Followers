@@ -25,7 +25,6 @@ final class GFButton: UIButton {
         
         set(color: color, title: title, systemImage: image)
     }
-    
 }
 
 
@@ -61,6 +60,4 @@ extension GFButton {
 }
 
 
-#Preview {
-    GFButton(color: .systemBlue, title: "Testing button", systemImage: UIImage(systemName: "pencil"))
-}
+//#Preview { GFButton(color: .systemBlue, title: "Testing button", systemImage: UIImage(systemName: "pencil")) }
