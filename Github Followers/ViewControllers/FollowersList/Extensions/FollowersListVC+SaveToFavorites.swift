@@ -30,7 +30,7 @@ extension FollowersListVC {
                 
             } catch {
                 
-                presentDefaultAlertError()
+                presentDefaultErrorAlert()
             }
             
             dismissLoadingView()

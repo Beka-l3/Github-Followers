@@ -95,7 +95,7 @@ extension FavoritesListVC {
                 
             } catch {
                     
-                presentDefaultAlertError()
+                presentDefaultErrorAlert()
             }
             
             dismissLoadingView()

@@ -18,6 +18,7 @@ extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
         setIsSearching(true)
         setFilteredFollowers(followers.filter { $0.login.lowercased().contains(filter.lowercased()) })
         updateData(on: filteredFollowers)
+        setNeedsUpdateContentUnavailableConfiguration()
     }
     
     

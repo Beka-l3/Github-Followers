@@ -14,6 +14,7 @@ enum SFSymbols: String {
     case person                         = "person"
     case person2                        = "person.2"
     case person3                        = "person.3"
+    case personSlash                    = "person.slash"
     case heart                          = "heart"
     case circle                         = "circle"
     case mapAndEllipse                  = "mappin.and.ellipse"
@@ -33,6 +34,7 @@ enum Images {
         static let followers            = UIImage(systemName: SFSymbols.person2.rawValue)
         static let person               = UIImage(systemName: SFSymbols.person.rawValue)
         static let person3              = UIImage(systemName: SFSymbols.person3.rawValue)
+        static let personSlash          = UIImage(systemName: SFSymbols.personSlash.rawValue)
         static let following            = UIImage(systemName: SFSymbols.heart.rawValue)
         static let location             = UIImage(systemName: SFSymbols.mapAndEllipse.rawValue)
         static let none                 = UIImage(systemName: SFSymbols.circle.rawValue)

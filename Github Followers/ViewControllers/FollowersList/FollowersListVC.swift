@@ -65,6 +65,18 @@ final class FollowersListVC: GFDataLoadingVC {
         super.viewWillLayoutSubviews()
         uiConfig.configureFrames()
     }
+    
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        if followers.isEmpty {
+            /// here I want to use EmptyStateView
+            contentUnavailableConfiguration = nil
+        } else if isSearching && filteredFollowers.isEmpty {
+//            contentUnavailableConfiguration = UIContentUnavailableConfiguration.noFollowersInSearch
+            contentUnavailableConfiguration = UIContentUnavailableConfiguration.search()
+        } else {
+            contentUnavailableConfiguration = nil
+        }
+    }
 }
 
 

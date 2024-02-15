@@ -14,7 +14,7 @@ extension UIViewController {
         presentGFAlert(alertVC: alertVC)
     }
     
-    func presentDefaultAlertError() {
+    func presentDefaultErrorAlert() {
         let alertVC = GFAlertVC(
             title: "Something went wrong",
             message: "We were unable to complete your task at this time. Please, try again later",

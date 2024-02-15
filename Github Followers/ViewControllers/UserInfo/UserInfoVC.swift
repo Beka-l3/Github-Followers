@@ -103,7 +103,7 @@ extension UserInfoVC {
                 
             } catch {
                 
-                presentDefaultAlertError()
+                presentDefaultErrorAlert()
             }
         }
     }

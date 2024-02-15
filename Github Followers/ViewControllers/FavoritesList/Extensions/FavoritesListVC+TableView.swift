@@ -48,7 +48,7 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
                 
             } catch {
                 
-                presentDefaultAlertError()
+                presentDefaultErrorAlert()
             }
         }
     }
