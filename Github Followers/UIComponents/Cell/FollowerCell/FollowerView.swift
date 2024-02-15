@@ -19,7 +19,7 @@ struct FollowerView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
             } placeholder: {
-                Image(Constants.placeholderImageName)
+                Image(.avatarPlaceholder)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
             }
@@ -40,7 +40,6 @@ extension FollowerView {
     enum Constants {
         static let textLineLimit:               Int         = 1
         static let scaleFactor:                 CGFloat     = 0.6
-        static let placeholderImageName:        String      = ImageNames.avatarPlaceholder
     }
 }
 

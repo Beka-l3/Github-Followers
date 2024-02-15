@@ -7,41 +7,36 @@
 
 import UIKit
 
-enum SFSymbols: String {
-    case folder                         = "folder"
-    case textAlignLeft                  = "text.alignleft"
-    case person                         = "person"
-    case person2                        = "person.2"
-    case person3                        = "person.3"
-    case heart                          = "heart"
-    case circle                         = "circle"
-    case mapAndEllipse                  = "mappin.and.ellipse"
-    case checkmark                      = "checkmark.circle"
-}
-
-
 enum ImageNames {
-    static let githubLogo               = "gh-logo"
-    static let avatarPlaceholder        = "avatar-placeholder"
-    static let emptyStateLogo           = "empty-state-logo"
+    enum SFSymbols: String {
+        case folder                         = "folder"
+        case textAlignLeft                  = "text.alignleft"
+        case person                         = "person"
+        case person2                        = "person.2"
+        case person3                        = "person.3"
+        case heart                          = "heart"
+        case circle                         = "circle"
+        case mapAndEllipse                  = "mappin.and.ellipse"
+        case checkmark                      = "checkmark.circle"
+    }
 }
 
 
 enum Images {
-    static let githubLogo               = UIImage(named: ImageNames.githubLogo)
-    static let avatarPlaceholder        = UIImage(named: ImageNames.avatarPlaceholder)
-    static let emptyStateLogo           = UIImage(named: ImageNames.emptyStateLogo)
+    static let githubLogo               = UIImage(resource: .ghLogo)
+    static let avatarPlaceholder        = UIImage(resource: .avatarPlaceholder)
+    static let emptyStateLogo           = UIImage(resource: .emptyStateLogo)
     
     enum System {
-        static let repos                = UIImage(systemName: SFSymbols.folder.rawValue)
-        static let gists                = UIImage(systemName: SFSymbols.textAlignLeft.rawValue)
-        static let followers            = UIImage(systemName: SFSymbols.person2.rawValue)
-        static let person               = UIImage(systemName: SFSymbols.person.rawValue)
-        static let person3              = UIImage(systemName: SFSymbols.person3.rawValue)
-        static let following            = UIImage(systemName: SFSymbols.heart.rawValue)
-        static let location             = UIImage(systemName: SFSymbols.mapAndEllipse.rawValue)
-        static let none                 = UIImage(systemName: SFSymbols.circle.rawValue)
-        static let ok                   = UIImage(systemName: SFSymbols.checkmark.rawValue)
+        static let repos                = UIImage(systemName: ImageNames.SFSymbols.folder.rawValue)
+        static let gists                = UIImage(systemName: ImageNames.SFSymbols.textAlignLeft.rawValue)
+        static let followers            = UIImage(systemName: ImageNames.SFSymbols.person2.rawValue)
+        static let person               = UIImage(systemName: ImageNames.SFSymbols.person.rawValue)
+        static let person3              = UIImage(systemName: ImageNames.SFSymbols.person3.rawValue)
+        static let following            = UIImage(systemName: ImageNames.SFSymbols.heart.rawValue)
+        static let location             = UIImage(systemName: ImageNames.SFSymbols.mapAndEllipse.rawValue)
+        static let none                 = UIImage(systemName: ImageNames.SFSymbols.circle.rawValue)
+        static let ok                   = UIImage(systemName: ImageNames.SFSymbols.checkmark.rawValue)
     }
 }
 
